@@ -1,0 +1,3818 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#ff6b9d">
+<title>我的瘦身计划</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0}
+:root,body[data-theme="sakura"]{
+  --pink:#ff6b9d;--pink-l:#ffe4ef;--purple:#a78bfa;--bg:#fdf4f8;--card:#fff;--text:#2d2a32;--muted:#9b8fa3;--line:#f5e9f0;
+  --ok:#34d399;--warn:#fb923c;--red:#ef4444;--grad-a:#ff8fb8;--grad-b:#b48bff;
+  --hero-a:#ff9ec4;--hero-b:#c9a2ff;
+  --enc-bg:linear-gradient(135deg,#fff6fb,#f4f1ff);--enc-bd:#ffe3f0;--enc-tx:#8a5a75;
+  --pred-bg:linear-gradient(135deg,#fffaf2,#fff3ea);--pred-bd:#ffe6c7;--pred-tx:#a5752f;--pred-strong:#d97706;
+  --tag-bg:#f7f1f6;--tab-bg:rgba(255,255,255,.94);--input-bg:#fefafc;--ring-in:#fff;--ring-track:#ffe9f2;
+  --shadow:rgba(255,107,157,.08);--shadow-btn:rgba(255,120,170,.3);
+  --ok-bg:#e8fbf2;--ok-bd:#a8e8c8;--ok-tx:#2d8a5f;--no-bg:#fff5f5;--no-bd:#ffd5d5;--no-tx:#c2444f;
+  --chart-a:rgba(255,107,157,.28);--chart-b:rgba(255,107,157,0);
+}
+body[data-theme="mono"]{--pink:#1a1a1a;--pink-l:#ececec;--purple:#5a5a5a;--bg:#f6f6f6;--card:#fff;--text:#111;--muted:#8a8a8a;--line:#e6e6e6;--ok:#2d2d2d;--warn:#666;--red:#c33;--grad-a:#2a2a2a;--grad-b:#4a4a4a;--hero-a:#1e1e1e;--hero-b:#3d3d3d;--enc-bg:linear-gradient(135deg,#fafafa,#f2f2f2);--enc-bd:#e6e6e6;--enc-tx:#555;--pred-bg:linear-gradient(135deg,#fafafa,#f2f2f2);--pred-bd:#ddd;--pred-tx:#666;--pred-strong:#222;--tag-bg:#f2f2f2;--tab-bg:rgba(255,255,255,.96);--input-bg:#fafafa;--ring-in:#fff;--ring-track:#eaeaea;--shadow:rgba(0,0,0,.06);--shadow-btn:rgba(0,0,0,.2);--ok-bg:#f0f0f0;--ok-bd:#d0d0d0;--ok-tx:#333;--no-bg:#f8f8f8;--no-bd:#e0e0e0;--no-tx:#666;--chart-a:rgba(30,30,30,.2);--chart-b:rgba(30,30,30,0)}
+body[data-theme="ocean"]{--pink:#3b82f6;--pink-l:#dbeafe;--purple:#6366f1;--bg:#f3f7fd;--card:#fff;--text:#1e293b;--muted:#7c8ba1;--line:#e2ebf6;--ok:#14b8a6;--warn:#f59e0b;--red:#ef4444;--grad-a:#60a5fa;--grad-b:#818cf8;--hero-a:#5b9cf8;--hero-b:#8b8cf5;--enc-bg:linear-gradient(135deg,#f0f7ff,#f1f3fd);--enc-bd:#dcebfd;--enc-tx:#3b6398;--pred-bg:linear-gradient(135deg,#f0f9ff,#eaf6fd);--pred-bd:#cfe8f7;--pred-tx:#3c7a9c;--pred-strong:#0891b2;--tag-bg:#eef4fc;--tab-bg:rgba(255,255,255,.94);--input-bg:#f7fafd;--ring-in:#fff;--ring-track:#e0edfb;--shadow:rgba(59,130,246,.08);--shadow-btn:rgba(80,140,240,.3);--ok-bg:#e6faf6;--ok-bd:#a8e8de;--ok-tx:#0f8a7c;--no-bg:#fff5f5;--no-bd:#ffd5d5;--no-tx:#c2444f;--chart-a:rgba(59,130,246,.25);--chart-b:rgba(59,130,246,0)}
+body[data-theme="matcha"]{--pink:#4d8c5e;--pink-l:#dcece0;--purple:#7ba888;--bg:#f4f8f4;--card:#fff;--text:#1f2c24;--muted:#7a8a82;--line:#e0ebe2;--ok:#3d9970;--warn:#e0a458;--red:#d97b7b;--grad-a:#5da575;--grad-b:#8cc79e;--hero-a:#5da575;--hero-b:#8cc79e;--enc-bg:linear-gradient(135deg,#f2faf4,#eef6f0);--enc-bd:#d6ebdc;--enc-tx:#3f7350;--pred-bg:linear-gradient(135deg,#fbfaf2,#f5f5ea);--pred-bd:#e6e3cc;--pred-tx:#8b8560;--pred-strong:#b5a339;--tag-bg:#eef5ee;--tab-bg:rgba(255,255,255,.95);--input-bg:#f9fcf9;--ring-in:#fff;--ring-track:#dcece0;--shadow:rgba(77,140,94,.08);--shadow-btn:rgba(90,150,110,.28);--ok-bg:#e6faf0;--ok-bd:#a8e8c8;--ok-tx:#1a7a4a;--no-bg:#fdf2f2;--no-bd:#f5d0d0;--no-tx:#a04a4a;--chart-a:rgba(77,140,94,.25);--chart-b:rgba(77,140,94,0)}
+body[data-theme="sunset"]{--pink:#f97316;--pink-l:#ffedd5;--purple:#fb923c;--bg:#fff8f2;--card:#fff;--text:#2d2420;--muted:#9c8878;--line:#f7e8d8;--ok:#22c55e;--warn:#eab308;--red:#ef4444;--grad-a:#fb923c;--grad-b:#f97316;--hero-a:#fb923c;--hero-b:#fbbf24;--enc-bg:linear-gradient(135deg,#fffaf2,#fff3ea);--enc-bd:#fbe0c0;--enc-tx:#a35d1f;--pred-bg:linear-gradient(135deg,#fffbf2,#fef6e8);--pred-bd:#f5e3c0;--pred-tx:#a5752f;--pred-strong:#c98c14;--tag-bg:#fdf3e8;--tab-bg:rgba(255,255,255,.95);--input-bg:#fffbf5;--ring-in:#fff;--ring-track:#ffead2;--shadow:rgba(249,115,22,.08);--shadow-btn:rgba(249,130,50,.3);--ok-bg:#e8fbef;--ok-bd:#b0ecc5;--ok-tx:#1a8a4a;--no-bg:#fef2f2;--no-bd:#fdd5d5;--no-tx:#b94a4a;--chart-a:rgba(249,115,22,.25);--chart-b:rgba(249,115,22,0)}
+body[data-theme="taro"]{--pink:#8b5cf6;--pink-l:#ede9fe;--purple:#a78bfa;--bg:#f8f5fe;--card:#fff;--text:#241d33;--muted:#8b80a5;--line:#ebe4f8;--ok:#10b981;--warn:#f59e0b;--red:#ef4444;--grad-a:#a78bfa;--grad-b:#c4b5fd;--hero-a:#a78bfa;--hero-b:#c9a2ff;--enc-bg:linear-gradient(135deg,#f9f6ff,#f3edff);--enc-bd:#e4d9fb;--enc-tx:#6a4bb8;--pred-bg:linear-gradient(135deg,#fbf7ff,#f5eefe);--pred-bd:#e8dcf8;--pred-tx:#8264b8;--pred-strong:#7c3aed;--tag-bg:#f3edfb;--tab-bg:rgba(255,255,255,.94);--input-bg:#faf7fe;--ring-in:#fff;--ring-track:#ede4fb;--shadow:rgba(139,92,246,.08);--shadow-btn:rgba(150,110,250,.3);--ok-bg:#e8faf3;--ok-bd:#a8e8c8;--ok-tx:#0a8a5c;--no-bg:#fdf2f2;--no-bd:#f5d0d0;--no-tx:#b04a4a;--chart-a:rgba(139,92,246,.25);--chart-b:rgba(139,92,246,0)}
+body[data-theme="cream"]{--pink:#b08968;--pink-l:#f7ecd9;--purple:#c9a883;--bg:#faf6ee;--card:#fffdf8;--text:#2e2820;--muted:#9c907c;--line:#f0e6d2;--ok:#7ba05b;--warn:#d19356;--red:#c66b5e;--grad-a:#c9a883;--grad-b:#b08968;--hero-a:#c9a883;--hero-b:#e0c4a0;--enc-bg:linear-gradient(135deg,#fdfaf3,#f8f1e3);--enc-bd:#ecdfc7;--enc-tx:#8a6f4a;--pred-bg:linear-gradient(135deg,#fdf9f0,#f8f0dc);--pred-bd:#ecdfc7;--pred-tx:#8a6f4a;--pred-strong:#b08a3a;--tag-bg:#f5ebd8;--tab-bg:rgba(255,253,248,.96);--input-bg:#fdfaf3;--ring-in:#fffdf8;--ring-track:#f2e5cc;--shadow:rgba(176,137,104,.1);--shadow-btn:rgba(176,137,104,.28);--ok-bg:#eef5e4;--ok-bd:#c9deb0;--ok-tx:#5a7a3c;--no-bg:#fbf0ee;--no-bd:#f0d3cd;--no-tx:#a04a3a;--chart-a:rgba(176,137,104,.3);--chart-b:rgba(176,137,104,0)}
+body[data-theme="mist"]{--pink:#64748b;--pink-l:#e2e8f0;--purple:#818cf8;--bg:#f5f7fa;--card:#fff;--text:#1e293b;--muted:#8296ad;--line:#e4ebf2;--ok:#14b8a6;--warn:#f59e0b;--red:#ef4444;--grad-a:#94a3b8;--grad-b:#818cf8;--hero-a:#94a3b8;--hero-b:#a5a8e6;--enc-bg:linear-gradient(135deg,#f4f7fa,#eef1f7);--enc-bd:#dde5ee;--enc-tx:#4a5e75;--pred-bg:linear-gradient(135deg,#f5f8fb,#ecf1f6);--pred-bd:#d8e3ed;--pred-tx:#5a6e85;--pred-strong:#7a8ea5;--tag-bg:#eef2f7;--tab-bg:rgba(255,255,255,.95);--input-bg:#f8fafc;--ring-in:#fff;--ring-track:#e5ecf3;--shadow:rgba(100,116,139,.08);--shadow-btn:rgba(130,140,170,.28);--ok-bg:#e6faf6;--ok-bd:#a8e8de;--ok-tx:#0f8a7c;--no-bg:#fdf2f2;--no-bd:#f5d0d0;--no-tx:#b04a4a;--chart-a:rgba(100,116,139,.25);--chart-b:rgba(100,116,139,0)}
+body[data-theme="peach"]{--pink:#fb7185;--pink-l:#ffe4e6;--purple:#f0abfc;--bg:#fff5f6;--card:#fff;--text:#2e2428;--muted:#a38b92;--line:#fae4e8;--ok:#34d399;--warn:#fb923c;--red:#e11d48;--grad-a:#fb7185;--grad-b:#f0abfc;--hero-a:#fb7185;--hero-b:#f0abfc;--enc-bg:linear-gradient(135deg,#fff5f6,#fdf1fa);--enc-bd:#fbdce2;--enc-tx:#a05066;--pred-bg:linear-gradient(135deg,#fff9f2,#fff2ea);--pred-bd:#f7dfc7;--pred-tx:#a5752f;--pred-strong:#d97706;--tag-bg:#fceef1;--tab-bg:rgba(255,255,255,.94);--input-bg:#fffafb;--ring-in:#fff;--ring-track:#ffe4ea;--shadow:rgba(251,113,133,.08);--shadow-btn:rgba(250,120,150,.3);--ok-bg:#e8fbf2;--ok-bd:#a8e8c8;--ok-tx:#1a8a5c;--no-bg:#fff1f2;--no-bd:#fecdd3;--no-tx:#be123c;--chart-a:rgba(251,113,133,.25);--chart-b:rgba(251,113,133,0)}
+body[data-theme="forest"]{--pink:#2d5a3d;--pink-l:#d8e8dc;--purple:#6b8f7a;--bg:#f3f6f3;--card:#fff;--text:#1a2420;--muted:#7a8a82;--line:#dde7e0;--ok:#3d9970;--warn:#d19356;--red:#c66b5e;--grad-a:#3d7a52;--grad-b:#6ba87f;--hero-a:#2d5a3d;--hero-b:#6ba87f;--enc-bg:linear-gradient(135deg,#f0f6f2,#eaf2ec);--enc-bd:#d3e3d8;--enc-tx:#3d6650;--pred-bg:linear-gradient(135deg,#fbfaf2,#f5f3e8);--pred-bd:#e6e0c8;--pred-tx:#867a4a;--pred-strong:#a89a3a;--tag-bg:#eaf1ec;--tab-bg:rgba(255,255,255,.95);--input-bg:#f8fbf8;--ring-in:#fff;--ring-track:#d8e8dc;--shadow:rgba(45,90,61,.08);--shadow-btn:rgba(60,120,80,.28);--ok-bg:#e6faf0;--ok-bd:#a8e8c8;--ok-tx:#1a7a4a;--no-bg:#fdf2f2;--no-bd:#f5d0d0;--no-tx:#a04a4a;--chart-a:rgba(45,90,61,.25);--chart-b:rgba(45,90,61,0)}
+
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+  background:var(--bg);color:var(--text);font-size:15px;line-height:1.5;
+  padding-bottom:calc(80px + env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+.page{display:none;padding:16px 16px 8px}
+.page.active{display:block}
+.ptitle-row{display:flex;align-items:center;justify-content:space-between;margin:4px 0 14px}
+.ptitle{font-size:22px;font-weight:800;letter-spacing:-.3px}
+.theme-btn{border:0;background:var(--card);color:var(--pink);width:38px;height:38px;
+  border-radius:50%;font-size:18px;cursor:pointer;font-family:inherit;
+  box-shadow:0 2px 10px var(--shadow);display:grid;place-items:center;transition:.2s}
+.theme-btn:active{transform:scale(.92)}
+.card{background:var(--card);border-radius:18px;padding:16px;margin-bottom:14px;
+  box-shadow:0 2px 14px var(--shadow);transition:background .3s}
+.card-title{font-size:15px;font-weight:700;margin-bottom:12px;display:flex;
+  align-items:center;justify-content:space-between;gap:8px}
+.card-title small{font-weight:400;color:var(--muted);font-size:12px}
+.card-title .act{background:var(--pink-l);color:var(--pink);border:0;border-radius:99px;
+  padding:5px 12px;font-size:12px;font-family:inherit;font-weight:700;cursor:pointer}
+.card-title .acts{display:flex;gap:6px;align-items:center}
+
+.hero{background:linear-gradient(135deg,var(--hero-a),var(--hero-b));border-radius:22px;
+  padding:20px;color:#fff;margin-bottom:14px;position:relative;overflow:hidden;
+  box-shadow:0 8px 24px var(--shadow-btn)}
+.hero::after{content:'';position:absolute;width:180px;height:180px;border-radius:50%;
+  background:rgba(255,255,255,.13);right:-60px;top:-70px}
+.hero-date{font-size:13px;opacity:.9;margin-bottom:2px}
+.hero-count{font-size:26px;font-weight:800;letter-spacing:-.5px;margin-bottom:14px}
+.hero-count span{font-size:14px;font-weight:500;opacity:.9}
+.pbar{height:8px;background:rgba(255,255,255,.3);border-radius:99px;overflow:hidden;margin-top:6px}
+.pbar i{display:block;height:100%;background:#fff;border-radius:99px;transition:.5s}
+.pbar-lbl{display:flex;justify-content:space-between;font-size:12px;opacity:.92;margin-top:6px}
+
+.enc{background:var(--enc-bg);border-radius:16px;padding:14px 16px;margin-bottom:14px;
+  border:1px solid var(--enc-bd);display:flex;gap:10px;align-items:flex-start}
+.enc .ic{font-size:20px;flex:none;line-height:1.3}
+.enc .tx{font-size:13.5px;line-height:1.7;color:var(--enc-tx);font-weight:500}
+
+.pred{background:var(--pred-bg);border-radius:16px;padding:14px 16px;margin-bottom:14px;
+  border:1px solid var(--pred-bd);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.pred .l{font-size:12.5px;color:var(--pred-tx);line-height:1.6}
+.pred .l b{color:var(--pred-strong);display:block;font-size:13.5px;margin-bottom:2px;font-weight:700}
+.pred .r{font-size:26px;font-weight:800;color:var(--pred-strong);flex:none;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.pred .r small{font-size:12px;font-weight:500;color:var(--pred-tx);display:block;text-align:center;letter-spacing:0}
+
+.wgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center}
+.wgrid .num{font-size:22px;font-weight:800;color:var(--pink);letter-spacing:-.5px}
+.wgrid .num.g{color:var(--purple)}
+.wgrid .lbl{font-size:11px;color:var(--muted);margin-top:2px}
+
+.sup-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.sup-cell{background:var(--tag-bg);border:1.5px solid var(--line);border-radius:14px;
+  padding:10px 4px 8px;text-align:center;cursor:pointer;transition:.2s;position:relative;overflow:hidden}
+.sup-cell:active{transform:scale(.96)}
+.sup-cell .ic{font-size:22px;line-height:1.2;margin-bottom:4px}
+.sup-cell .nm{font-size:11.5px;color:var(--muted);font-weight:600}
+.sup-cell .st{font-size:10px;margin-top:3px;font-weight:700}
+.sup-cell.done{background:var(--ok-bg);border-color:var(--ok-bd)}
+.sup-cell.done .nm{color:var(--ok-tx)}.sup-cell.done .st{color:var(--ok-tx)}
+.sup-cell.todo{background:var(--no-bg);border-color:var(--no-bd)}
+.sup-cell.todo .nm{color:var(--no-tx)}.sup-cell.todo .st{color:var(--no-tx)}
+.sup-cell .thumb{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;opacity:.28;z-index:0}
+.sup-cell .inner{position:relative;z-index:1}
+.sup-cell.done .thumb{opacity:.38}
+.sup-tip{font-size:12px;color:var(--muted);line-height:1.6;margin-top:10px;
+  padding-top:10px;border-top:1px dashed var(--line)}
+
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;
+  background:linear-gradient(135deg,var(--grad-a),var(--grad-b));color:#fff;font-size:16px;
+  font-weight:700;margin-top:14px;cursor:pointer;font-family:inherit;
+  box-shadow:0 4px 14px var(--shadow-btn);transition:.2s}
+.btn:active{transform:scale(.98)}
+.btn.ghost{background:var(--card);color:var(--muted);border:1px solid var(--line);
+  box-shadow:none;font-weight:500;font-size:14px;padding:11px}
+.btn.mini{padding:10px;font-size:14px;margin-top:8px}
+.btn.danger{background:linear-gradient(135deg,#ff9a9a,#ff7070);box-shadow:0 4px 14px rgba(255,110,110,.3)}
+
+.ringwrap{display:flex;align-items:center;gap:18px}
+.ring{width:112px;height:112px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:conic-gradient(var(--pink) var(--p,0%), var(--ring-track) 0);transition:.6s;position:relative}
+.ring::before{content:'';position:absolute;width:86px;height:86px;border-radius:50%;background:var(--ring-in)}
+.ring-txt{position:relative;text-align:center;z-index:1}
+.ring-txt b{font-size:22px;font-weight:800;color:var(--pink);display:block;line-height:1.1}
+.ring-txt span{font-size:10px;color:var(--muted)}
+.ring-info{flex:1;font-size:13px;color:var(--muted);line-height:2}
+.ring-info b{color:var(--text);float:right;font-weight:700}
+
+.tl{position:relative;padding-left:22px}
+.tl::before{content:'';position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line);border-radius:2px}
+.tl-item{position:relative;padding:7px 0;display:flex;gap:10px;align-items:flex-start}
+.tl-item::before{content:'';position:absolute;left:-20px;top:14px;width:8px;height:8px;
+  border-radius:50%;background:var(--line);border:2px solid var(--card);box-shadow:0 0 0 1px var(--line)}
+.tl-item.now::before{background:var(--pink);box-shadow:0 0 0 3px var(--pink-l)}
+.tl-item.now .tl-n{color:var(--pink);font-weight:700}
+.tl-t{font-size:12px;color:var(--muted);width:48px;flex:none;font-variant-numeric:tabular-nums;padding-top:1px}
+.tl-c{flex:1}
+.tl-n{font-size:14px;font-weight:600;margin-bottom:1px}
+.tl-d{font-size:12px;color:var(--muted)}
+.tl-item.now .tl-d{color:var(--pink);opacity:.8}
+
+.sched-tag{display:inline-flex;align-items:center;gap:4px;background:var(--pink-l);
+  color:var(--pink);border-radius:99px;padding:3px 10px;font-size:11px;font-weight:700}
+
+label{display:block;font-size:13px;color:var(--muted);margin:12px 0 6px;font-weight:500}
+input,select,textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;
+  font-size:15px;font-family:inherit;background:var(--input-bg);color:var(--text);outline:none;
+  -webkit-appearance:none;appearance:none}
+textarea{resize:vertical;min-height:90px;line-height:1.6}
+input:focus,select:focus,textarea:focus{border-color:var(--pink);background:var(--card)}
+select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' stroke='%239b8fa3' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+  background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+.res{background:var(--enc-bg);border-radius:14px;padding:14px;margin-top:14px;font-size:13px;display:none}
+.res.on{display:block}
+.res-row{display:flex;justify-content:space-between;padding:5px 0}
+.res-row b{font-weight:700}
+.res-big{font-size:26px;font-weight:800;color:var(--pink);text-align:center;padding:6px 0 10px;letter-spacing:-.5px}
+.res-big small{font-size:12px;color:var(--muted);font-weight:400;display:block;letter-spacing:0}
+
+.meal{border-bottom:1px solid var(--line);padding:12px 0}
+.meal:last-child{border-bottom:0;padding-bottom:0}
+.meal-h{display:flex;justify-content:space-between;align-items:center}
+.meal-h .nm{font-weight:700;font-size:14px}
+.meal-h .kc{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:10px}
+.meal-h .kc b{color:var(--pink);font-weight:700}
+.plus{width:26px;height:26px;border-radius:50%;border:0;background:var(--pink-l);
+  color:var(--pink);font-size:17px;font-weight:700;line-height:1;cursor:pointer;flex:none}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag{background:var(--tag-bg);border-radius:8px;padding:4px 9px;font-size:12px;
+  color:var(--muted);display:flex;align-items:center;gap:5px}
+.tag b{color:var(--pink);font-weight:600}
+.tag i{font-style:normal;color:var(--muted);cursor:pointer;font-size:14px;line-height:1;opacity:.6}
+
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 4px;
+  max-height:46vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:10px 12px;
+  font-size:13px;text-align:left;font-family:inherit;color:var(--text);cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:6px;transition:.2s}
+.chip:active{background:var(--pink-l);border-color:var(--pink)}
+.chip b{color:var(--pink);font-weight:700;font-size:12px;flex:none}
+.chip.on{background:var(--pink);color:#fff;border-color:var(--pink)}
+.chip.on b{color:#fff}
+
+.seg{display:flex;background:var(--tag-bg);border-radius:12px;padding:4px;margin-bottom:14px;gap:4px}
+.seg button{flex:1;border:0;background:transparent;padding:9px 0;border-radius:9px;
+  font-size:12.5px;font-weight:600;color:var(--muted);font-family:inherit;cursor:pointer}
+.seg button.on{background:var(--card);color:var(--pink);box-shadow:0 2px 8px var(--shadow)}
+
+.rline{padding:11px 0;border-bottom:1px dashed var(--line)}
+.rline:last-child{border-bottom:0}
+.rline .h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px}
+.rline .h .n{font-weight:700;font-size:14px}
+.rline .h .k{font-size:12px;color:var(--pink);font-weight:700}
+.rline .c{font-size:13px;color:var(--muted);line-height:1.65}
+.rline .c b{color:var(--pink);font-weight:600}
+
+.chartbox{width:100%;overflow:hidden}
+canvas{display:block;width:100%}
+
+.hist{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);
+  font-size:14px;align-items:center}
+.hist:last-child{border-bottom:0}
+.hist .d{color:var(--muted);font-size:13px}
+.hist .w{font-weight:700;color:var(--pink)}
+.hist .dl{font-size:12px;margin-left:8px;font-weight:600}
+.dl.down{color:var(--ok)}.dl.up{color:var(--warn)}
+
+.tip{background:var(--pred-bg);border:1px solid var(--pred-bd);border-radius:14px;padding:13px 14px;
+  font-size:13px;color:var(--pred-tx);line-height:1.65;margin-bottom:14px}
+.tip b{color:var(--pred-strong)}
+.tip.pink{background:var(--enc-bg);border-color:var(--enc-bd);color:var(--enc-tx)}
+.tip.pink b{color:var(--pink)}
+.tip.red{background:var(--no-bg);border-color:var(--no-bd);color:var(--no-tx)}
+.tip.red b{color:var(--red)}
+
+.searchbar{position:relative;margin-bottom:12px}
+.searchbar input{padding-left:44px;background:var(--card);border-color:var(--card);
+  box-shadow:0 2px 14px var(--shadow);font-size:15px;padding-right:52px}
+.searchbar .ico{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:17px;opacity:.42;pointer-events:none}
+.searchbar .plusbtn{position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  width:34px;height:34px;border-radius:50%;border:0;background:var(--pink);color:#fff;
+  font-size:20px;line-height:1;cursor:pointer;display:grid;place-items:center;font-weight:700;
+  box-shadow:0 2px 8px var(--shadow-btn)}
+.brandrow{display:flex;gap:8px;overflow-x:auto;padding:2px 0 14px;scrollbar-width:none}
+.brandrow::-webkit-scrollbar{display:none}
+.brandrow button{flex:none;border:1px solid var(--line);background:var(--card);border-radius:99px;
+  padding:8px 16px;font-size:13px;font-family:inherit;color:var(--text);cursor:pointer;
+  font-weight:500;white-space:nowrap;transition:.2s}
+.brandrow button.on{background:var(--pink);color:#fff;border-color:var(--pink);font-weight:700}
+.shopcard{background:var(--card);border-radius:16px;padding:13px 14px;margin-bottom:10px;
+  box-shadow:0 2px 12px var(--shadow)}
+.shopcard .brand{font-size:11.5px;color:var(--muted);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.shopcard .brand .dot{width:5px;height:5px;border-radius:50%;background:var(--pink);flex:none}
+.shopcard .body{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.shopcard .info{flex:1;min-width:0}
+.shopcard .nm{font-size:15px;font-weight:700;margin-bottom:2px}
+.shopcard .nt{font-size:12px;color:var(--muted);line-height:1.45}
+.shopcard .right{text-align:right;flex:none}
+.shopcard .kc{font-size:18px;font-weight:800;color:var(--pink);line-height:1.1;font-variant-numeric:tabular-nums}
+.shopcard .kc small{font-size:10px;font-weight:500;color:var(--muted)}
+.shopcard .act-row{display:flex;gap:6px;align-items:center;margin-top:6px;justify-content:flex-end}
+.shopcard .addbtn{border:0;background:var(--pink-l);color:var(--pink);border-radius:99px;
+  padding:5px 14px;font-size:12px;font-weight:700;font-family:inherit;cursor:pointer}
+.shopcard .delbtn{border:0;background:transparent;color:var(--muted);font-size:16px;
+  cursor:pointer;padding:0 4px;line-height:1;opacity:.6;font-family:inherit}
+.sec-label{font-size:12px;color:var(--muted);font-weight:600;padding:6px 2px 8px;letter-spacing:.4px}
+
+.task{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.task:last-child{border-bottom:0}
+.task .cb{width:24px;height:24px;border-radius:8px;border:2px solid var(--line);flex:none;
+  cursor:pointer;display:grid;place-items:center;background:var(--card);transition:.2s;
+  font-size:14px;color:transparent;line-height:1}
+.task.done .cb{background:var(--pink);border-color:var(--pink);color:#fff}
+.task .tt{flex:1;font-size:14px;font-weight:500}
+.task.done .tt{color:var(--muted);text-decoration:line-through}
+.task .rm{border:0;background:transparent;color:var(--muted);font-size:20px;line-height:1;
+  cursor:pointer;padding:0 4px;font-family:inherit;opacity:.5}
+.task .ic{font-size:17px;flex:none;line-height:1}
+.progress-mini{height:6px;background:var(--tag-bg);border-radius:99px;margin:10px 0 4px;overflow:hidden}
+.progress-mini i{display:block;height:100%;background:linear-gradient(90deg,var(--grad-a),var(--grad-b));
+  border-radius:99px;transition:.4s}
+.progress-txt{font-size:12px;color:var(--muted);text-align:right;font-weight:600}
+
+.habit{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.habit:last-child{border-bottom:0}
+.habit .ic{font-size:20px;flex:none}
+.habit .info{flex:1;min-width:0}
+.habit .nm{font-size:14px;font-weight:600;margin-bottom:2px}
+.habit .st{font-size:11.5px;color:var(--muted)}
+.habit .st b{color:var(--warn);font-weight:700}
+.habit .btn-ck{border:0;border-radius:99px;padding:7px 14px;font-size:12px;font-weight:700;
+  font-family:inherit;cursor:pointer;background:var(--pink-l);color:var(--pink);flex:none;transition:.2s;min-width:64px}
+.habit.checked .btn-ck{background:var(--pink);color:#fff}
+.habit .rm{border:0;background:transparent;color:var(--muted);font-size:20px;
+  cursor:pointer;padding:0 2px;font-family:inherit;flex:none;opacity:.5}
+
+/* 日记风格 */
+.diary-style-bar{display:flex;gap:6px;overflow-x:auto;padding:2px 0 12px;scrollbar-width:none}
+.diary-style-bar::-webkit-scrollbar{display:none}
+.diary-style-bar button{flex:none;border:1.5px solid var(--line);background:var(--card);border-radius:99px;
+  padding:7px 14px;font-size:12.5px;font-family:inherit;color:var(--text);cursor:pointer;font-weight:600;
+  white-space:nowrap;transition:.2s}
+.diary-style-bar button.on{background:var(--pink);color:#fff;border-color:var(--pink);font-weight:700}
+
+.diary-card{background:var(--card);border-radius:16px;padding:14px 16px;margin-bottom:10px;
+  box-shadow:0 2px 12px var(--shadow);position:relative;overflow:hidden}
+.diary-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:linear-gradient(180deg,var(--grad-a),var(--grad-b))}
+.diary-card .dc-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;padding-left:6px}
+.diary-card .dc-d{font-size:12px;color:var(--muted);font-weight:600}
+.diary-card .dc-m{font-size:20px}
+.diary-card .dc-t{font-size:13.5px;line-height:1.75;color:var(--text);white-space:pre-wrap;word-break:break-word;padding-left:6px}
+.diary-card .dc-act{margin-top:8px;text-align:right;padding-left:6px}
+.diary-card .dc-act button{border:0;background:transparent;color:var(--muted);font-size:12px;
+  font-family:inherit;cursor:pointer;padding:4px 8px;opacity:.6}
+
+.diary-timeline{position:relative;padding-left:26px;margin-bottom:10px}
+.diary-timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;
+  background:linear-gradient(180deg,var(--grad-a),var(--grad-b));border-radius:2px}
+.dt-item{position:relative;padding:8px 0}
+.dt-item::before{content:'';position:absolute;left:-24px;top:14px;width:12px;height:12px;
+  border-radius:50%;background:var(--card);border:2.5px solid var(--pink)}
+.dt-item .dt-d{font-size:12px;color:var(--pink);font-weight:700;margin-bottom:4px}
+.dt-item .dt-m{font-size:18px;margin-bottom:4px}
+.dt-item .dt-t{font-size:13.5px;line-height:1.75;color:var(--text);white-space:pre-wrap;word-break:break-word}
+.dt-item .dt-act{margin-top:6px}
+.dt-item .dt-act button{border:0;background:transparent;color:var(--muted);font-size:12px;
+  font-family:inherit;cursor:pointer;padding:2px 6px;opacity:.6}
+
+.diary-note{background:linear-gradient(135deg,#fff9e6,#fff3cc);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;box-shadow:0 3px 12px rgba(180,140,60,.12);
+  position:relative;transform:rotate(-.4deg)}
+.diary-note:nth-child(even){transform:rotate(.4deg);background:linear-gradient(135deg,#e8f4ff,#d9ebff)}
+.diary-note:nth-child(3n){transform:rotate(-.2deg);background:linear-gradient(135deg,#ffe8f0,#ffd9e8)}
+.diary-note::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);
+  width:60px;height:14px;background:rgba(255,255,255,.7);border-radius:2px;
+  box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.diary-note .dn-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.diary-note .dn-d{font-size:12px;color:#8a7050;font-weight:700}
+.diary-note .dn-m{font-size:20px}
+.diary-note .dn-t{font-size:13.5px;line-height:1.8;color:#4a4030;white-space:pre-wrap;word-break:break-word;
+  font-family:'Kaiti SC','STKaiti',serif}
+.diary-note .dn-act{margin-top:10px;text-align:right}
+.diary-note .dn-act button{border:0;background:transparent;color:#a08060;font-size:12px;
+  font-family:inherit;cursor:pointer;padding:4px 8px;opacity:.7}
+
+.diary-min{background:var(--card);border-radius:12px;padding:14px 18px;margin-bottom:8px;
+  border-left:2px solid var(--line)}
+.diary-min .dm-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.diary-min .dm-d{font-size:11.5px;color:var(--muted);font-weight:600;letter-spacing:.5px}
+.diary-min .dm-m{font-size:16px}
+.diary-min .dm-t{font-size:13.5px;line-height:1.75;color:var(--text);white-space:pre-wrap;word-break:break-word}
+.diary-min .dm-act{margin-top:6px;text-align:right}
+.diary-min .dm-act button{border:0;background:transparent;color:var(--muted);font-size:11.5px;
+  font-family:inherit;cursor:pointer;padding:2px 6px;opacity:.6}
+
+.moodrow{display:flex;gap:8px;margin:8px 0 4px}
+.moodrow button{flex:1;border:1.5px solid var(--line);background:var(--card);border-radius:12px;
+  padding:10px 0;font-size:22px;font-family:inherit;cursor:pointer;transition:.15s;line-height:1.2}
+.moodrow button.on{border-color:var(--pink);background:var(--pink-l);transform:scale(1.05)}
+
+.pcard{background:var(--pink-l);border-radius:16px;padding:16px;margin-bottom:14px;border:1px solid var(--pink-l)}
+.pcard .pt{font-size:12.5px;color:var(--pink);margin-bottom:4px;font-weight:600;opacity:.8}
+.pcard .pv{font-size:24px;font-weight:800;color:var(--pink);letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.pcard .pv small{font-size:12px;font-weight:500;color:var(--pink);opacity:.7}
+.pcard .ps{font-size:12px;color:var(--pink);opacity:.8;margin-top:6px;line-height:1.6}
+
+.shot-zone{background:var(--tag-bg);border:2px dashed var(--line);border-radius:16px;
+  padding:28px 16px;text-align:center;margin-bottom:6px}
+.shot-zone .em{font-size:44px;line-height:1;margin-bottom:10px}
+.shot-zone .t1{font-size:14px;font-weight:700;margin-bottom:4px}
+.shot-zone .t2{font-size:12.5px;color:var(--muted);line-height:1.6}
+.preview-wrap{position:relative;border-radius:16px;overflow:hidden;margin-bottom:4px;background:var(--tag-bg)}
+.preview-wrap img{width:100%;display:block;max-height:320px;object-fit:cover}
+.preview-wrap .retake{position:absolute;right:10px;bottom:10px;border:0;
+  background:rgba(0,0,0,.55);color:#fff;border-radius:99px;padding:7px 14px;font-size:12px;
+  font-family:inherit;cursor:pointer;font-weight:600;backdrop-filter:blur(4px)}
+.ai-bar{display:flex;gap:8px;margin:12px 0 4px}
+.ai-bar button{flex:1;border:0;border-radius:12px;padding:11px 0;font-size:13px;
+  font-family:inherit;font-weight:700;cursor:pointer}
+.ai-bar .ai{background:linear-gradient(135deg,#a78bfa,#8b6cf0);color:#fff}
+.ai-bar .skip{background:var(--tag-bg);color:var(--muted)}
+.sel-list{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.sel-list .tag{background:var(--pink-l);color:var(--pink);font-size:12.5px;padding:6px 11px}
+.sel-list .tag b{color:var(--pink)}
+.sel-sum{background:var(--tag-bg);border-radius:12px;padding:10px 14px;font-size:13px;
+  display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.sel-sum b{color:var(--pink);font-size:16px;font-weight:800}
+.ai-msg{font-size:12px;color:var(--muted);line-height:1.6;margin-top:6px;padding:8px 12px;
+  background:var(--tag-bg);border-radius:10px;display:none}
+.ai-msg.on{display:block}
+
+.tabbar{position:fixed;left:0;right:0;bottom:0;background:var(--tab-bg);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-top:1px solid var(--line);display:flex;
+  padding-bottom:env(safe-area-inset-bottom);z-index:50}
+.tab{flex:1;border:0;background:transparent;padding:7px 0 8px;display:flex;
+  flex-direction:column;align-items:center;gap:2px;font-size:9.5px;color:var(--muted);
+  font-family:inherit;cursor:pointer;font-weight:500;transition:.2s}
+.tab span{font-size:18px;line-height:1;filter:grayscale(1) opacity(.5);transition:.2s}
+.tab.on{color:var(--pink);font-weight:700}
+.tab.on span{filter:none;transform:translateY(-1px)}
+
+#mask{position:fixed;inset:0;background:rgba(45,30,45,.4);opacity:0;pointer-events:none;
+  transition:.25s;z-index:100;backdrop-filter:blur(2px)}
+#mask.open{opacity:1;pointer-events:auto}
+#sheet{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-radius:24px 24px 0 0;
+  padding:8px 20px calc(24px + env(safe-area-inset-bottom));z-index:101;color:var(--text);
+  transform:translateY(105%);transition:transform .3s cubic-bezier(.32,.72,0,1);
+  max-height:92vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+#sheet.open{transform:translateY(0)}
+.handle{width:38px;height:4px;background:var(--line);border-radius:99px;margin:6px auto 14px}
+#sheet h3{font-size:17px;font-weight:800;margin-bottom:4px}
+#sheet .sub{font-size:13px;color:var(--muted);margin-bottom:6px}
+
+#toast{position:fixed;left:50%;bottom:110px;transform:translate(-50%,16px);
+  background:rgba(30,20,30,.92);color:#fff;font-size:13.5px;padding:10px 20px;
+  border-radius:99px;opacity:0;pointer-events:none;transition:.28s;z-index:200;
+  white-space:nowrap;font-weight:500;max-width:88vw;overflow:hidden;text-overflow:ellipsis}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+.empty{text-align:center;color:var(--muted);font-size:13px;padding:26px 0}
+
+.sched-list{display:flex;flex-direction:column;gap:8px;margin:12px 0 4px}
+.sched-item{border:1.5px solid var(--line);background:var(--card);border-radius:14px;
+  padding:12px 14px;text-align:left;font-family:inherit;cursor:pointer;color:var(--text)}
+.sched-item .sn{font-size:14.5px;font-weight:700;margin-bottom:2px}
+.sched-item .sd{font-size:12px;color:var(--muted);line-height:1.5}
+.sched-item.on{background:var(--enc-bg);border-color:var(--pink)}
+.sched-item.on .sn{color:var(--pink)}
+
+.theme-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 4px}
+.theme-card{border:2px solid var(--line);background:var(--card);border-radius:14px;
+  padding:10px;cursor:pointer;font-family:inherit;color:var(--text);text-align:left}
+.theme-card.on{border-color:var(--pink);box-shadow:0 4px 14px var(--shadow-btn)}
+.theme-card .tn{font-size:13px;font-weight:700;margin-bottom:8px;display:flex;
+  justify-content:space-between;align-items:center}
+.theme-card .tn em{font-style:normal;font-size:10px;color:var(--pink);font-weight:700}
+.theme-card .sw{display:flex;gap:4px;height:24px;border-radius:6px;overflow:hidden}
+.theme-card .sw i{flex:1}
+
+.report-wrap{background:var(--card);border-radius:16px;padding:18px;margin-bottom:12px;
+  box-shadow:0 2px 12px var(--shadow)}
+.report-hd{text-align:center;padding-bottom:14px;margin-bottom:14px;border-bottom:2px solid var(--line)}
+.report-hd .rt{font-size:18px;font-weight:800;letter-spacing:-.3px}
+.report-hd .rd{font-size:12px;color:var(--muted);margin-top:4px}
+.report-sec{margin-bottom:14px}
+.report-sec:last-child{margin-bottom:0}
+.report-sec .rsh{font-size:13.5px;font-weight:700;margin-bottom:8px;display:flex;
+  align-items:center;gap:6px;color:var(--pink)}
+.report-sec .rsb{font-size:13px;line-height:1.8;color:var(--text)}
+.report-sec .rsb .row{display:flex;justify-content:space-between;padding:3px 0}
+.report-sec .rsb .row .k{color:var(--muted)}
+.report-sec .rsb .row .v{font-weight:700}
+.report-sec .rsb .hl{background:var(--pred-bg);border-radius:10px;padding:10px 14px;
+  margin:8px 0;border:1px solid var(--pred-bd);color:var(--pred-tx);font-size:13px;line-height:1.6}
+.report-sec .rsb .hl b{color:var(--pred-strong)}
+.report-foot{text-align:center;font-size:11.5px;color:var(--muted);padding-top:12px;
+  margin-top:8px;border-top:1px dashed var(--line);line-height:1.7}
+
+.model-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 4px}
+.model-card{border:1.5px solid var(--line);background:var(--card);border-radius:12px;
+  padding:11px 12px;text-align:left;font-family:inherit;color:var(--text);cursor:pointer;transition:.2s}
+.model-card:active{transform:scale(.97)}
+.model-card.on{border-color:var(--pink);background:var(--pink-l)}
+.model-card .mn{font-size:13px;font-weight:700;margin-bottom:2px}
+.model-card.on .mn{color:var(--pink)}
+.model-card .md{font-size:11px;color:var(--muted);line-height:1.5}
+.model-card .tagline{font-size:10px;background:var(--pink);color:#fff;border-radius:99px;
+  padding:1px 6px;margin-left:4px;font-weight:600;vertical-align:middle}
+
+.cf-item{display:flex;justify-content:space-between;align-items:center;
+  padding:11px 12px;border-bottom:1px solid var(--line);gap:10px}
+.cf-item:last-child{border-bottom:0}
+.cf-item .cn{flex:1;font-size:14px;font-weight:600}
+.cf-item .cn small{display:block;font-size:11.5px;color:var(--muted);font-weight:400;margin-top:2px}
+.cf-item .ck{font-size:15px;font-weight:800;color:var(--pink);flex:none;
+  font-variant-numeric:tabular-nums;min-width:60px;text-align:right}
+.cf-item .ck small{font-size:10px;font-weight:500;color:var(--muted)}
+.cf-item .rm{border:0;background:transparent;color:var(--muted);font-size:20px;
+  cursor:pointer;padding:0 4px;font-family:inherit;opacity:.5;flex:none}
+
+.album-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:14px}
+.album-cell{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;
+  background:var(--tag-bg);cursor:pointer;transition:.2s}
+.album-cell:active{transform:scale(.96)}
+.album-cell img{width:100%;height:100%;object-fit:cover;display:block}
+.album-cell .ac-time{position:absolute;left:0;right:0;bottom:0;
+  background:linear-gradient(transparent,rgba(0,0,0,.65));
+  color:#fff;font-size:10px;padding:12px 6px 4px;text-align:right;
+  font-weight:600;letter-spacing:.3px;font-variant-numeric:tabular-nums}
+.album-cell .ac-tag{position:absolute;top:4px;left:4px;background:rgba(0,0,0,.5);
+  color:#fff;font-size:9px;padding:2px 6px;border-radius:99px;font-weight:600}
+.album-day-label{font-size:12px;color:var(--muted);font-weight:700;
+  padding:8px 2px 8px;letter-spacing:.4px;grid-column:1/-1}
+
+.avatar-row{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.avatar{width:64px;height:64px;border-radius:50%;
+  background:linear-gradient(135deg,var(--grad-a),var(--grad-b));
+  display:grid;place-items:center;font-size:28px;color:#fff;flex:none;
+  box-shadow:0 4px 14px var(--shadow-btn)}
+.avatar-info{flex:1}
+.avatar-info .an{font-size:18px;font-weight:800;letter-spacing:-.3px;margin-bottom:2px}
+.avatar-info .ad{font-size:12.5px;color:var(--muted)}
+
+.status-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;
+  border-bottom:1px solid var(--line)}
+.status-row:last-child{border-bottom:0}
+.status-row .sl{font-size:13.5px;display:flex;align-items:center;gap:8px;color:var(--text)}
+.status-row .sr{display:flex;gap:4px}
+.star-btn{width:30px;height:30px;border-radius:8px;border:1.5px solid var(--line);
+  background:var(--card);font-size:14px;cursor:pointer;font-family:inherit;
+  display:grid;place-items:center;transition:.15s;padding:0;line-height:1}
+.star-btn.on{border-color:var(--pink);background:var(--pink-l);transform:scale(1.05)}
+.star-btn:active{transform:scale(.92)}
+
+.sleep-big{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+.sleep-num{font-size:34px;font-weight:800;color:var(--pink);letter-spacing:-1px;
+  font-variant-numeric:tabular-nums;line-height:1}
+.sleep-num small{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:0;margin-left:2px}
+.sleep-info{flex:1;font-size:12.5px;color:var(--muted);line-height:1.8}
+.sleep-info b{color:var(--text);font-weight:700}
+
+.open-reminder{background:linear-gradient(135deg,var(--grad-a),var(--grad-b));
+  border-radius:22px;padding:22px 20px;color:#fff;margin-bottom:14px;position:relative;overflow:hidden;
+  box-shadow:0 8px 24px var(--shadow-btn)}
+.open-reminder::after{content:'';position:absolute;width:200px;height:200px;border-radius:50%;
+  background:rgba(255,255,255,.14);right:-80px;top:-90px}
+.open-reminder .ot{font-size:13px;opacity:.9;margin-bottom:2px;position:relative}
+.open-reminder .oh{font-size:24px;font-weight:800;letter-spacing:-.4px;margin-bottom:14px;position:relative}
+.open-reminder .ob{background:rgba(255,255,255,.18);border-radius:14px;padding:14px 16px;position:relative}
+.open-reminder .ob .oline{padding:5px 0;font-size:13px;line-height:1.6;display:flex;gap:8px;align-items:flex-start}
+.open-reminder .ob .oline .ico{flex:none;width:18px;text-align:center}
+.open-reminder .ob .oline .txt b{font-weight:700}
+.open-reminder .ob .oline .txt small{opacity:.85;display:block;font-size:11.5px;margin-top:1px}
+
+.late-night{background:linear-gradient(135deg,#2a1f3d,#1a1228);border-radius:18px;padding:16px;
+  margin-bottom:14px;color:#fff;position:relative;overflow:hidden}
+.late-night::after{content:'';position:absolute;width:150px;height:150px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,220,150,.18),transparent 70%);right:-40px;top:-40px}
+.late-night .lh{font-size:14px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:8px;position:relative}
+.late-night .ls{font-size:12px;opacity:.75;margin-bottom:12px;position:relative;line-height:1.6}
+.late-night .l-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:relative}
+.late-night .l-opt{background:rgba(255,255,255,.1);border-radius:12px;padding:10px 12px;
+  border:1px solid rgba(255,255,255,.12);cursor:pointer;font-family:inherit;color:#fff;text-align:left;transition:.2s}
+.late-night .l-opt:active{background:rgba(255,255,255,.18)}
+.late-night .l-opt .ln{font-size:13px;font-weight:700;margin-bottom:2px}
+.late-night .l-opt .lk{font-size:11px;opacity:.75}
+
+.butler-card{background:linear-gradient(135deg,var(--grad-a),var(--grad-b));border-radius:18px;
+  padding:18px;color:#fff;margin-bottom:14px;position:relative;overflow:hidden;
+  box-shadow:0 6px 20px var(--shadow-btn)}
+.butler-card::after{content:'';position:absolute;width:150px;height:150px;border-radius:50%;
+  background:rgba(255,255,255,.12);right:-50px;top:-60px}
+.butler-card .bh{font-size:15px;font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.butler-card .bs{font-size:12.5px;opacity:.9;line-height:1.6;margin-bottom:12px}
+.butler-card button{background:rgba(255,255,255,.22);color:#fff;border:0;border-radius:10px;
+  padding:10px 16px;font-size:13px;font-weight:700;font-family:inherit;cursor:pointer;transition:.2s}
+.butler-card button:active{background:rgba(255,255,255,.35)}
+
+/* 课表卡片 */
+.timetable-grid{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;font-size:12.5px;
+  line-height:1.5;margin-top:6px}
+.timetable-grid .tg-t{color:var(--pink);font-weight:700;font-variant-numeric:tabular-nums;
+  white-space:nowrap;padding:4px 0}
+.timetable-grid .tg-c{padding:4px 0;color:var(--text)}
+.timetable-grid .tg-c small{color:var(--muted);font-size:11px}
+.timetable-grid .tg-divider{grid-column:1/-1;height:1px;background:var(--line);margin:4px 0}
+
+/* 长按/选中优化 */
+@media (hover:none){
+  .btn:hover{transform:none}
+}
+</style>
+</head>
+<body data-theme="sakura">
+
+<input type="file" accept="image/*" capture="environment" id="camInput" style="display:none">
+<input type="file" accept="image/*" id="galInput" style="display:none">
+
+<!-- ============ 首页 ============ -->
+<section class="page active" id="p-home">
+  <div class="ptitle-row">
+    <div class="ptitle">我的瘦身计划</div>
+    <button class="theme-btn" onclick="openThemePicker()">🎨</button>
+  </div>
+
+  <div id="openReminderBox"></div>
+
+  <div class="hero">
+    <div class="hero-date" id="heroDate">—</div>
+    <div class="hero-count" id="heroCount">—</div>
+    <div class="pbar"><i id="pbar" style="width:0%"></i></div>
+    <div class="pbar-lbl"><span id="pbarFrom">起点</span><span id="pbarTo">目标</span></div>
+  </div>
+
+  <div class="enc" id="encBox"><div class="ic">✨</div><div class="tx">加载中…</div></div>
+
+  <div class="pred" id="predBox">
+    <div class="l"><b>按今天这样吃</b>预计明天早上能掉</div>
+    <div class="r" id="predNum">—<small>斤</small></div>
+  </div>
+
+  <div id="lateNightBox"></div>
+
+  <button class="btn" style="margin-top:0" onclick="showReport()">📊 生成今日总结报告</button>
+
+  <div class="card" style="margin-top:14px">
+    <div class="card-title">体重记录 <small id="lastUpdate"></small></div>
+    <div class="wgrid">
+      <div><div class="num" id="wNow">--</div><div class="lbl">当前(斤)</div></div>
+      <div><div class="num g" id="wTarget">--</div><div class="lbl">目标(斤)</div></div>
+      <div><div class="num" id="wLeft">--</div><div class="lbl">还需减(斤)</div></div>
+    </div>
+    <button class="btn" onclick="openCheckin()">✏️ 今日打卡</button>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📸 今日监督打卡 <small id="homeSupCount"></small></div>
+    <div class="sup-grid" id="homeSupGrid"></div>
+    <div class="sup-tip">每餐必须拍照才能记录。没拍照的一餐，热量环里也不会算进去。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">今日任务 <small id="taskMini"></small></div>
+    <div class="progress-mini"><i id="taskBar" style="width:0%"></i></div>
+    <div class="progress-txt" id="taskTxt">0 / 0</div>
+    <div id="homeTasks" style="margin-top:6px"></div>
+    <button class="btn ghost" style="margin-top:10px" onclick="go('plan')">去管理任务 →</button>
+  </div>
+
+  <div class="card">
+    <div class="card-title">今日热量 <small id="calDate"></small></div>
+    <div class="ringwrap">
+      <div class="ring" id="ring" style="--p:0%">
+        <div class="ring-txt"><b id="ringNum">0</b><span>已摄入 kcal</span></div>
+      </div>
+      <div class="ring-info">
+        目标摄入 <b id="goalIn">—</b><br>
+        还可吃 <b id="calLeft">—</b><br>
+        训练消耗 <b id="burnTxt">—</b>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <span>今日作息 <span class="sched-tag" id="schedTag">—</span></span>
+      <div class="acts">
+        <button class="act" onclick="cycleSchedule()">🔄</button>
+        <button class="act" onclick="openSchedulePicker()">☰</button>
+      </div>
+    </div>
+    <div class="tl" id="timeline"></div>
+    <div id="nowHint" style="font-size:12px;color:var(--muted);text-align:right;margin-top:6px"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📚 我的课表 <small id="timetableDay"></small></div>
+    <div id="timetableBody"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">打卡提醒</div>
+    <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:12px">
+      开启后，到点会弹出提醒。<br>iPhone 需要先「添加到主屏幕」再从主屏幕打开才支持通知。
+    </div>
+    <button class="btn ghost" id="notifyBtn" onclick="toggleNotify()">开启提醒</button>
+  </div>
+</section>
+
+<!-- ============ 记录 ============ -->
+<section class="page" id="p-log">
+  <div class="ptitle">记录</div>
+
+  <div class="card">
+    <div class="card-title">📸 拍照监督 <small id="logSupCount"></small></div>
+    <div class="sup-grid" id="logSupGrid"></div>
+    <div class="sup-tip">点击任意一餐，拍照上传才能记录。</div>
+    <button class="btn ghost" style="margin-top:10px" onclick="openAiConfig()">⚙️ AI 识别设置</button>
+  </div>
+
+  <div class="card">
+    <div class="card-title">⭐ 我的自定义食物 <button class="act" onclick="openCustomFoods()">管理</button></div>
+    <div style="font-size:12.5px;color:var(--muted);line-height:1.6;margin-bottom:8px">
+      711 里吃的、家里做的、外面小店买的，都可以自己加进来。
+    </div>
+    <button class="btn ghost" onclick="openAddCustomFood()">+ 新增自定义食物</button>
+  </div>
+
+  <div class="searchbar">
+    <span class="ico">🔍</span>
+    <input id="searchInput" type="search" placeholder="搜奶茶 / 711 / 我的自定义 / 品牌" oninput="doSearch()" autocomplete="off">
+    <button class="plusbtn" onclick="openAddCustomFood()">+</button>
+  </div>
+  <div class="brandrow" id="brandRow"></div>
+  <div id="searchResult"></div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="card-title">今日饮食 <small id="mealTotal">0 kcal</small></div>
+    <div id="mealList"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">热量计算器 <button class="act" onclick="toggleCalc()" id="calcBtn">展开</button></div>
+    <div id="calcBody" style="display:none">
+      <div class="row2">
+        <div><label style="margin-top:0">身高 (cm)</label>
+          <input type="number" id="inH" inputmode="decimal" placeholder="160"></div>
+        <div><label style="margin-top:0">年龄</label>
+          <input type="number" id="inA" inputmode="numeric" placeholder="17"></div>
+      </div>
+      <label>当前体重 (斤)</label>
+      <input type="number" id="inW" inputmode="decimal" placeholder="101">
+      <label>日常活动量</label>
+      <select id="inAct">
+        <option value="1.45">轻度 · 周末才有训练</option>
+        <option value="1.65">中度 · 每周训练3-5次</option>
+        <option value="1.8" selected>高度 · 每天专业课2小时（舞蹈生）</option>
+        <option value="1.95">极高 · 每天4小时以上高强度</option>
+      </select>
+      <button class="btn" onclick="calc()">计算我的每日热量</button>
+      <div class="res" id="resBox"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">常见食物速查</div>
+    <div class="chips" id="foodTable"></div>
+  </div>
+</section>
+
+<!-- ============ 食谱 ============ -->
+<section class="page" id="p-food">
+  <div class="ptitle">专属食谱</div>
+
+  <div class="butler-card">
+    <div class="bh">🤖 AI 智能管家</div>
+    <div class="bs">根据你的体重、目标、作息和喜好，帮你定制一套新食谱。生成后由你决定是否替换。</div>
+    <button onclick="openButler()">让管家帮我定制 →</button>
+  </div>
+
+  <div class="tip pink">
+    <b>走读生的吃法：</b>你每天下午专业课是基训(13:40-15:10) + 毯技/剧目(15:30-17:00)两节大课。午餐和训练后加餐绝对不能省，不然会掉肌肉、没力气、还容易受伤。
+  </div>
+
+  <div class="seg">
+    <button class="on" onclick="switchRcp(0,this)">上学日</button>
+    <button onclick="switchRcp(1,this)">711怎么买</button>
+    <button onclick="switchRcp(2,this)">周末在家</button>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <span id="rcpName">方案 A</span>
+      <button class="act" onclick="refreshRcp()">🔄 换一换</button>
+    </div>
+    <div id="rcpBody"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🧋 果茶怎么喝才不毁掉一天</div>
+    <div class="rline"><div class="c">一杯正常糖的果茶 ≈ 300 kcal，等于你下午 2 小时专业课白练一大半。</div></div>
+    <div class="rline"><div class="c"><b>规则一：</b>一周最多 2 杯，放在训练后那顿。</div></div>
+    <div class="rline"><div class="c"><b>规则二：</b>「<b>无糖/三分糖，去奶盖，不要珍珠椰果</b>」，能省 270 kcal。</div></div>
+    <div class="rline"><div class="c"><b>规则三：</b>最稳的替代：无糖乌龙/茉莉茶 + 鲜切柠檬，几乎 0 热量。</div></div>
+    <div class="rline"><div class="c"><b>规则四：</b>真想喝，就把当天的晚餐主食减半。</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">⚠️ 减脂期最容易踩的坑</div>
+    <div class="rline"><div class="c"><b>1. 不吃午餐去上专业课</b> —— 毯技课空翻、下腰最容易伤。</div></div>
+    <div class="rline"><div class="c"><b>2. 下专业课直接去补习班，不吃加餐</b> —— 17:00 到 18:00 只隔一小时，但加餐不能省。</div></div>
+    <div class="rline"><div class="c"><b>3. 只吃水果代餐</b> —— 掉的是肌肉和水，减完显得松、没线条。</div></div>
+    <div class="rline"><div class="c"><b>4. 熬夜写作业</b> —— 睡不够 7 小时，第二天特别想吃甜的。</div></div>
+    <div class="rline"><div class="c"><b>5. 每天称重焦虑</b> —— 经期前一周会重 1-3 斤，是水肿不是胖。</div></div>
+    <div class="rline"><div class="c"><b>6. 只看体重</b> —— 每周量一次腰围比天天称体重有用。</div></div>
+  </div>
+</section>
+
+<!-- ============ 计划 ============ -->
+<section class="page" id="p-plan">
+  <div class="ptitle">计划</div>
+  <div class="card">
+    <div class="card-title">✅ 今日任务 <small id="planTaskMini"></small></div>
+    <div class="progress-mini"><i id="planTaskBar" style="width:0%"></i></div>
+    <div class="progress-txt" id="planTaskTxt">0 / 0</div>
+    <div id="planTasks" style="margin-top:6px"></div>
+  </div>
+  <div class="card">
+    <div class="card-title">我的作业 / 自定义任务 <button class="act" onclick="addTask()">+ 添加</button></div>
+    <div id="planCustom"></div>
+  </div>
+  <div class="card">
+    <div class="card-title">💪 健康习惯 <button class="act" onclick="addHabit()">+ 添加</button></div>
+    <div style="font-size:12.5px;color:var(--muted);line-height:1.6;margin-bottom:8px">
+      每天点一下「打卡」，连续天数会累加。断一天会归零，所以别断。
+    </div>
+    <div id="habitList"></div>
+  </div>
+</section>
+
+<!-- ============ 日记 ============ -->
+<section class="page" id="p-diary">
+  <div class="ptitle">日记</div>
+
+  <div class="seg">
+    <button class="on" onclick="switchDiary(0,this)">日记</button>
+    <button onclick="switchDiary(1,this)">生理期</button>
+    <button onclick="switchDiary(2,this)">进度</button>
+  </div>
+
+  <div class="card" id="dv0">
+    <div class="card-title">今天想说的 <small id="diaryToday"></small></div>
+    <div class="moodrow" id="moodRow">
+      <button data-m="😄" onclick="setMood('😄')">😄</button>
+      <button data-m="🙂" onclick="setMood('🙂')">🙂</button>
+      <button data-m="😐" onclick="setMood('😐')">😐</button>
+      <button data-m="😔" onclick="setMood('😔')">😔</button>
+      <button data-m="😭" onclick="setMood('😭')">😭</button>
+    </div>
+    <textarea id="diaryText" placeholder="今天吃了什么、练了什么、有什么感受、减肥心得…都可以写在这里"></textarea>
+    <button class="btn" onclick="saveDiary()">保存今天的日记</button>
+  </div>
+
+  <div class="card" id="dv0b">
+    <div class="card-title">日记风格 <small>点一下就换</small></div>
+    <div class="diary-style-bar" id="diaryStyleBar"></div>
+    <div class="card-title" style="margin-top:14px">过往日记 <small id="diaryCount"></small></div>
+    <div id="diaryList"></div>
+  </div>
+
+  <div id="dv1" style="display:none">
+    <div class="pcard" id="pStatus">
+      <div class="pt">当前状态</div>
+      <div class="pv" id="pMain">—</div>
+      <div class="ps" id="pSub">还没有记录，往下滑点一下开始记录</div>
+    </div>
+    <div class="card">
+      <div class="card-title">记录</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:10px">
+        每次来月经的第一天，点一下按钮。我会自动算周期、预测下次。
+      </div>
+      <button class="btn" onclick="markPeriodStart()">🩸 今天来月经了</button>
+      <div style="margin-top:14px">
+        <div style="font-size:13px;color:var(--muted);margin-bottom:8px">历史记录（最近 6 次）</div>
+        <div id="periodHistory"></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">周期设置</div>
+      <div class="row2">
+        <div><label style="margin-top:0">平均周期（天）</label>
+          <input type="number" id="pCycle" inputmode="numeric" value="28" onchange="savePeriodCfg()"></div>
+        <div><label style="margin-top:0">经期持续（天）</label>
+          <input type="number" id="pDur" inputmode="numeric" value="5" onchange="savePeriodCfg()"></div>
+      </div>
+    </div>
+    <div class="tip red">
+      <b>经期运动提醒：</b>经期前 3 天可以做软开和轻量的剧目片段，毯技课一定要跟老师说减量。
+    </div>
+  </div>
+
+  <div id="dv2" style="display:none">
+    <div class="card">
+      <div class="card-title">体重曲线 <small>单位：斤</small></div>
+      <div class="chartbox"><canvas id="chart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">数据概览</div>
+      <div class="wgrid">
+        <div><div class="num" id="sStart">--</div><div class="lbl">起始</div></div>
+        <div><div class="num g" id="sLost">--</div><div class="lbl">已减</div></div>
+        <div><div class="num" id="sDays">--</div><div class="lbl">打卡天数</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">历史记录</div>
+      <div id="history"><div class="empty">还没有记录</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 我的 ============ -->
+<section class="page" id="p-me">
+  <div class="ptitle-row">
+    <div class="ptitle">我的</div>
+    <button class="theme-btn" onclick="openThemePicker()">🎨</button>
+  </div>
+
+  <div class="card">
+    <div class="avatar-row">
+      <div class="avatar">🩰</div>
+      <div class="avatar-info">
+        <div class="an">高三4班 · 舞蹈生</div>
+        <div class="ad" id="meMeta">17 岁 · 目标 81 斤</div>
+      </div>
+    </div>
+    <div class="wgrid">
+      <div><div class="num" id="meW">--</div><div class="lbl">当前(斤)</div></div>
+      <div><div class="num g" id="meLost">--</div><div class="lbl">已减(斤)</div></div>
+      <div><div class="num" id="meStreak">--</div><div class="lbl">连续打卡</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">💪 今日身体状态 <small id="bodyDate"></small></div>
+    <div id="bodyStatus"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">😴 昨晚睡眠 <button class="act" onclick="openSleepLog()">记录</button></div>
+    <div id="sleepBody"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📷 我的相册 <small id="albumCount"></small></div>
+    <div id="albumPreview"></div>
+    <button class="btn ghost" style="margin-top:12px" onclick="openAlbum()">查看全部照片</button>
+  </div>
+
+  <div class="card">
+    <div class="card-title">数据管理</div>
+    <div style="font-size:12.5px;color:var(--muted);line-height:1.7;margin-bottom:12px">
+      数据保存在这台设备的浏览器里。清除浏览器数据会丢失记录，建议每周导出一份备份。
+    </div>
+    <button class="btn ghost" onclick="exportData()">导出备份</button>
+    <button class="btn ghost" style="margin-top:8px;color:#e57373" onclick="clearData()">清空所有数据</button>
+  </div>
+</section>
+
+<nav class="tabbar">
+  <button class="tab on" data-p="home" onclick="go('home')"><span>🏠</span>首页</button>
+  <button class="tab" data-p="log" onclick="go('log')"><span>📸</span>记录</button>
+  <button class="tab" data-p="food" onclick="go('food')"><span>🍱</span>食谱</button>
+  <button class="tab" data-p="plan" onclick="go('plan')"><span>✅</span>计划</button>
+  <button class="tab" data-p="diary" onclick="go('diary')"><span>📔</span>日记</button>
+  <button class="tab" data-p="me" onclick="go('me')"><span>👤</span>我的</button>
+</nav>
+
+<div id="mask" onclick="closeSheet()"></div>
+<div id="sheet"></div>
+<div id="toast"></div>
+
+<script>
+/* ========== 工具 ========== */
+const $ = id => document.getElementById(id);
+const pad = n => String(n).padStart(2,'0');
+const fmtD = d => d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const today = () => fmtD(new Date());
+const round1 = n => Math.round(n*10)/10;
+const round2 = n => Math.round(n*100)/100;
+const uid = () => 'x' + Date.now().toString(36) + Math.random().toString(36).slice(2,6);
+function toast(msg){
+  const t = $('toast');
+  t.textContent = msg; t.classList.add('on');
+  clearTimeout(t._t);
+  t._t = setTimeout(()=>t.classList.remove('on'), 2000);
+}
+function escapeHTML(s){
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function timeStr(ts){
+  const d = new Date(ts);
+  return pad(d.getHours())+':'+pad(d.getMinutes());
+}
+function nowHM(){
+  const d = new Date();
+  return pad(d.getHours())+':'+pad(d.getMinutes());
+}
+
+/* ========== IndexedDB ========== */
+const IDB = {
+  db:null,
+  open(){
+    return new Promise((res, rej)=>{
+      if(this.db) return res(this.db);
+      if(!window.indexedDB) return rej(new Error('no idb'));
+      const req = indexedDB.open('dancefit_photos', 1);
+      req.onupgradeneeded = e => {
+        const db = e.target.result;
+        if(!db.objectStoreNames.contains('photos')) db.createObjectStore('photos', {keyPath:'id'});
+      };
+      req.onsuccess = e => { this.db = e.target.result; res(this.db); };
+      req.onerror = e => rej(e);
+    });
+  },
+  async put(o){ const db=await this.open(); return new Promise((res,rej)=>{ const tx=db.transaction('photos','readwrite'); tx.objectStore('photos').put(o); tx.oncomplete=()=>res(); tx.onerror=e=>rej(e); }); },
+  async get(id){ try{ const db=await this.open(); return new Promise((res,rej)=>{ const tx=db.transaction('photos','readonly'); const r=tx.objectStore('photos').get(id); r.onsuccess=()=>res(r.result); r.onerror=e=>rej(e); }); }catch(e){ return null; } },
+  async del(id){ try{ const db=await this.open(); return new Promise(res=>{ const tx=db.transaction('photos','readwrite'); tx.objectStore('photos').delete(id); tx.oncomplete=()=>res(); tx.onerror=()=>res(); }); }catch(e){} },
+  async all(){ try{ const db=await this.open(); return new Promise(res=>{ const tx=db.transaction('photos','readonly'); const r=tx.objectStore('photos').getAll(); r.onsuccess=()=>res(r.result||[]); r.onerror=()=>res([]); }); }catch(e){ return []; } }
+};
+function compressImage(file, maxW=760, q=0.72){
+  return new Promise((res, rej)=>{
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = new Image();
+      img.onload = () => {
+        const c = document.createElement('canvas');
+        let w = img.width, h = img.height;
+        if(w > maxW){ h = Math.round(h*maxW/w); w = maxW; }
+        c.width = w; c.height = h;
+        c.getContext('2d').drawImage(img, 0, 0, w, h);
+        res(c.toDataURL('image/jpeg', q));
+      };
+      img.onerror = rej;
+      img.src = e.target.result;
+    };
+    reader.onerror = rej;
+    reader.readAsDataURL(file);
+  });
+}
+
+/* ========== 主题 ========== */
+const THEMES = [
+  {id:'sakura', name:'粉樱', sw:['#ff6b9d','#b48bff','#ffe4ef','#fdf4f8']},
+  {id:'mono',   name:'黑白', sw:['#1a1a1a','#3d3d3d','#ececec','#f6f6f6']},
+  {id:'ocean',  name:'海盐', sw:['#3b82f6','#818cf8','#dbeafe','#f3f7fd']},
+  {id:'matcha', name:'抹茶', sw:['#4d8c5e','#8cc79e','#dcece0','#f4f8f4']},
+  {id:'sunset', name:'暖阳', sw:['#f97316','#fbbf24','#ffedd5','#fff8f2']},
+  {id:'taro',   name:'香芋', sw:['#8b5cf6','#c9a2ff','#ede9fe','#f8f5fe']},
+  {id:'cream',  name:'奶油', sw:['#b08968','#e0c4a0','#f7ecd9','#faf6ee']},
+  {id:'mist',   name:'雾霾', sw:['#64748b','#a5a8e6','#e2e8f0','#f5f7fa']},
+  {id:'peach',  name:'蜜桃', sw:['#fb7185','#f0abfc','#ffe4e6','#fff5f6']},
+  {id:'forest', name:'森野', sw:['#2d5a3d','#6ba87f','#d8e8dc','#f3f6f3']}
+];
+function applyTheme(id){
+  document.body.dataset.theme = id;
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if(meta){
+    const map = {sakura:'#ff6b9d',mono:'#1a1a1a',ocean:'#3b82f6',matcha:'#4d8c5e',sunset:'#f97316',
+      taro:'#8b5cf6',cream:'#b08968',mist:'#64748b',peach:'#fb7185',forest:'#2d5a3d'};
+    meta.setAttribute('content', map[id] || '#ff6b9d');
+  }
+  if($('p-diary').classList.contains('active')) setTimeout(drawChart, 50);
+}
+function openThemePicker(){
+  const cur = S.settings.theme || 'sakura';
+  openSheet(`
+    <h3>🎨 换个主题</h3>
+    <div class="sub">选一个看着最舒服的，随时可换</div>
+    <div class="theme-grid">
+      ${THEMES.map(t=>`
+        <button class="theme-card ${t.id===cur?'on':''}" onclick="pickTheme('${t.id}')">
+          <div class="tn">${t.name}${t.id===cur?'<em>当前</em>':''}</div>
+          <div class="sw">${t.sw.map(c=>`<i style="background:${c}"></i>`).join('')}</div>
+        </button>
+      `).join('')}
+    </div>
+    <button class="btn ghost mini" style="margin-top:14px" onclick="closeSheet()">关闭</button>
+  `);
+}
+function pickTheme(id){
+  S.settings.theme = id; save(); applyTheme(id); closeSheet(); renderAll();
+  const t = THEMES.find(x=>x.id===id);
+  toast('已切换到「' + (t?t.name:id) + '」主题');
+}
+
+/* ========== AI 模型 ========== */
+const AI_MODELS = [
+  {id:'glm-4v-flash', name:'GLM-4V-Flash', desc:'智谱 · 视觉 · 免费', tagline:'推荐'},
+  {id:'glm-4v-plus',  name:'GLM-4V-Plus',  desc:'智谱 · 视觉 · 更强'},
+  {id:'glm-4v',       name:'GLM-4V',       desc:'智谱 · 视觉'},
+  {id:'glm-4-flash',  name:'GLM-4-Flash',  desc:'智谱 · 文本 · 免费'},
+  {id:'glm-4-plus',   name:'GLM-4-Plus',   desc:'智谱 · 文本'},
+  {id:'custom',       name:'自定义模型',    desc:'填模型名 + API 地址'}
+];
+const PROVIDERS = [
+  {id:'zhipu', name:'智谱 AI', url:'https://open.bigmodel.cn/api/paas/v4/chat/completions',
+   hint:'open.bigmodel.cn 注册，控制台 → API Keys 新建'},
+  {id:'openai', name:'OpenAI 兼容', url:'https://api.openai.com/v1/chat/completions',
+   hint:'任何 OpenAI 格式的 API 都可以填这'},
+  {id:'custom', name:'完全自定义', url:'', hint:'完全自己填 API 地址'}
+];
+
+/* ========== 数据 ========== */
+const KEY = 'dancefit_v10';
+function defaultState(){
+  return {
+    profile:{height:160, age:17, activity:1.8, startWeight:101, targetWeight:81,
+      startDate: today(), deadline:'2027-01-01', nickname:'高三4班舞蹈生'},
+    days:{}, meals:{}, notes:{},
+    period:{ records:[], cycleLen:28, duration:5 },
+    sleep:{}, body:{},
+    habits:[
+      {id:'h1', name:'喝够 8 杯水', icon:'💧', records:{}},
+      {id:'h2', name:'拉伸 15 分钟', icon:'🧘', records:{}},
+      {id:'h3', name:'23:30 前睡觉', icon:'🌙', records:{}},
+      {id:'h4', name:'不吃零食', icon:'🍪', records:{}}
+    ],
+    tasks:{
+      defaults:[
+        {id:'t1', name:'完成今日作业', icon:'📝', on:true},
+        {id:'t2', name:'训练后加餐（不省）', icon:'🥛', on:true},
+        {id:'t3', name:'晚上拉伸 15 分钟', icon:'🧘', on:true},
+        {id:'t4', name:'23:30 前睡觉', icon:'🌙', on:true}
+      ],
+      custom:[
+        {id:'c1', name:'语文作业', icon:'📖', on:true},
+        {id:'c2', name:'数学作业', icon:'📐', on:true},
+        {id:'c3', name:'英语作业', icon:'🔤', on:true},
+        {id:'c4', name:'政治作业', icon:'📰', on:true}
+      ],
+      done:{}
+    },
+    customFoods:[],
+    customRecipes:{},
+    settings:{ remind:false, notified:{}, scheduleChoice:{}, theme:'sakura',
+      diaryStyle:'card',
+      aiKey:'', aiModel:'glm-4v-flash', aiProvider:'zhipu', aiUrl:'', aiModelCustom:'' }
+  };
+}
+function load(){
+  try{
+    const raw = localStorage.getItem(KEY) || localStorage.getItem('dancefit_v9')
+             || localStorage.getItem('dancefit_v8') || localStorage.getItem('dancefit_v7')
+             || localStorage.getItem('dancefit_v6') || localStorage.getItem('dancefit_v5')
+             || localStorage.getItem('dancefit_v4') || localStorage.getItem('dancefit_v3')
+             || localStorage.getItem('dancefit_v2');
+    if(raw){
+      const o = JSON.parse(raw);
+      const d = defaultState();
+      const m = Object.assign(d, o, {
+        profile:Object.assign(d.profile, o.profile||{}),
+        period:Object.assign(d.period, o.period||{}),
+        tasks:Object.assign(d.tasks, o.tasks||{}),
+        settings:Object.assign(d.settings, o.settings||{})
+      });
+      if(!m.notes) m.notes = {};
+      if(!m.meals) m.meals = {};
+      if(!m.sleep) m.sleep = {};
+      if(!m.body) m.body = {};
+      if(!m.customFoods) m.customFoods = [];
+      if(!m.customRecipes) m.customRecipes = {};
+      if(!m.habits || !m.habits.length) m.habits = d.habits;
+      if(!m.tasks.done) m.tasks.done = {};
+      if(!m.tasks.custom) m.tasks.custom = d.tasks.custom;
+      if(!m.settings.scheduleChoice) m.settings.scheduleChoice = {};
+      if(!m.settings.theme) m.settings.theme = 'sakura';
+      if(!m.settings.diaryStyle) m.settings.diaryStyle = 'card';
+      if(!m.settings.aiModel) m.settings.aiModel = 'glm-4v-flash';
+      if(!m.settings.aiProvider) m.settings.aiProvider = 'zhipu';
+      if(m.settings.aiUrl === undefined) m.settings.aiUrl = '';
+      if(m.settings.aiModelCustom === undefined) m.settings.aiModelCustom = '';
+      return m;
+    }
+  }catch(e){}
+  return defaultState();
+}
+let S = load();
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
+
+function dayOf(date){
+  if(!S.days[date]) S.days[date] = {weight:null, train:defaultTrainFor(date), items:[]};
+  if(!S.days[date].items) S.days[date].items = [];
+  return S.days[date];
+}
+function mealsOf(date){
+  if(!S.meals[date]) S.meals[date] = {};
+  return S.meals[date];
+}
+
+/* ========== 食物 / 饮品 / 711 ========== */
+const FOODS = [
+  {n:'肉包(1个)',k:200},{n:'菜包(1个)',k:150},{n:'豆沙包(1个)',k:230},
+  {n:'速冻水饺(8个)',k:320},{n:'速冻小笼包(6个)',k:250},
+  {n:'坚果(10g)',k:60},{n:'牛奶(250ml)',k:130},{n:'无糖豆浆(250ml)',k:60},
+  {n:'水煮蛋(1个)',k:70},{n:'燕麦(40g)',k:150},{n:'全麦面包(1片)',k:80},
+  {n:'玉米(1根)',k:130},{n:'红薯(100g)',k:90},
+  {n:'711饭团(1个)',k:190},{n:'711三明治(1个)',k:250},
+  {n:'即食鸡胸(1块)',k:130},{n:'茶叶蛋(1个)',k:70},
+  {n:'关东煮(萝卜+魔芋+蛋)',k:120},{n:'关东煮豆腐(1块)',k:60},
+  {n:'蔬菜沙拉(1份)',k:100},{n:'和风酱(半包)',k:25},
+  {n:'无糖酸奶(100g)',k:60},{n:'关东煮乌冬(1份)',k:200},
+  {n:'米饭(1碗)',k:174},{n:'杂粮饭(1拳)',k:150},{n:'馒头(1个)',k:220},
+  {n:'鸡胸肉(100g)',k:133},{n:'清蒸鱼(100g)',k:110},{n:'瘦牛肉(100g)',k:106},
+  {n:'虾(100g)',k:93},{n:'豆腐(100g)',k:80},{n:'青菜(1份)',k:50},
+  {n:'食堂套餐(荤素)',k:600},{n:'盖浇饭(1份)',k:700},
+  {n:'苹果(1个)',k:90},{n:'香蕉(1根)',k:90},{n:'圣女果(100g)',k:25},
+  {n:'黄瓜(1根)',k:20},{n:'蓝莓(100g)',k:57},
+  {n:'无糖茶(1杯)',k:0},{n:'黑咖啡(1杯)',k:5}
+];
+
+const DRINKS = [
+  {b:'瑞幸·果茶', n:'冰萃茶（纯茶）', k:5, note:'几乎零卡'},
+  {b:'瑞幸·果茶', n:'柠檬水', k:30, note:'不加糖'},
+  {b:'瑞幸·果茶', n:'冰吸柠檬茶', k:80, note:'不另外加糖'},
+  {b:'瑞幸·果茶', n:'青提茉莉冰茶', k:90, note:'不另外加糖'},
+  {b:'瑞幸·果茶', n:'桃桃乌龙茶', k:100, note:'不另外加糖'},
+  {b:'瑞幸·果茶', n:'生椰杨枝甘露', k:176, note:'不另外加糖'},
+  {b:'瑞幸·果茶', n:'芒芒甘露', k:200, note:'不另外加糖'},
+  {b:'瑞幸·果茶', n:'杨枝甘露', k:230, note:'不另外加糖'},
+  {b:'瑞幸·果茶', n:'冰镇杨梅瑞纳冰', k:230, note:'正常糖'},
+  {b:'瑞幸·果茶', n:'草莓瑞纳冰', k:260, note:'正常糖'},
+  {b:'瑞幸·果茶', n:'芒果瑞纳冰', k:280, note:'正常糖'},
+  {b:'瑞幸·果茶', n:'抹茶瑞纳冰', k:290, note:'正常糖'},
+  {b:'瑞幸·果茶', n:'轻轻绿茶（轻乳茶）', k:90, note:'不另外加糖'},
+  {b:'瑞幸·果茶', n:'轻轻茉莉（轻乳茶）', k:95, note:'不另外加糖'},
+  {b:'瑞幸·果茶', n:'轻轻乌龙（轻乳茶）', k:110, note:'不另外加糖'},
+  {b:'瑞幸·果茶', n:'轻轻红茶（轻乳茶）', k:120, note:'不另外加糖'},
+  {b:'瑞幸·咖啡', n:'标准美式', k:11, note:'大杯冰 · 不另外加糖'},
+  {b:'瑞幸·咖啡', n:'橙C美式', k:122, note:'大杯冰 · 不另外加糖'},
+  {b:'瑞幸·咖啡', n:'生椰拿铁', k:179, note:'大杯冰 · 不另外加糖'},
+  {b:'瑞幸·咖啡', n:'茉莉花香拿铁', k:76, note:'大杯冰 · 不另外加糖'},
+  {b:'霸王茶姬', n:'寻香山茶', k:95, note:'中杯 · 不另外加糖'},
+  {b:'霸王茶姬', n:'万里木兰', k:100, note:'中杯 · 不另外加糖'},
+  {b:'霸王茶姬', n:'青青糯山', k:110, note:'中杯 · 不另外加糖'},
+  {b:'霸王茶姬', n:'花田乌龙', k:118, note:'中杯 · 不另外加糖'},
+  {b:'霸王茶姬', n:'桂馥兰香', k:123, note:'中杯 · 不另外加糖'},
+  {b:'霸王茶姬', n:'伯牙绝弦', k:130, note:'中杯 · 不另外加糖（招牌）'},
+  {b:'霸王茶姬', n:'万山红·金丝小种', k:135, note:'中杯 · 不另外加糖'},
+  {b:'霸王茶姬', n:'纯茶（任意原叶）', k:10, note:'中杯 · 不另外加糖'},
+  {b:'喜茶', n:'纯绿妍', k:0, note:'热饮 · 不另外加糖'},
+  {b:'喜茶', n:'四季春茶', k:0, note:'热饮 · 不另外加糖'},
+  {b:'喜茶', n:'满杯红柚', k:56, note:'去糖 · 去芝士'},
+  {b:'喜茶', n:'酷黑莓桑', k:85, note:'中杯 · 不另外加糖'},
+  {b:'喜茶', n:'绿妍轻乳茶', k:100, note:'中杯 · 不另外加糖'},
+  {b:'蜜雪冰城', n:'四季春', k:0, note:'不另外加糖'},
+  {b:'蜜雪冰城', n:'茉莉花绿茶', k:0, note:'不另外加糖'},
+  {b:'蜜雪冰城', n:'冰鲜柠檬水', k:80, note:'少糖'},
+  {b:'蜜雪冰城', n:'棒打鲜橙', k:120, note:'少糖'},
+  {b:'古茗', n:'曲香茉莉', k:26, note:'中杯 · 不另外加糖'},
+  {b:'古茗', n:'松语乌龙', k:43, note:'中杯 · 不另外加糖'},
+  {b:'古茗', n:'满杯杨梅', k:124, note:'少糖'},
+  {b:'茶百道', n:'茉莉绿茶', k:90, note:'三分糖'},
+  {b:'茶百道', n:'葡萄冻冻', k:113, note:'去糖'},
+  {b:'茶百道', n:'西瓜啵啵', k:120, note:'去糖'},
+  {b:'沪上阿姨', n:'经典美式', k:5, note:'不另外加糖'},
+  {b:'沪上阿姨', n:'山野金果冰茶', k:97, note:'少糖'},
+  {b:'一点点', n:'四季春茶', k:50, note:'纯茶 · 不另外加糖'},
+  {b:'一点点', n:'翡翠柠檬', k:56, note:'加茶冻 · 去糖'},
+  {b:'通用小料', n:'茶冻（1份）', k:27, note:'小料里最友好'},
+  {b:'通用小料', n:'椰果（1份）', k:41, note:'小料里第二友好'},
+  {b:'通用小料', n:'珍珠（1份）', k:176, note:'建议去掉'},
+  {b:'通用小料', n:'奶盖（1份）', k:181, note:'加上去热量直接翻倍'},
+  {b:'711·饭团', n:'三文鱼饭团', k:190, note:'经典款，蛋白+碳水'},
+  {b:'711·饭团', n:'金枪鱼饭团', k:185, note:'不辣，好入口'},
+  {b:'711·饭团', n:'明太子饭团', k:180, note:'微微咸香'},
+  {b:'711·饭团', n:'海苔盐饭团', k:160, note:'最基础款'},
+  {b:'711·饭团', n:'肉松饭团', k:200, note:'热量略高一点'},
+  {b:'711·饭团', n:'蒲烧鳗鱼饭团', k:220, note:'热量偏高，偶尔吃'},
+  {b:'711·饭团', n:'梅子饭团', k:150, note:'最清爽的一款'},
+  {b:'711·饭团', n:'泡菜饭团', k:175, note:'微辣开胃'},
+  {b:'711·饭团', n:'蛋包饭团', k:195, note:'带一点蛋香'},
+  {b:'711·三明治', n:'鸡蛋三明治', k:250, note:'蛋白够，最推荐'},
+  {b:'711·三明治', n:'金枪鱼三明治', k:260, note:'训练日首选'},
+  {b:'711·三明治', n:'火腿芝士三明治', k:270, note:'热量稍高'},
+  {b:'711·三明治', n:'BLT三明治', k:280, note:'有培根，偶尔吃'},
+  {b:'711·关东煮', n:'白萝卜（1份）', k:15, note:'几乎零卡，最推荐'},
+  {b:'711·关东煮', n:'魔芋丝（1份）', k:20, note:'饱腹零负担'},
+  {b:'711·关东煮', n:'昆布（1份）', k:10, note:'比萝卜还低'},
+  {b:'711·关东煮', n:'水煮蛋（1个）', k:70, note:'优质蛋白'},
+  {b:'711·关东煮', n:'嫩豆腐（1块）', k:60, note:'植物蛋白'},
+  {b:'711·关东煮', n:'鱼豆腐（1块）', k:70, note:'淀粉偏多'},
+  {b:'711·关东煮', n:'竹轮（1个）', k:65, note:'淀粉偏多'},
+  {b:'711·关东煮', n:'丸子（1个）', k:85, note:'少吃，基本是淀粉'},
+  {b:'711·关东煮', n:'香肠（1根）', k:130, note:'油+淀粉，不推荐'},
+  {b:'711·关东煮', n:'乌冬面（1份）', k:200, note:'想吃饱可以加'},
+  {b:'711·便当热食', n:'咖喱鸡肉饭', k:550, note:'一份就是一顿'},
+  {b:'711·便当热食', n:'牛丼便当', k:600, note:'热量偏高'},
+  {b:'711·便当热食', n:'鸡腿便当', k:650, note:'油炸，减脂期避开'},
+  {b:'711·便当热食', n:'番茄意面', k:420, note:'酱料型偏甜'},
+  {b:'711·便当热食', n:'奶油意面', k:520, note:'奶油热量高'},
+  {b:'711·便当热食', n:'炒面（盒装）', k:500, note:'油多'},
+  {b:'711·便当热食', n:'即食鸡胸（1块）', k:130, note:'最推荐，蛋白担当'},
+  {b:'711·便当热食', n:'即食牛腱（1份）', k:150, note:'蛋白高，脂肪低'},
+  {b:'711·便当热食', n:'即食溏心蛋（1个）', k:70, note:'加餐好选择'},
+  {b:'711·便当热食', n:'热玉米（1根）', k:130, note:'粗粮碳水'},
+  {b:'711·便当热食', n:'肉包（1个）', k:200, note:'早餐可选'},
+  {b:'711·便当热食', n:'菜包（1个）', k:150, note:'比肉包低 50 kcal'},
+  {b:'711·便当热食', n:'烤肠（1根）', k:200, note:'油多，不推荐'},
+  {b:'711·便当热食', n:'炸鸡（1块）', k:250, note:'减脂期避开'},
+  {b:'711·速食面', n:'合味道杯面', k:350, note:'偶尔吃'},
+  {b:'711·速食面', n:'辛拉面（碗装）', k:500, note:'热量偏高'},
+  {b:'711·速食面', n:'泡面（碗装）', k:400, note:'热量偏高'},
+  {b:'711·速食面', n:'自热火锅', k:600, note:'不建议'},
+  {b:'711·沙拉', n:'蔬菜沙拉', k:100, note:'+和风酱半包 125'},
+  {b:'711·沙拉', n:'鸡胸沙拉', k:250, note:'一份搞定蛋白+蔬菜'},
+  {b:'711·沙拉', n:'水果沙拉', k:150, note:'糖分偏高，偶尔吃'},
+  {b:'711·零食饮品', n:'纯牛奶（250ml）', k:130, note:'蛋白担当'},
+  {b:'711·零食饮品', n:'无糖酸奶（100g）', k:60, note:'加餐首选'},
+  {b:'711·零食饮品', n:'水果酸奶（100g）', k:130, note:'糖分高，避开'},
+  {b:'711·零食饮品', n:'无糖乌龙茶', k:0, note:'闭眼喝'},
+  {b:'711·零食饮品', n:'黑咖啡', k:5, note:'几乎零卡'},
+  {b:'711·零食饮品', n:'矿泉水', k:0, note:'0 kcal'},
+  {b:'711·零食饮品', n:'鲜榨橙汁（250ml）', k:120, note:'糖分高'},
+  {b:'711·零食饮品', n:'乳酸菌饮料', k:90, note:'糖多'},
+  {b:'711·零食饮品', n:'薯片（小包）', k:150, note:'高油高盐'},
+  {b:'711·零食饮品', n:'坚果（小包）', k:100, note:'好脂肪，控制在1包'},
+  {b:'711·零食饮品', n:'巧克力（小条）', k:90, note:'真馋了吃一条'}
+];
+
+const BASE_BRANDS = ['711·饭团','711·三明治','711·关东煮','711·便当热食','711·速食面','711·沙拉','711·零食饮品',
+  '瑞幸·果茶','霸王茶姬','瑞幸·咖啡','喜茶','蜜雪冰城','古茗','茶百道','沪上阿姨','一点点','通用小料'];
+function allBrands(){
+  return ['全部', ...(S.customFoods.length ? ['⭐ 我的自定义'] : []), ...BASE_BRANDS];
+}
+function allDrinks(){
+  const custom = S.customFoods.map(f=>({b:'⭐ 我的自定义', n:f.n, k:f.k, note:f.note||'', customId:f.id}));
+  return [...custom, ...DRINKS];
+}
+
+const MEALS = [['b','🌅 早餐'],['l','🍚 午餐'],['d','🥗 晚餐'],['s','🍎 加餐']];
+const MEAL_ICON = {b:'🌅', l:'🍚', d:'🥗', s:'🍎'};
+const MEAL_NAME = {b:'早餐', l:'午餐', d:'晚餐', s:'加餐'};
+
+/* ========== 深夜饥饿 ========== */
+const LATE_NIGHT = [
+  {n:'温水 300ml', k:0, why:'先喝一杯温水，很多"饿"其实是渴'},
+  {n:'无糖酸奶 100g', k:60, why:'蛋白+益生菌，饱腹不涨'},
+  {n:'水煮蛋 1 个', k:70, why:'纯蛋白，几乎不长肉'},
+  {n:'圣女果 10 颗', k:25, why:'有甜味，几乎零卡'},
+  {n:'黄瓜半根', k:10, why:'嚼着解馋，含水多'},
+  {n:'无糖豆浆 200ml', k:50, why:'温和不刺激胃'},
+  {n:'关东煮白萝卜', k:15, why:'几乎零卡，热乎的舒服'},
+  {n:'一小块黑巧 70%', k:40, why:'真的馋甜就吃这一小块'}
+];
+
+/* ========== 食谱 ========== */
+const RECIPES = {
+  school:[
+    { name:'方案 A · 走读标准日',
+      meals:[
+        {t:'06:50', n:'早餐', k:400, d:'包子 1 个 + 牛奶 250ml + 坚果一小把（10g）。<b>坚果别抓第二把</b>。早功日提前到 06:20 起床，早餐压缩成：牛奶 + 鸡蛋 + 半片面包。'},
+        {t:'10:00', n:'课间加餐', k:60, d:'几颗坚果或半个苹果。'},
+        {t:'11:50', n:'午餐（711）', k:550, d:'饭团 + 即食鸡胸 + 蔬菜沙拉 + 无糖茶。<b>一定要买够蛋白质</b>，下午 2 小时专业课靠这顿供能。'},
+        {t:'13:30', n:'课前加餐', k:80, d:'半根香蕉 + 200ml 水。'},
+        {t:'13:40-15:10', n:'🩰 基训（大课）', k:-500, d:'100 分钟专业课。15:00 课间补 100-150ml 水。'},
+        {t:'15:30-17:00', n:'🩰 毯技/剧目（大课）', k:-500, d:'100 分钟专业课。中间休息补一次水。'},
+        {t:'17:10', n:'训练后加餐', k:200, d:'无糖酸奶 + 半根香蕉，或牛奶一盒 + 一片全麦面包。<b>30 分钟内必吃</b>，然后 18:00 去补习班。'},
+        {t:'17:30', n:'晚餐（带路上吃）', k:350, d:'即食鸡胸 + 蔬菜沙拉 + 半个饭团。18:00 进补习班前吃完。'},
+        {t:'21:10', n:'到家（可选）', k:130, d:'先拉伸 15 分钟。真的饿就喝一杯温牛奶。'}
+      ]},
+    { name:'方案 B · 走读轻食日',
+      meals:[
+        {t:'06:50', n:'早餐', k:350, d:'速冻小笼包 6 个 + 无糖豆浆 + 水煮蛋 1 个。'},
+        {t:'10:00', n:'课间', k:90, d:'苹果 1 个 + 一小把坚果。'},
+        {t:'11:50', n:'午餐（711）', k:500, d:'三明治 + 牛奶 + 茶叶蛋 + 蔬菜沙拉。'},
+        {t:'13:30', n:'课前', k:80, d:'全麦面包 1 片 + 200ml 水。'},
+        {t:'13:40-15:10', n:'🩰 基训', k:-500, d:'课间补水 100-150ml。'},
+        {t:'15:30-17:00', n:'🩰 毯技/剧目', k:-500, d:'课间补水。'},
+        {t:'17:10', n:'训练后', k:200, d:'牛奶一盒 + 半根香蕉。'},
+        {t:'17:30', n:'晚餐', k:320, d:'关东煮（萝卜+魔芋+鸡蛋+豆腐）+ 半个饭团。'},
+        {t:'21:10', n:'到家（可选）', k:130, d:'温牛奶一杯。'}
+      ]},
+    { name:'方案 C · 走读高蛋白日',
+      meals:[
+        {t:'06:50', n:'早餐', k:420, d:'包子 + 牛奶 + 水煮蛋 + 坚果 10g。'},
+        {t:'10:00', n:'课间', k:70, d:'无糖酸奶 1 杯。'},
+        {t:'11:50', n:'午餐（711）', k:560, d:'饭团 + 即食鸡胸 + 关东煮鸡蛋 + 蔬菜沙拉。'},
+        {t:'13:30', n:'课前', k:60, d:'半根香蕉。'},
+        {t:'13:40-15:10', n:'🩰 基训', k:-500, d:'课间补水。'},
+        {t:'15:30-17:00', n:'🩰 毯技/剧目', k:-500, d:'课间补水。'},
+        {t:'17:10', n:'训练后', k:200, d:'无糖酸奶 + 半根香蕉。'},
+        {t:'17:30', n:'晚餐', k:360, d:'即食鸡胸 + 关东煮 + 半个饭团。'},
+        {t:'21:10', n:'到家（可选）', k:120, d:'温牛奶一杯。'}
+      ]}
+  ],
+  cvs:[
+    { name:'方案 A · 训练日标准',
+      meals:[
+        {t:'主食', n:'选 1 个', k:190, d:'饭团 或 三明治。<b>避开：</b>炒面、炸物柜鸡排、奶油意面。'},
+        {t:'蛋白', n:'选 1-2 个', k:200, d:'即食鸡胸（最推荐）、关东煮鸡蛋+豆腐、牛奶、茶叶蛋。<b>避开：</b>丸子、鱼豆腐、香肠。'},
+        {t:'蔬菜', n:'选 1 个', k:100, d:'蔬菜沙拉（和风酱半包）或关东煮白萝卜+魔芋丝。'},
+        {t:'饮料', n:'—', k:0, d:'无糖乌龙茶 / 茉莉茶 / 黑咖啡 / 矿泉水。'},
+        {t:'合计', n:'一顿', k:520, d:'闭着眼按公式买，不会踩雷。'}
+      ]},
+    { name:'方案 B · 关东煮天冷版',
+      meals:[
+        {t:'汤底', n:'—', k:30, d:'关东煮汤别喝，钠太高，第二天会水肿。'},
+        {t:'组合', n:'关东煮', k:200, d:'白萝卜 + 魔芋丝 + 鸡蛋 + 豆腐 + 昆布，最干净的五样。'},
+        {t:'加主食', n:'饭团', k:190, d:'三文鱼或金枪鱼饭团。'},
+        {t:'加蔬菜', n:'小份', k:100, d:'蔬菜沙拉 + 和风酱半包。'},
+        {t:'合计', n:'一顿', k:520, d:'天冷想喝汤又不想热量爆，就选这套。'}
+      ]},
+    { name:'方案 C · 赶时间版',
+      meals:[
+        {t:'三明治', n:'1 个', k:250, d:'金枪鱼或鸡蛋三明治。'},
+        {t:'牛奶', n:'1 盒', k:130, d:'纯牛奶或低脂牛奶。'},
+        {t:'茶叶蛋', n:'2 个', k:140, d:'蛋白补足，路上就能吃。'},
+        {t:'合计', n:'一顿', k:520, d:'5 分钟买完、5 分钟吃完，下课直奔补习班。'}
+      ]},
+    { name:'方案 D · 想吃热食版',
+      meals:[
+        {t:'便当', n:'1 份', k:550, d:'咖喱鸡肉饭（不要鸡腿便当）。'},
+        {t:'配汤', n:'1 碗', k:40, d:'味增汤或海带汤。'},
+        {t:'蔬菜', n:'1 份', k:100, d:'蔬菜沙拉 或 关东煮白萝卜。'},
+        {t:'合计', n:'一顿', k:690, d:'热量偏高，当天晚餐主食减半平衡。'}
+      ]},
+    { name:'方案 E · 轻食清爽版',
+      meals:[
+        {t:'沙拉', n:'1 份', k:250, d:'鸡胸沙拉 1 份。'},
+        {t:'酸奶', n:'1 杯', k:60, d:'无糖酸奶 100g。'},
+        {t:'水果', n:'1 份', k:90, d:'苹果或香蕉 1 个。'},
+        {t:'饮料', n:'—', k:0, d:'无糖茶或矿泉水。'},
+        {t:'合计', n:'一顿', k:400, d:'没胃口、天热、或上午吃多了时选这套。'}
+      ]}
+  ],
+  home:[
+    { name:'方案 A · 周六',
+      meals:[
+        {t:'08:00', n:'早餐', k:400, d:'包子 1 个 + 牛奶 250ml + 坚果 10g。'},
+        {t:'09:00-11:30', n:'补习', k:0, d:'带一瓶水。'},
+        {t:'12:00', n:'午餐', k:480, d:'速冻水饺 8 个 + 青菜一盘 + 鸡蛋 1 个。'},
+        {t:'15:00-16:00', n:'🩰 自己练功', k:-260, d:'软开 + 核心 + 剧目片段。'},
+        {t:'16:30', n:'加餐', k:120, d:'无糖酸奶 + 半个苹果。'},
+        {t:'18:30', n:'晚餐', k:380, d:'清蒸鱼/鸡胸 100g + 青菜 + 红薯半个。'},
+        {t:'21:00', n:'拉伸', k:-30, d:'15 分钟。'},
+        {t:'22:30', n:'睡觉', k:0, d:'睡够 8 小时。'}
+      ]},
+    { name:'方案 B · 周日',
+      meals:[
+        {t:'08:30', n:'早餐', k:400, d:'包子 + 牛奶 + 坚果。'},
+        {t:'10:00-11:00', n:'🩰 自己练功', k:-260, d:'1 小时。'},
+        {t:'12:00', n:'午餐', k:550, d:'杂粮饭一拳 + 鸡胸/牛肉一掌 + 青菜两拳。'},
+        {t:'13:30', n:'课前加餐', k:45, d:'半根香蕉。'},
+        {t:'14:00-16:00', n:'补习', k:0, d:'带水。'},
+        {t:'16:30', n:'晚餐', k:400, d:'番茄豆腐虾仁汤 + 清炒青菜 + 红薯半个。'},
+        {t:'20:00', n:'拉伸', k:-30, d:'15 分钟。'},
+        {t:'22:30', n:'睡觉', k:0, d:'早点睡。'}
+      ]},
+    { name:'方案 C · 懒人快手',
+      meals:[
+        {t:'08:30', n:'早餐', k:360, d:'速冻小笼包 6 个 + 无糖豆浆 + 水煮蛋。'},
+        {t:'10:00-11:00', n:'🩰 自己练功', k:-260, d:'软开 + 核心。'},
+        {t:'12:00', n:'午餐', k:520, d:'速冻水饺 8 个 + 鸡蛋 + 青菜 + 一小碗汤。'},
+        {t:'15:00', n:'加餐', k:120, d:'无糖酸奶 + 半个苹果。'},
+        {t:'18:00', n:'晚餐', k:400, d:'清蒸鱼 100g + 青菜 + 玉米半根。'},
+        {t:'20:30', n:'拉伸', k:-30, d:'15 分钟。'},
+        {t:'22:30', n:'睡觉', k:0, d:'睡够 8 小时。'}
+      ]}
+  ]
+};
+let rcpTab = 0;
+let rcpVersion = {0:0, 1:0, 2:0};
+
+function currentRecipeList(){
+  const key = ['school','cvs','home'][rcpTab];
+  if(S.customRecipes && S.customRecipes[key] && S.customRecipes[key].length){
+    return S.customRecipes[key];
+  }
+  return RECIPES[key];
+}
+
+function renderRcp(){
+  const list = currentRecipeList();
+  const v = rcpVersion[rcpTab] % list.length;
+  const r = list[v];
+  $('rcpName').textContent = r.name + (r.fromAI ? ' 🤖' : '');
+  $('rcpBody').innerHTML = r.meals.map(m=>{
+    const kStr = m.k >= 0 ? `约 ${m.k} kcal` : `消耗 ≈${Math.abs(m.k)} kcal`;
+    return `<div class="rline">
+      <div class="h"><span class="n">${m.t} · ${m.n}</span><span class="k">${kStr}</span></div>
+      <div class="c">${m.d}</div>
+    </div>`;
+  }).join('');
+}
+function switchRcp(i, btn){
+  document.querySelectorAll('#p-food .seg button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on'); rcpTab = i; renderRcp();
+}
+function refreshRcp(){
+  rcpVersion[rcpTab] = (rcpVersion[rcpTab] + 1) % currentRecipeList().length;
+  renderRcp(); toast('换了一套新搭配 ✨');
+}
+
+/* ========== 7 套作息方案（按真实课表） ========== */
+const SCHEDULES = {
+  early: {
+    name:'早功日', desc:'周二/周四 · 7:00-7:50早功 · 17:00放学 · 18:00补习', train:2,
+    items:[
+      {t:'06:20', n:'起床 · 温水200ml', d:'早功日要早起，先喝一杯水', notify:true},
+      {t:'06:35', n:'早餐（快吃）', d:'牛奶 + 鸡蛋 + 半片面包，别省', notify:true},
+      {t:'06:50', n:'出门', d:'去学校，路上带瓶水'},
+      {t:'07:00-07:50', n:'🩰 早功', d:'专业早功', notify:true},
+      {t:'08:00', n:'课间补水', d:'早功后小口补水100ml'},
+      {t:'08:30', n:'文化课开始', d:'上午四节连堂'},
+      {t:'11:50', n:'午餐 · 去711', d:'饭团 + 鸡胸 + 蔬菜沙拉', notify:true},
+      {t:'12:30', n:'午休', d:'趴20-30分钟，下午2小时专业课要顶住'},
+      {t:'13:30', n:'课前补水 + 半根香蕉', d:'给下午垫底', notify:true},
+      {t:'13:40-15:10', n:'🩰 基训（大课）', d:'100分钟专业课', notify:true},
+      {t:'15:10-15:30', n:'大课间', d:'补水100-150ml，别猛灌'},
+      {t:'15:30-17:00', n:'🩰 毯技/剧目（大课）', d:'100分钟专业课', notify:true},
+      {t:'17:10', n:'训练后加餐', d:'无糖酸奶 + 半根香蕉，30分钟内吃', notify:true},
+      {t:'17:30', n:'晚餐（带路上）', d:'即食鸡胸 + 蔬菜沙拉 + 半个饭团', notify:true},
+      {t:'18:00-20:30', n:'补习班', d:'带无糖茶，别买含糖饮料', notify:true},
+      {t:'21:10', n:'到家 · 拉伸15分钟', d:'重点腿和腰，线条更好看'},
+      {t:'22:00', n:'饿就喝温牛奶', d:'真的饿了才喝'},
+      {t:'22:40', n:'睡觉', d:'明天还要早起，睡够8小时', notify:true}
+    ]
+  },
+  normal: {
+    name:'普通日', desc:'周一 · 下午基训+毯技 · 17:00放学 · 18:00补习', train:2,
+    items:[
+      {t:'06:40', n:'起床 · 温水300ml', d:'唤醒代谢', notify:true},
+      {t:'07:00', n:'早餐', d:'包子 + 牛奶 + 坚果一小把', notify:true},
+      {t:'08:30', n:'文化课开始', d:'四节连堂'},
+      {t:'11:50', n:'午餐 · 去711', d:'饭团 + 蛋白 + 蔬菜', notify:true},
+      {t:'12:30', n:'午休', d:'趴20-30分钟'},
+      {t:'13:30', n:'课前补水 + 半根香蕉', d:'别省这口', notify:true},
+      {t:'13:40-15:10', n:'🩰 基训（大课）', d:'100分钟专业课', notify:true},
+      {t:'15:10-15:30', n:'大课间', d:'补水100-150ml'},
+      {t:'15:30-17:00', n:'🩰 毯技（大课）', d:'100分钟专业课', notify:true},
+      {t:'17:10', n:'训练后加餐', d:'无糖酸奶 + 半根香蕉', notify:true},
+      {t:'17:30', n:'晚餐（带路上）', d:'即食鸡胸 + 关东煮 + 半个饭团', notify:true},
+      {t:'18:00-20:30', n:'补习班', d:'带水', notify:true},
+      {t:'21:10', n:'到家 · 拉伸15分钟', d:'腿和腰重点'},
+      {t:'22:40', n:'睡觉', d:'睡够8小时', notify:true}
+    ]
+  },
+  long: {
+    name:'长日', desc:'周三 · 下午基训+班会+数学 · 17:00放学', train:2,
+    items:[
+      {t:'06:40', n:'起床 · 温水300ml', d:'唤醒代谢', notify:true},
+      {t:'07:00', n:'早餐', d:'包子 + 牛奶 + 坚果', notify:true},
+      {t:'08:30', n:'文化课开始', d:'四节连堂'},
+      {t:'11:50', n:'午餐 · 去711', d:'饭团 + 蛋白 + 蔬菜', notify:true},
+      {t:'12:30', n:'午休', d:'趴20分钟'},
+      {t:'13:30', n:'课前补水 + 半根香蕉', d:'补一点能量', notify:true},
+      {t:'13:40-15:10', n:'🩰 基训（大课）', d:'100分钟专业课', notify:true},
+      {t:'15:10-15:30', n:'大课间', d:'补水'},
+      {t:'15:30-16:10', n:'班会', d:'今天不是专业课，训练量比平时少一半'},
+      {t:'16:20-17:00', n:'数学', d:'最后一节文化课'},
+      {t:'17:10', n:'加餐', d:'无糖酸奶 + 香蕉', notify:true},
+      {t:'17:30', n:'晚餐（带路上）', d:'清蒸鱼 + 青菜 + 半个饭团', notify:true},
+      {t:'18:00-20:30', n:'补习班', d:'带水', notify:true},
+      {t:'21:10', n:'到家 · 拉伸15分钟', d:'今天训练量少，多拉伸'},
+      {t:'22:40', n:'睡觉', d:'睡够8小时', notify:true}
+    ]
+  },
+  friday: {
+    name:'早放学', desc:'周五 · 只练基训 · 15:10放学 · 16:00补习到18:00', train:1.5,
+    items:[
+      {t:'06:40', n:'起床 · 温水300ml', d:'唤醒代谢', notify:true},
+      {t:'07:00', n:'早餐', d:'包子 + 牛奶 + 坚果', notify:true},
+      {t:'08:30', n:'文化课开始', d:'四节连堂'},
+      {t:'11:50', n:'午餐 · 去711', d:'饭团 + 鸡胸 + 蔬菜沙拉', notify:true},
+      {t:'12:30', n:'午休', d:'趴20分钟'},
+      {t:'13:30', n:'课前补水 + 半根香蕉', d:'补一点能量'},
+      {t:'13:40-15:10', n:'🩰 基训（大课）', d:'100分钟专业课', notify:true},
+      {t:'15:10', n:'放学 · 加餐', d:'无糖酸奶 + 香蕉', notify:true},
+      {t:'16:00-18:00', n:'补习班', d:'带水', notify:true},
+      {t:'18:00', n:'补习下课', d:'今天结束啦，回家吃晚餐'},
+      {t:'18:30', n:'晚餐', d:'清蒸鱼/鸡胸 + 青菜 + 红薯半个', notify:true},
+      {t:'20:30', n:'拉伸15分钟', d:'腿和腰'},
+      {t:'22:30', n:'睡觉', d:'明天周六还要补习，早点睡', notify:true}
+    ]
+  },
+  saturday: {
+    name:'周六', desc:'上午9:00-11:30补习 · 下午自己练功1小时', train:1,
+    items:[
+      {t:'07:30', n:'起床 · 温水300ml', d:'周末别睡到中午', notify:true},
+      {t:'08:00', n:'早餐', d:'包子 + 牛奶 + 坚果', notify:true},
+      {t:'09:00-11:30', n:'补习班', d:'带一瓶水', notify:true},
+      {t:'12:00', n:'午餐', d:'速冻水饺8个 + 青菜 + 鸡蛋', notify:true},
+      {t:'15:00-16:00', n:'🩰 自己练功1小时', d:'软开 + 核心 + 剧目片段', notify:true},
+      {t:'16:30', n:'加餐', d:'无糖酸奶 + 半个苹果', notify:true},
+      {t:'18:30', n:'晚餐', d:'清蒸鱼/鸡胸 + 青菜 + 红薯半个', notify:true},
+      {t:'21:00', n:'拉伸15分钟', d:'腿和腰'},
+      {t:'22:30', n:'睡觉', d:'睡够8小时', notify:true}
+    ]
+  },
+  sunday: {
+    name:'周日', desc:'上午自己练功1小时 · 下午14:00-16:00补习', train:1,
+    items:[
+      {t:'08:00', n:'起床 · 温水300ml', d:'新的一天', notify:true},
+      {t:'08:30', n:'早餐', d:'包子 + 牛奶 + 坚果', notify:true},
+      {t:'10:00-11:00', n:'🩰 自己练功1小时', d:'别整个上午躺着', notify:true},
+      {t:'12:00', n:'午餐', d:'杂粮饭一拳 + 鸡胸/牛肉一掌 + 青菜两拳', notify:true},
+      {t:'13:30', n:'课前加餐', d:'半根香蕉'},
+      {t:'14:00-16:00', n:'补习班', d:'带水', notify:true},
+      {t:'16:30', n:'晚餐', d:'番茄豆腐虾仁汤 + 清炒青菜 + 红薯半个', notify:true},
+      {t:'20:00', n:'拉伸15分钟', d:'腿和腰'},
+      {t:'22:30', n:'睡觉', d:'明天又要早起了', notify:true}
+    ]
+  },
+  period: {
+    name:'经期舒缓日', desc:'训练减量 · 多休息 · 补充蛋白和温热食物', train:1.5,
+    items:[
+      {t:'06:50', n:'起床 · 温水300ml', d:'比平时多睡20分钟', notify:true},
+      {t:'07:10', n:'早餐（温热）', d:'包子 + 热牛奶 + 水煮蛋', notify:true},
+      {t:'08:30', n:'文化课开始', d:'好好听课'},
+      {t:'10:00', n:'课间补水', d:'喝温水，别喝凉的'},
+      {t:'11:50', n:'午餐 · 去711', d:'关东煮（不要丸子）+ 饭团 + 热牛奶', notify:true},
+      {t:'12:30', n:'午休30分钟', d:'经期多睡一会'},
+      {t:'13:30', n:'课前补水', d:'今天不吃凉的，喝温水'},
+      {t:'13:40-15:10', n:'🩰 基训（减量）', d:'提前跟老师说：今天减量', notify:true},
+      {t:'15:30-17:00', n:'🩰 毯技/剧目（减量）', d:'毯技、跳跃、倒立减量', notify:true},
+      {t:'17:10', n:'加餐', d:'热牛奶 + 一小块黑巧克力', notify:true},
+      {t:'17:30', n:'晚餐（带路上）', d:'温热清淡，多蛋白多蔬菜', notify:true},
+      {t:'18:00-20:30', n:'补习班', d:'带温水', notify:true},
+      {t:'21:10', n:'到家 · 热敷小腹', d:'暖宝宝或热水袋敷15分钟', notify:true},
+      {t:'21:30', n:'轻柔拉伸', d:'只做上半身和腿部'},
+      {t:'22:00', n:'早睡', d:'今天比平时早半小时', notify:true}
+    ]
+  }
+};
+const SCHEDULE_KEYS = ['early','normal','long','friday','saturday','sunday','period'];
+
+function defaultScheduleKey(dateStr){
+  const d = new Date(dateStr+'T00:00:00').getDay();
+  // 0=周日 1=周一 2=周二 3=周三 4=周四 5=周五 6=周六
+  if(d === 0) return 'sunday';
+  if(d === 1) return 'normal';
+  if(d === 2 || d === 4) return 'early';   // 周二、周四有早功
+  if(d === 3) return 'long';                // 周三长日
+  if(d === 5) return 'friday';
+  if(d === 6) return 'saturday';
+  return 'normal';
+}
+function todayScheduleKey(){
+  const t = today();
+  const c = S.settings.scheduleChoice || {};
+  if(c[t] && SCHEDULES[c[t]]) return c[t];
+  const p = periodInfo();
+  if(p.isOnPeriod) return 'period';
+  return defaultScheduleKey(t);
+}
+function todaySchedule(){ return SCHEDULES[todayScheduleKey()]; }
+function defaultTrainFor(dateStr){
+  if(dateStr && dateStr !== today()) return SCHEDULES[defaultScheduleKey(dateStr)].train;
+  return todaySchedule().train;
+}
+function cycleSchedule(){
+  const cur = todayScheduleKey();
+  const idx = SCHEDULE_KEYS.indexOf(cur);
+  const next = SCHEDULE_KEYS[(idx+1) % SCHEDULE_KEYS.length];
+  const t = today();
+  if(!S.settings.scheduleChoice) S.settings.scheduleChoice = {};
+  S.settings.scheduleChoice[t] = next;
+  if(!S.days[t]) S.days[t] = {weight:null, train:SCHEDULES[next].train, items:[]};
+  else if(!S.days[t].weight) S.days[t].train = SCHEDULES[next].train;
+  save(); renderHome();
+  toast('已切换到：' + SCHEDULES[next].name);
+}
+function openSchedulePicker(){
+  const cur = todayScheduleKey();
+  openSheet(`
+    <h3>选择今天的作息</h3>
+    <div class="sub">选完后今天用这套，明天恢复默认</div>
+    <div class="sched-list">
+      ${SCHEDULE_KEYS.map(k=>{
+        const s = SCHEDULES[k];
+        return `<button class="sched-item ${k===cur?'on':''}" onclick="pickSchedule('${k}')">
+          <div class="sn">${s.name}</div>
+          <div class="sd">${s.desc}</div>
+        </button>`;
+      }).join('')}
+    </div>
+    <button class="btn ghost mini" style="margin-top:14px" onclick="closeSheet()">取消</button>
+  `);
+}
+function pickSchedule(k){
+  const t = today();
+  if(!S.settings.scheduleChoice) S.settings.scheduleChoice = {};
+  S.settings.scheduleChoice[t] = k;
+  if(!S.days[t]) S.days[t] = {weight:null, train:SCHEDULES[k].train, items:[]};
+  else S.days[t].train = SCHEDULES[k].train;
+  save(); closeSheet(); renderHome();
+  toast('已切换到：' + SCHEDULES[k].name);
+}
+
+/* ========== 课表 ========== */
+const TIMETABLE = {
+  '1': { name:'周一', lessons:[
+    {t:'08:30-09:10', c:'数学'}, {t:'09:20-10:00', c:'英语'},
+    {t:'10:20-11:00', c:'语文'}, {t:'11:10-11:50', c:'语文'},
+    {t:'13:40-15:10', c:'基训女（大课）', z:true}, {t:'15:30-17:00', c:'毯技女（大课）', z:true}
+  ]},
+  '2': { name:'周二（有早功）', lessons:[
+    {t:'07:00-07:50', c:'🩰 早功', z:true},
+    {t:'08:30-09:10', c:'语文'}, {t:'09:20-10:00', c:'数学'},
+    {t:'10:20-11:00', c:'英语'}, {t:'11:10-11:50', c:'英语'},
+    {t:'13:40-15:10', c:'基训（大课）', z:true}, {t:'15:30-17:00', c:'毯技（大课）', z:true}
+  ]},
+  '3': { name:'周三', lessons:[
+    {t:'08:30-09:10', c:'语文'}, {t:'09:20-10:00', c:'语文'},
+    {t:'10:20-11:00', c:'英语'}, {t:'11:10-11:50', c:'政治'},
+    {t:'13:40-15:10', c:'基训（大课）', z:true},
+    {t:'15:30-16:10', c:'班会'}, {t:'16:20-17:00', c:'数学'}
+  ]},
+  '4': { name:'周四（有早功）', lessons:[
+    {t:'07:00-07:50', c:'🩰 早功', z:true},
+    {t:'08:30-09:10', c:'语文'}, {t:'09:20-10:00', c:'语文'},
+    {t:'10:20-11:00', c:'英语'}, {t:'11:10-11:50', c:'数学'},
+    {t:'13:40-15:10', c:'基训女（大课）', z:true}, {t:'15:30-17:00', c:'剧目女（大课）', z:true}
+  ]},
+  '5': { name:'周五（早放学）', lessons:[
+    {t:'08:30-09:10', c:'英语'}, {t:'09:20-10:00', c:'数学'},
+    {t:'10:20-11:00', c:'政治'}, {t:'11:10-11:50', c:'英语'},
+    {t:'13:40-15:10', c:'基训女（大课）', z:true}
+  ]},
+  '6': { name:'周六', lessons:[
+    {t:'09:00-11:30', c:'补习班'}
+  ]},
+  '0': { name:'周日', lessons:[
+    {t:'14:00-16:00', c:'补习班'}
+  ]}
+};
+
+function renderTimetable(){
+  const day = new Date().getDay();
+  const key = String(day);
+  const tb = TIMETABLE[key];
+  if(!tb){ $('timetableBody').innerHTML = '<div class="empty">今天没有课</div>'; return; }
+  $('timetableDay').textContent = tb.name;
+  $('timetableBody').innerHTML = `<div class="timetable-grid">
+    ${tb.lessons.map(l=>`
+      <div class="tg-t">${l.t}</div>
+      <div class="tg-c" ${l.z?'style="color:var(--pink);font-weight:600"':''}>${l.c}</div>
+    `).join('')}
+  </div>`;
+}
+
+/* ========== 页面切换 ========== */
+function go(p){
+  document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(el=>el.classList.toggle('on', el.dataset.p===p));
+  $('p-'+p).classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
+  if(p==='log'){ renderMeals(); doSearch(); renderSupervise(); }
+  if(p==='diary'){ renderDiary(); renderPeriod(); renderProgress(); setTimeout(drawChart,30); }
+  if(p==='plan'){ renderTasks(); renderHabits(); }
+  if(p==='food'){ renderRcp(); }
+  if(p==='me'){ renderMe(); }
+}
+
+/* ========== 热量 ========== */
+function latestWeight(){
+  const keys = Object.keys(S.days).filter(k=>S.days[k].weight).sort();
+  if(keys.length) return S.days[keys[keys.length-1]].weight;
+  return S.profile.startWeight;
+}
+function bmrTDEE(wJin, h, age, act){
+  const kg = wJin/2;
+  const bmr = 10*kg + 6.25*h - 5*age - 161;
+  return {bmr, tdee: bmr*act};
+}
+function goalIntake(){
+  const {tdee} = bmrTDEE(latestWeight(), S.profile.height, S.profile.age, S.profile.activity);
+  return Math.max(1400, Math.round((tdee-600)/10)*10);
+}
+function toggleCalc(){
+  const b = $('calcBody');
+  const open = b.style.display !== 'none';
+  b.style.display = open ? 'none' : 'block';
+  $('calcBtn').textContent = open ? '展开' : '收起';
+}
+function calc(){
+  const h = parseFloat($('inH').value) || S.profile.height;
+  const a = parseFloat($('inA').value) || S.profile.age;
+  const w = parseFloat($('inW').value) || latestWeight();
+  const act = parseFloat($('inAct').value);
+  S.profile.height = h; S.profile.age = a; S.profile.activity = act;
+  save();
+  const {bmr, tdee} = bmrTDEE(w,h,a,act);
+  const target = Math.max(1400, Math.round((tdee-600)/10)*10);
+  const perWeek = Math.max(0, (tdee-target)*7/7700)*2;
+  $('resBox').innerHTML = `
+    <div class="res-big">${target} <small>kcal / 天 · 建议摄入</small></div>
+    <div class="res-row"><span>基础代谢 BMR</span><b>${Math.round(bmr)} kcal</b></div>
+    <div class="res-row"><span>每日总消耗 TDEE</span><b>${Math.round(tdee)} kcal</b></div>
+    <div class="res-row"><span>每日热量缺口</span><b>${Math.round(tdee-target)} kcal</b></div>
+    <div class="res-row"><span>预计减重速度</span><b>约 ${round1(perWeek)} 斤 / 周</b></div>
+    <div style="font-size:12px;color:var(--muted);margin-top:10px;line-height:1.6;border-top:1px dashed var(--line);padding-top:10px">
+      建议摄入不低于 1400 kcal。低于这个数，下午的毯技课会没力气。
+    </div>`;
+  $('resBox').classList.add('on');
+  renderHome();
+}
+
+/* ========== 自定义食物 ========== */
+function openAddCustomFood(prefillName){
+  openSheet(`
+    <h3>⭐ 新增自定义食物</h3>
+    <div class="sub">711 吃的、家里做的、外面小店买的都可以加</div>
+    <label>食物名称</label>
+    <input id="cfName" placeholder="例如：711 关东煮丸子" value="${escapeHTML(prefillName||'')}">
+    <label>热量（kcal）</label>
+    <input id="cfKcal" type="number" inputmode="numeric" placeholder="例如：85">
+    <label>备注（可选）</label>
+    <input id="cfNote" placeholder="例如：中份 / 一份 / 一个">
+    <button class="btn" onclick="doAddCustomFood()">添加</button>
+    <button class="btn ghost mini" onclick="openCustomFoods()">查看我的列表</button>
+    <button class="btn ghost mini" onclick="closeSheet()">取消</button>
+  `);
+}
+function doAddCustomFood(){
+  const n = ($('cfName').value||'').trim();
+  const k = parseInt($('cfKcal').value, 10);
+  const note = ($('cfNote').value||'').trim();
+  if(!n){ toast('写个名字吧'); return; }
+  if(!k || k < 0 || k > 3000){ toast('填个 0-3000 之间的热量'); return; }
+  S.customFoods.push({id: uid(), n, k, note, created: Date.now()});
+  save(); closeSheet();
+  toast('已添加：' + n);
+  renderBrands(); doSearch();
+}
+function openCustomFoods(){
+  if(!S.customFoods.length){
+    openSheet(`
+      <h3>⭐ 我的自定义食物</h3>
+      <div class="sub">还没有添加过</div>
+      <div class="empty" style="padding:40px 0">点下面的按钮添加第一个吧</div>
+      <button class="btn" onclick="openAddCustomFood()">+ 新增自定义食物</button>
+      <button class="btn ghost mini" onclick="closeSheet()">关闭</button>
+    `);
+    return;
+  }
+  openSheet(`
+    <h3>⭐ 我的自定义食物</h3>
+    <div class="sub">共 ${S.customFoods.length} 条 · 点右侧 × 删除</div>
+    <div style="margin-top:12px;border:1px solid var(--line);border-radius:14px;overflow:hidden">
+      ${S.customFoods.map(f=>`
+        <div class="cf-item">
+          <div class="cn">${escapeHTML(f.n)}${f.note?`<small>${escapeHTML(f.note)}</small>`:''}</div>
+          <div class="ck">${f.k}<small> kcal</small></div>
+          <button class="rm" onclick="delCustomFood('${f.id}')">×</button>
+        </div>
+      `).join('')}
+    </div>
+    <button class="btn" style="margin-top:14px" onclick="openAddCustomFood()">+ 新增</button>
+    <button class="btn ghost mini" onclick="closeSheet()">关闭</button>
+  `);
+}
+function delCustomFood(id){
+  S.customFoods = S.customFoods.filter(f=>f.id !== id);
+  save(); toast('已删除');
+  openCustomFoods(); renderBrands(); doSearch();
+}
+
+/* ========== 搜索 ========== */
+let currentBrand = '全部';
+function renderBrands(){
+  const brands = allBrands();
+  if(!brands.includes(currentBrand)) currentBrand = '全部';
+  $('brandRow').innerHTML = brands.map(b=>
+    `<button class="${b===currentBrand?'on':''}" onclick="setBrand('${b.replace(/'/g,"\\'")}')">${b}</button>`
+  ).join('');
+}
+function setBrand(b){ currentBrand = b; renderBrands(); doSearch(); }
+function doSearch(){
+  const q = ($('searchInput').value || '').trim().toLowerCase();
+  const all = allDrinks();
+  let list = [];
+  all.forEach(d=>{
+    if(currentBrand !== '全部' && d.b !== currentBrand) return;
+    if(!q || d.n.toLowerCase().includes(q) || d.b.includes(q) || (d.note && d.note.toLowerCase().includes(q))) list.push(d);
+  });
+  if(!q && currentBrand === '全部'){
+    list = [...all].sort((a,b)=>a.k-b.k).slice(0,12);
+    $('searchResult').innerHTML = '<div class="sec-label">低卡推荐 · 前 12 名</div>' + list.map(cardHTML).join('');
+    return;
+  }
+  if(!list.length){
+    $('searchResult').innerHTML = `<div class="empty">没有找到「${escapeHTML(q)}」<br><br>点右上角 + 自己加一条</div>`;
+    return;
+  }
+  list.sort((a,b)=>a.k-b.k);
+  const label = currentBrand === '全部' ? `找到 ${list.length} 条` : `${currentBrand} · ${list.length} 条`;
+  $('searchResult').innerHTML = `<div class="sec-label">${label}</div>` + list.map(cardHTML).join('');
+}
+function cardHTML(d){
+  const note = d.note ? `<div class="nt">${d.note}</div>` : '';
+  const isCustom = !!d.customId;
+  const escName = d.n.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+  return `<div class="shopcard">
+    <div class="brand"><span class="dot"></span>${d.b}</div>
+    <div class="body">
+      <div class="info"><div class="nm">${escapeHTML(d.n)}</div>${note}</div>
+      <div class="right">
+        <div class="kc">${d.k}<small> kcal</small></div>
+        <div class="act-row">
+          <button class="addbtn" onclick="addDrink('${escName}',${d.k})">+ 加入</button>
+          ${isCustom ? `<button class="delbtn" onclick="delCustomFood('${d.customId}')">×</button>` : ''}
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+function addDrink(name, k){
+  const h = new Date().getHours();
+  const m = h < 10 ? 'b' : (h < 15 ? 'l' : (h < 20 ? 'd' : 's'));
+  const nm = MEALS.find(x=>x[0]===m)[1].replace(/[^\u4e00-\u9fa5]/g,'');
+  const d = dayOf(today());
+  d.items.push({m, n:name, k});
+  save();
+  toast('已加入' + nm + ' · ' + name);
+  renderMeals(); renderHome();
+}
+
+/* ========== 打开提醒 ========== */
+function renderOpenReminder(){
+  const box = $('openReminderBox');
+  if(!box) return;
+  const now = new Date();
+  const hm = nowHM();
+  const h = now.getHours();
+  const sch = todaySchedule();
+  const t = today();
+
+  let curIdx = -1;
+  sch.items.forEach((s,i)=>{
+    const startT = s.t.split('-')[0];
+    if(startT <= hm) curIdx = i;
+  });
+  const cur = curIdx >= 0 ? sch.items[curIdx] : null;
+  const next = curIdx+1 < sch.items.length ? sch.items[curIdx+1] : null;
+
+  const m = mealsOf(t);
+  const missingMeals = MEALS.filter(([k])=>!(m[k] && m[k].photoId));
+  const allTasks = [...S.tasks.defaults, ...S.tasks.custom].filter(x=>x.on);
+  const doneIds = S.tasks.done[t] || [];
+  const undone = allTasks.filter(x=>!doneIds.includes(x.id));
+
+  const lines = [];
+  if(cur) lines.push({ico:'📍', main:`现在：${cur.n.replace(/🩰/g,'').trim()}`, sub:cur.d});
+  if(next){
+    const gap = timeGap(next.t.split('-')[0]);
+    if(gap > 0 && gap <= 90){
+      lines.push({ico:'⏰', main:`${next.t.split('-')[0]} ${next.n.replace(/🩰/g,'').trim()}`, sub:`还有 ${gap} 分钟 · ${next.d}`});
+    }
+  }
+  if(h >= 6 && h < 10 && missingMeals.some(([k])=>k==='b'))
+    lines.push({ico:'📸', main:'早餐还没拍照记录', sub:'拍一张再忙别的'});
+  if(h >= 12 && h < 15 && missingMeals.some(([k])=>k==='l'))
+    lines.push({ico:'📸', main:'午餐还没拍照记录', sub:'拍完再去上课'});
+  if(h >= 17 && h < 21 && missingMeals.some(([k])=>k==='d'))
+    lines.push({ico:'📸', main:'晚餐还没拍照记录', sub:'带去补习班记得拍'});
+  if(h >= 21 && missingMeals.length >= 2)
+    lines.push({ico:'📸', main:`今天还有 ${missingMeals.length} 餐没拍照`, sub:'睡前补记录一下'});
+  if(undone.length > 0 && h >= 16)
+    lines.push({ico:'✅', main:`还有 ${undone.length} 项任务没完成`, sub:undone.slice(0,3).map(x=>x.name).join('、')});
+  if(h >= 22)
+    lines.push({ico:'🌙', main:'该准备睡觉了', sub:'睡够 8 小时，明天才有劲练功'});
+  else if(h >= 21)
+    lines.push({ico:'🧘', main:'拉伸 15 分钟了吗？', sub:'睡前拉伸线条更好看'});
+
+  if(!lines.length) lines.push({ico:'✨', main:'今天状态不错', sub:'按计划走，不用急'});
+
+  const timeGreet = h < 6 ? '凌晨了' : h < 9 ? '早上好' : h < 12 ? '上午好' :
+                    h < 14 ? '中午好' : h < 18 ? '下午好' : h < 22 ? '晚上好' : '夜深了';
+
+  box.innerHTML = `
+    <div class="open-reminder">
+      <div class="ot">${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日 ${['周日','周一','周二','周三','周四','周五','周六'][now.getDay()]}</div>
+      <div class="oh">${timeGreet} · ${hm}</div>
+      <div class="ob">
+        ${lines.slice(0,5).map(l=>`
+          <div class="oline">
+            <span class="ico">${l.ico}</span>
+            <span class="txt"><b>${escapeHTML(l.main)}</b>${l.sub?`<small>${escapeHTML(l.sub)}</small>`:''}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+function timeGap(targetHM){
+  const now = new Date();
+  const [th,tm] = targetHM.split(':').map(Number);
+  const target = new Date();
+  target.setHours(th, tm, 0, 0);
+  return Math.round((target - now)/60000);
+}
+
+/* ========== 深夜饥饿 ========== */
+function renderLateNight(){
+  const box = $('lateNightBox');
+  if(!box) return;
+  const h = new Date().getHours();
+  if(h < 21 && h >= 3){ box.innerHTML = ''; return; }
+  const hourTxt = h >= 21 ? '现在这个点了' : '这么晚了';
+  box.innerHTML = `
+    <div class="late-night">
+      <div class="lh">🌙 真的饿了？</div>
+      <div class="ls">${hourTxt}，饿得睡不着也不行。<b>挑一样吃，不要多吃。</b>吃完到睡觉至少隔 40 分钟。</div>
+      <div class="l-opts">
+        ${LATE_NIGHT.slice(0,6).map(item=>`
+          <button class="l-opt" onclick="addLateNight('${item.n.replace(/'/g,"\\'")}',${item.k})">
+            <div class="ln">${item.n}</div>
+            <div class="lk">${item.k} kcal · ${item.why}</div>
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+function addLateNight(name, k){
+  const h = new Date().getHours();
+  const m = h >= 20 || h < 2 ? 's' : 'd';
+  const d = dayOf(today());
+  d.items.push({m, n:'[深夜]'+name, k});
+  save();
+  toast('已记录深夜加餐 · ' + name);
+  renderMeals(); renderHome();
+}
+
+/* ========== 相册 ========== */
+async function renderAlbumPreview(){
+  const box = $('albumPreview');
+  if(!box) return;
+  const all = await IDB.all();
+  all.sort((a,b)=>(b.time||0)-(a.time||0));
+  $('albumCount').textContent = all.length + ' 张';
+  if(!all.length){
+    box.innerHTML = '<div class="empty">还没有照片，去记录页拍照打卡吧</div>';
+    return;
+  }
+  const recent = all.slice(0,9);
+  box.innerHTML = `
+    <div class="album-grid">
+      ${recent.map(p=>`
+        <div class="album-cell" onclick="viewPhotoById('${p.id}')">
+          <img src="${p.dataUrl}" loading="lazy">
+          <div class="ac-tag">${MEAL_ICON[p.meal]||'📸'}</div>
+          <div class="ac-time">${timeStr(p.time||Date.now())}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+async function openAlbum(){
+  const all = await IDB.all();
+  all.sort((a,b)=>(b.time||0)-(a.time||0));
+  if(!all.length){
+    openSheet(`
+      <h3>📷 我的相册</h3>
+      <div class="sub">还没有照片</div>
+      <div class="empty" style="padding:50px 0">去记录页拍照打卡，照片会自动出现在这里</div>
+      <button class="btn ghost mini" onclick="closeSheet()">关闭</button>
+    `);
+    return;
+  }
+  const byDate = {};
+  all.forEach(p=>{
+    const d = p.date || fmtD(new Date(p.time || Date.now()));
+    if(!byDate[d]) byDate[d] = [];
+    byDate[d].push(p);
+  });
+  const dates = Object.keys(byDate).sort().reverse();
+  let html = `<h3>📷 我的相册</h3><div class="sub">共 ${all.length} 张 · 按时间倒序</div>`;
+  dates.forEach(d=>{
+    const list = byDate[d];
+    const day = new Date(d+'T00:00:00');
+    const wk = ['周日','周一','周二','周三','周四','周五','周六'][day.getDay()];
+    const dayTxt = `${d.slice(5)} ${wk}`;
+    html += `<div class="album-grid" style="margin-top:10px">
+      <div class="album-day-label">${dayTxt} · ${list.length} 张</div>
+      ${list.map(p=>`
+        <div class="album-cell" onclick="viewPhotoById('${p.id}')">
+          <img src="${p.dataUrl}" loading="lazy">
+          <div class="ac-tag">${MEAL_ICON[p.meal]||'📸'}</div>
+          <div class="ac-time">${timeStr(p.time||Date.now())}</div>
+        </div>
+      `).join('')}
+    </div>`;
+  });
+  html += `<button class="btn ghost mini" style="margin-top:14px" onclick="closeSheet()">关闭</button>`;
+  openSheet(html);
+}
+async function viewPhotoById(id){
+  const p = await IDB.get(id);
+  if(!p || !p.dataUrl){ toast('照片已丢失'); return; }
+  const day = new Date(p.time || Date.now());
+  const dateTxt = `${day.getFullYear()}年${day.getMonth()+1}月${day.getDate()}日 ${['周日','周一','周二','周三','周四','周五','周六'][day.getDay()]} ${timeStr(p.time||Date.now())}`;
+  const mealTxt = MEAL_NAME[p.meal] || '照片';
+  openSheet(`
+    <h3>${MEAL_ICON[p.meal]||'📸'} ${mealTxt}</h3>
+    <div class="sub">${dateTxt}</div>
+    <div class="preview-wrap"><img src="${p.dataUrl}"></div>
+    <button class="btn danger mini" onclick="delPhotoById('${id}')">删除这张照片</button>
+    <button class="btn ghost mini" onclick="closeSheet()">关闭</button>
+  `);
+}
+async function delPhotoById(id){
+  const p = await IDB.get(id);
+  if(p){
+    if(p.date && p.meal && S.meals[p.date] && S.meals[p.date][p.meal]){
+      delete S.meals[p.date][p.meal];
+      const d = S.days[p.date];
+      if(d && d.items){
+        d.items = d.items.filter(it => it.m !== p.meal || !it._fromShot);
+      }
+      save();
+    }
+    await IDB.del(id);
+  }
+  closeSheet();
+  toast('已删除');
+  renderSupervise(); renderPhotoWall(); renderAlbumPreview(); renderHome();
+}
+
+/* ========== 我的主页 ========== */
+function renderMe(){
+  const t = today();
+  const P = S.profile;
+  const nowW = latestWeight();
+  const lost = round1(Math.max(0, P.startWeight - nowW));
+  const streak = checkinStreak();
+  $('meMeta').textContent = `${P.age} 岁 · 目标 ${P.targetWeight} 斤`;
+  $('meW').textContent = round1(nowW);
+  $('meLost').textContent = lost;
+  $('meStreak').textContent = streak;
+
+  $('bodyDate').textContent = t.slice(5);
+  const b = S.body[t] || {};
+  const bodyItems = [
+    {key:'energy', ico:'⚡', name:'精力', emoji:['😴','😐','🙂','😃','🔥']},
+    {key:'mood',   ico:'😊', name:'心情', emoji:['😭','😔','😐','🙂','😄']},
+    {key:'skin',   ico:'✨', name:'皮肤', emoji:['😣','😕','😐','🙂','✨']},
+    {key:'appetite', ico:'🍽', name:'食欲', emoji:['🚫','😑','😐','🙂','😋']}
+  ];
+  $('bodyStatus').innerHTML = bodyItems.map(it=>{
+    const cur = b[it.key] || 0;
+    return `<div class="status-row">
+      <div class="sl">${it.ico} ${it.name}</div>
+      <div class="sr">
+        ${[1,2,3,4,5].map(v=>`
+          <button class="star-btn ${cur===v?'on':''}" onclick="setBodyStatus('${it.key}',${v})">${it.emoji[v-1]}</button>
+        `).join('')}
+      </div>
+    </div>`;
+  }).join('');
+
+  const lastSleep = S.sleep[t] || {};
+  if(lastSleep.sleepTs && lastSleep.wakeTs){
+    const dur = (new Date(lastSleep.wakeTs) - new Date(lastSleep.sleepTs)) / 3600000;
+    const q = lastSleep.quality || 3;
+    const qTxt = ['很浅','较浅','一般','较沉','很沉'][q-1] || '一般';
+    $('sleepBody').innerHTML = `
+      <div class="sleep-big">
+        <div class="sleep-num">${dur.toFixed(1)}<small>h</small></div>
+        <div class="sleep-info">
+          入睡 <b>${timeStr(lastSleep.sleepTs)}</b><br>
+          起床 <b>${timeStr(lastSleep.wakeTs)}</b><br>
+          质量 <b>${qTxt}</b>
+        </div>
+      </div>
+      <div style="font-size:12.5px;color:var(--muted);line-height:1.7;padding-top:10px;border-top:1px dashed var(--line)">
+        ${dur < 7 ? '⚠️ 睡不够 7 小时，第二天会特别想吃甜的。' : '✅ 睡眠充足，今天状态应该不错。'}
+      </div>
+      <button class="btn ghost mini" onclick="openSleepLog()">重新记录</button>
+    `;
+  }else{
+    $('sleepBody').innerHTML = `
+      <div class="empty" style="padding:20px 0">记录一下昨晚睡了多少，才能看出对体重的影响</div>
+      <button class="btn" onclick="openSleepLog()">记录昨晚睡眠</button>
+    `;
+  }
+  renderAlbumPreview();
+}
+function setBodyStatus(key, v){
+  const t = today();
+  if(!S.body[t]) S.body[t] = {};
+  if(S.body[t][key] === v) delete S.body[t][key];
+  else S.body[t][key] = v;
+  save(); renderMe();
+  if(S.body[t][key]) toast('已记录');
+}
+function openSleepLog(){
+  const t = today();
+  const cur = S.sleep[t] || {};
+  const now = new Date();
+  const defSleep = cur.sleepTs ? new Date(cur.sleepTs) : new Date(now.getFullYear(), now.getMonth(), now.getDate()-1, 23, 0);
+  const defWake = cur.wakeTs ? new Date(cur.wakeTs) : new Date(now.getFullYear(), now.getMonth(), now.getDate(), 7, 0);
+  const fmtDT = d => d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+'T'+pad(d.getHours())+':'+pad(d.getMinutes());
+  openSheet(`
+    <h3>😴 记录昨晚睡眠</h3>
+    <div class="sub">填你入睡和起床的时间</div>
+    <label>入睡时间</label>
+    <input type="datetime-local" id="sleepTs" value="${fmtDT(defSleep)}">
+    <label>起床时间</label>
+    <input type="datetime-local" id="wakeTs" value="${fmtDT(defWake)}">
+    <label>睡眠质量</label>
+    <select id="sleepQ">
+      <option value="1" ${cur.quality===1?'selected':''}>很浅</option>
+      <option value="2" ${cur.quality===2?'selected':''}>较浅</option>
+      <option value="3" ${cur.quality===3||!cur.quality?'selected':''}>一般</option>
+      <option value="4" ${cur.quality===4?'selected':''}>较沉</option>
+      <option value="5" ${cur.quality===5?'selected':''}>很沉</option>
+    </select>
+    <button class="btn" onclick="saveSleepLog()">保存</button>
+    <button class="btn ghost mini" onclick="closeSheet()">取消</button>
+  `);
+}
+function saveSleepLog(){
+  const s = $('sleepTs').value;
+  const w = $('wakeTs').value;
+  if(!s || !w){ toast('两个时间都要填'); return; }
+  const sleepTs = new Date(s).getTime();
+  const wakeTs = new Date(w).getTime();
+  if(wakeTs <= sleepTs){ toast('起床时间要晚于入睡时间'); return; }
+  const q = parseInt($('sleepQ').value) || 3;
+  S.sleep[today()] = {sleepTs, wakeTs, quality:q};
+  save(); closeSheet();
+  toast('睡眠已记录 😴');
+  renderMe();
+}
+
+/* ========== AI 管家 ========== */
+function openButler(){
+  openSheet(`
+    <h3>🤖 AI 智能管家</h3>
+    <div class="sub">帮我根据你的情况定制新食谱</div>
+    <div class="tip pink" style="margin-top:12px">
+      <b>管家会怎么做：</b><br>
+      1. 读你的体重、目标、作息、活动量<br>
+      2. 结合你的场景生成 3 套新食谱（上学日 / 711 / 周末）<br>
+      3. 让你先看，你同意才替换原来的食谱<br>
+      4. 你不满意可以随时恢复原版
+    </div>
+    <label>你希望管家怎么调整？</label>
+    <textarea id="butlerPrompt" placeholder="例如：想吃清淡一点 / 午餐想便宜点 / 不喜欢吃鱼 / 想加更多蛋白 / 天冷了想多喝汤…">${escapeHTML(S.settings.butlerPrompt||'')}</textarea>
+    <button class="btn" onclick="runButler()">🤖 生成新食谱</button>
+    <button class="btn ghost mini" onclick="openButlerHistory()">查看已有的定制食谱</button>
+    <button class="btn ghost mini" onclick="closeSheet()">取消</button>
+  `);
+}
+async function runButler(){
+  const prompt = ($('butlerPrompt').value||'').trim();
+  S.settings.butlerPrompt = prompt;
+  save();
+  const key = (S.settings.aiKey||'').trim();
+  if(key){
+    openSheet(`
+      <h3>🤖 管家正在思考…</h3>
+      <div class="sub">正在根据你的情况生成食谱</div>
+      <div style="padding:40px 0;text-align:center;font-size:40px">🍳</div>
+      <div style="text-align:center;color:var(--muted);font-size:13px;line-height:1.7">
+        读取你的体重、目标、作息、偏好…<br>
+        一般 10-30 秒
+      </div>
+    `);
+    try{
+      const newRcp = await callAiForRecipes(prompt);
+      showButlerPreview(newRcp);
+      return;
+    }catch(e){
+      toast('AI 生成失败：' + (e.message || '未知错误'));
+      closeSheet();
+      setTimeout(()=>{
+        openSheet(`
+          <h3>AI 生成失败</h3>
+          <div class="sub">${escapeHTML(e.message || '网络或 Key 有问题')}</div>
+          <button class="btn" onclick="runButlerLocal()">用本地管家生成（不调 AI）</button>
+          <button class="btn ghost mini" onclick="closeSheet()">取消</button>
+        `);
+      }, 300);
+      return;
+    }
+  }
+  runButlerLocal();
+}
+function runButlerLocal(){
+  const P = S.profile;
+  const nowW = latestWeight();
+  const goal = goalIntake();
+  const preference = (S.settings.butlerPrompt||'').toLowerCase();
+  const light = /清淡|轻食|少油|不想吃太多/.test(preference);
+  const cheap = /便宜|便宜点|省钱|省钱点/.test(preference);
+  const moreProtein = /蛋白|肉|鸡胸|多蛋白/.test(preference);
+  const soup = /汤|喝汤|天冷|暖/.test(preference);
+  const noFish = /不吃鱼|不喜欢鱼|不想吃鱼/.test(preference);
+
+  const newRcp = {
+    school: [
+      {name:'管家定制 · 上学日 A', fromAI:true, meals:[
+        {t:'06:50', n:'早餐', k: light?350:400, d:'菜包 1 个 + 牛奶 250ml + 水煮蛋 1 个' + (moreProtein?' + 再来 1 个蛋白':'') + '。'},
+        {t:'10:00', n:'课间加餐', k:80, d:'苹果 1 个 + 一小把坚果。'},
+        {t:'11:50', n:'午餐（711）', k: cheap?480:540, d: cheap?'关东煮（萝卜+魔芋+鸡蛋+豆腐）+ 饭团':'饭团 + 即食鸡胸 + 蔬菜沙拉 + 无糖茶' + (moreProtein?'，鸡胸拿 2 块':'') + '。'},
+        {t:'13:30', n:'课前加餐', k:70, d:'半根香蕉 + 200ml 水。'},
+        {t:'13:40-15:10', n:'🩰 基训（大课）', k:-500, d:'100分钟专业课。15:00 课间补 100-150ml 水。'},
+        {t:'15:30-17:00', n:'🩰 毯技/剧目（大课）', k:-500, d:'100分钟专业课。'},
+        {t:'17:10', n:'训练后加餐', k:200, d:'无糖酸奶 + 半根香蕉。30 分钟内必吃。'},
+        {t:'17:30', n:'晚餐（带路上）', k: soup?300:340, d: soup?'关东煮（萝卜+魔芋+鸡蛋+豆腐）温热吃，汤别喝。':(noFish?'即食鸡胸 + 蔬菜沙拉 + 半个饭团。':'清蒸鱼 100g + 青菜 + 半个饭团。')},
+        {t:'21:10', n:'到家（可选）', k:120, d:'真的饿就喝一杯温牛奶。'}
+      ]},
+      {name:'管家定制 · 上学日 B', fromAI:true, meals:[
+        {t:'06:50', n:'早餐', k:380, d:'燕麦 40g 热水冲泡 + 水煮蛋 1 个 + 牛奶 200ml。'},
+        {t:'10:00', n:'课间加餐', k:60, d:'无糖酸奶 100g。'},
+        {t:'11:50', n:'午餐（711）', k: moreProtein?600:520, d: moreProtein?'鸡胸沙拉 + 关东煮鸡蛋 2 个 + 无糖酸奶 + 无糖茶。':'三明治 + 牛奶 + 茶叶蛋 + 蔬菜沙拉。'},
+        {t:'13:30', n:'课前加餐', k:70, d:'全麦面包 1 片 + 200ml 水。'},
+        {t:'13:40-15:10', n:'🩰 基训', k:-500, d:'课间补水 100-150ml。'},
+        {t:'15:30-17:00', n:'🩰 毯技/剧目', k:-500, d:'课间补水。'},
+        {t:'17:10', n:'训练后', k:190, d:'牛奶一盒 + 半根香蕉。'},
+        {t:'17:30', n:'晚餐', k:320, d:'关东煮（萝卜+魔芋+鸡蛋+豆腐）+ 半个饭团。'},
+        {t:'21:10', n:'到家（可选）', k:120, d:'温牛奶一杯。'}
+      ]}
+    ],
+    cvs: [
+      {name:'管家定制 · 711 方案 A', fromAI:true, meals:[
+        {t:'主食', n:'选 1 个', k: cheap?150:190, d: cheap?'梅子饭团（150 kcal），最便宜也最低卡。':'三文鱼饭团 或 金枪鱼饭团。'},
+        {t:'蛋白', n:'选 1-2 个', k: moreProtein?260:200, d: moreProtein?'即食鸡胸 + 关东煮鸡蛋 2 个。':'即食鸡胸 或 关东煮鸡蛋 + 豆腐。'},
+        {t:'蔬菜', n:'选 1 个', k:100, d: light?'关东煮白萝卜 + 魔芋丝 + 昆布，几乎零卡。':'蔬菜沙拉 + 和风酱半包。'},
+        {t:'饮料', n:'—', k:0, d:'无糖乌龙茶 / 黑咖啡 / 矿泉水。'},
+        {t:'合计', n:'一顿', k: moreProtein?650:520, d:'闭着眼按公式买，不会踩雷。'}
+      ]},
+      {name:'管家定制 · 711 方案 B', fromAI:true, meals:[
+        {t:'组合', n:'关东煮', k:220, d:'白萝卜 + 魔芋丝 + 鸡蛋 + 豆腐 + 昆布，不要丸子香肠。'},
+        {t:'加主食', n:'饭团', k:150, d:'梅子饭团 或 海苔盐饭团。'},
+        {t:'加蛋白', n:'1 份', k:130, d:'即食鸡胸 或 牛奶 1 盒。'},
+        {t:'合计', n:'一顿', k:500, d: soup?'天冷想喝汤选这套，热乎又低卡。':'想省钱又想饱，选这套。'}
+      ]}
+    ],
+    home: [
+      {name:'管家定制 · 周末 A', fromAI:true, meals:[
+        {t:'08:00', n:'早餐', k:380, d:'菜包 1 个 + 牛奶 250ml + 水煮蛋 1 个。'},
+        {t:'09:00-11:30', n:'补习', k:0, d:'带一瓶水。'},
+        {t:'12:00', n:'午餐', k:460, d:'速冻水饺 8 个 + 青菜一盘 + 鸡蛋 1 个。'},
+        {t:'15:00-16:00', n:'🩰 自己练功', k:-260, d:'软开 + 核心 + 剧目片段。'},
+        {t:'16:30', n:'加餐', k:120, d:'无糖酸奶 + 半个苹果。'},
+        {t:'18:30', n:'晚餐', k: soup?350:380, d: soup?'番茄豆腐虾仁汤 + 清炒青菜 + 红薯半个。':(noFish?'鸡胸 100g + 青菜 + 红薯半个。':'清蒸鱼 100g + 青菜 + 红薯半个。')},
+        {t:'21:00', n:'拉伸', k:-30, d:'15 分钟。'},
+        {t:'22:30', n:'睡觉', k:0, d:'睡够 8 小时。'}
+      ]},
+      {name:'管家定制 · 周末 B', fromAI:true, meals:[
+        {t:'08:30', n:'早餐', k:360, d:'速冻小笼包 6 个 + 无糖豆浆 + 水煮蛋。'},
+        {t:'10:00-11:00', n:'🩰 自己练功', k:-260, d:'软开 + 核心。'},
+        {t:'12:00', n:'午餐', k:520, d:'速冻水饺 8 个 + 鸡蛋 + 青菜 + 一小碗汤。'},
+        {t:'15:00', n:'加餐', k:120, d:'无糖酸奶 + 半个苹果。'},
+        {t:'18:00', n:'晚餐', k:400, d:'清蒸鱼 100g + 青菜 + 玉米半根。'},
+        {t:'20:30', n:'拉伸', k:-30, d:'15 分钟。'},
+        {t:'22:30', n:'睡觉', k:0, d:'睡够 8 小时。'}
+      ]}
+    ]
+  };
+  Object.keys(newRcp).forEach(k=>{
+    newRcp[k].forEach(r=>{
+      const total = r.meals.filter(m=>m.k>0).reduce((s,m)=>s+m.k,0);
+      r.totalKcal = total;
+    });
+  });
+  showButlerPreview(newRcp);
+}
+async function callAiForRecipes(prompt){
+  const key = S.settings.aiKey;
+  let model = S.settings.aiModel || 'glm-4-flash';
+  if(model === 'custom') model = S.settings.aiModelCustom || 'glm-4-flash';
+  if(model.startsWith('glm-4v')) model = 'glm-4-flash';
+  let url = S.settings.aiUrl;
+  if(!url){
+    const p = PROVIDERS.find(x=>x.id === S.settings.aiProvider) || PROVIDERS[0];
+    url = p.url;
+  }
+  const P = S.profile;
+  const nowW = latestWeight();
+  const goal = goalIntake();
+
+  const sysPrompt = `你是舞蹈艺考生的私人营养师。请为下面的用户生成 3 套食谱（上学日 / 711便利店 / 周末在家），每套 2 个方案。
+
+用户信息：
+- 17 岁女生，连云港市艺术学校高三4班舞蹈生，走读，不上晚自习
+- 当前 ${nowW} 斤，目标 ${P.targetWeight} 斤
+- 每日建议摄入 ${goal} kcal
+- 周二、周四有早功 7:00-7:50
+- 周一至周五下午：13:40-15:10 基训（大课），15:30-17:00 毯技或剧目（大课）
+- 周一/二/三/四 17:00放学，18:00-20:30 补习班；周五 15:10放学，16:00-18:00 补习
+- 周六 9:00-11:30 补习；周日 14:00-16:00 补习
+- 早餐在家吃包子/速冻/坚果/牛奶
+- 午餐在 711 便利店买
+- 晚餐下课去补习班路上吃，或带进去
+- 用户偏好：${prompt || '没有特别要求'}
+
+请严格按以下 JSON 格式返回，不要任何其他文字：
+{"school":[{"name":"方案名","meals":[{"t":"时间","n":"餐名","k":热量数字,"d":"具体描述"}]}],"cvs":[...],"home":[...]}
+
+每套 6-10 个 meal，热量加起来要在 ${goal} 左右。用中文，描述要具体到份量。`;
+
+  const resp = await fetch(url, {
+    method:'POST',
+    headers:{'Content-Type':'application/json','Authorization':'Bearer ' + key},
+    body: JSON.stringify({model, messages:[{role:'user', content: sysPrompt}], temperature: 0.7})
+  });
+  if(!resp.ok){
+    const txt = await resp.text();
+    throw new Error(txt.slice(0,80) || 'HTTP '+resp.status);
+  }
+  const data = await resp.json();
+  const txt = data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
+  if(!txt) throw new Error('返回内容为空');
+  const jsonMatch = txt.match(/\{[\s\S]*\}/);
+  if(!jsonMatch) throw new Error('AI 没有返回合法 JSON');
+  const parsed = JSON.parse(jsonMatch[0]);
+  if(!parsed.school || !parsed.cvs || !parsed.home) throw new Error('JSON 结构不对');
+  ['school','cvs','home'].forEach(k=>{
+    parsed[k].forEach(r=>{
+      r.fromAI = true;
+      const total = (r.meals||[]).filter(m=>m.k>0).reduce((s,m)=>s+m.k,0);
+      r.totalKcal = total;
+    });
+  });
+  return parsed;
+}
+function showButlerPreview(newRcp){
+  window._pendingRecipes = newRcp;
+  const keys = ['school','cvs','home'];
+  const names = {school:'上学日', cvs:'711怎么买', home:'周末在家'};
+  let html = `
+    <h3>🤖 管家生成好了</h3>
+    <div class="sub">确认后才会替换原来的食谱</div>
+    <div class="tip pink" style="margin-top:12px">
+      下面是你将会得到的新食谱。点「同意替换」才会生效，不满意可以取消。
+    </div>
+  `;
+  keys.forEach(k=>{
+    html += `<div class="card" style="margin-top:10px">
+      <div class="card-title">${names[k]} <small>${(newRcp[k]||[]).length} 套</small></div>
+      ${(newRcp[k]||[]).map(r=>`
+        <div class="rline" style="padding-bottom:12px;border-bottom:1px solid var(--line)">
+          <div class="h"><span class="n">${escapeHTML(r.name)}</span><span class="k">${r.totalKcal||''} kcal</span></div>
+          <div style="font-size:12.5px;color:var(--muted);line-height:1.8;margin-top:6px">
+            ${(r.meals||[]).slice(0,5).map(m=>`<div>· ${escapeHTML(m.t)} ${escapeHTML(m.n)} (${m.k} kcal)</div>`).join('')}
+            ${(r.meals||[]).length>5?'<div style="opacity:.6">…</div>':''}
+          </div>
+        </div>
+      `).join('')}
+    </div>`;
+  });
+  html += `
+    <button class="btn" onclick="confirmReplaceRecipes()">✅ 同意替换</button>
+    <button class="btn ghost mini" onclick="saveButlerDraft()">保存草稿，稍后再决定</button>
+    <button class="btn ghost mini" onclick="closeSheet()">取消，保持原样</button>
+  `;
+  openSheet(html);
+}
+function saveButlerDraft(){
+  window._savedDraft = window._pendingRecipes;
+  toast('已保存草稿');
+  closeSheet();
+}
+function confirmReplaceRecipes(){
+  if(!window._pendingRecipes){ toast('没有待替换的食谱'); return; }
+  S.customRecipes = window._pendingRecipes;
+  save(); closeSheet(); renderRcp();
+  toast('已替换 ✅ 从此用新食谱');
+}
+function openButlerHistory(){
+  if(!S.customRecipes || !Object.keys(S.customRecipes).length){
+    openSheet(`
+      <h3>定制食谱记录</h3>
+      <div class="sub">还没有 AI 生成的食谱</div>
+      <div class="empty" style="padding:40px 0">让管家帮你定制一套吧</div>
+      <button class="btn ghost mini" onclick="closeSheet()">关闭</button>
+    `);
+    return;
+  }
+  const count = Object.keys(S.customRecipes).reduce((s,k)=>s+(S.customRecipes[k]||[]).length,0);
+  openSheet(`
+    <h3>定制食谱记录</h3>
+    <div class="sub">共 ${count} 套 AI 生成的方案正在使用</div>
+    <div class="tip pink" style="margin-top:12px">
+      这些是 AI 管家帮你定制的食谱，已经替换了原来的。你可以随时恢复成默认版本。
+    </div>
+    <button class="btn danger" onclick="restoreDefaultRecipes()">恢复默认食谱</button>
+    <button class="btn ghost mini" onclick="closeSheet()">关闭</button>
+  `);
+}
+function restoreDefaultRecipes(){
+  S.customRecipes = {};
+  save(); closeSheet(); renderRcp();
+  toast('已恢复默认食谱');
+}
+
+/* ========== 鼓励语 ========== */
+function encourage(){
+  const msgs = [];
+  const streak = checkinStreak();
+  const lost = S.profile.startWeight - latestWeight();
+  const pInfo = periodInfo();
+  const t = today();
+  const m = mealsOf(t);
+  const shotCount = Object.keys(m).filter(k=>m[k] && m[k].photoId).length;
+  if(streak >= 3 && streak < 7) msgs.push(`已经连续打卡 ${streak} 天了，别断 💗`);
+  if(streak >= 7) msgs.push(`连续 ${streak} 天打卡，这个习惯已经长在你身上了 ✨`);
+  if(lost > 0) msgs.push(`已经减了 ${round1(lost)} 斤，摸摸腰侧，是不是松了一点？`);
+  if(lost >= 5) msgs.push(`减了 ${round1(lost)} 斤了，试试以前穿不上的那条裤子？`);
+  if(shotCount === 4) msgs.push('今天四餐全拍了，这种自律很难得 📸');
+  if(shotCount === 0 && new Date().getHours() > 12) msgs.push('今天还没拍照打卡哦，记得记录每一餐 📸');
+  if(pInfo.isOnPeriod) msgs.push('经期别硬撑，热敷一下小腹。今天可以少练一点 🩸');
+  else if(pInfo.daysToNext > 0 && pInfo.daysToNext <= 3)
+    msgs.push(`还有 ${pInfo.daysToNext} 天来月经，体重可能涨 1-2 斤，是水肿不是胖 💗`);
+  const h = new Date().getHours();
+  if(h < 9) msgs.push('早上的第一杯温水喝了没？');
+  if(h >= 22) msgs.push('快睡觉了，睡够 8 小时明天才有劲练功。');
+  const pool = [
+    '舞蹈生的身材是靠一天一天练出来的，不是饿出来的。',
+    '今天多喝一杯水，明天镜子里的你就多一分线条。',
+    '你已经比昨天更好了，这句话是真的。',
+    '别急，慢慢来，比较快。',
+    '今天不想练的时候，练完再决定要不要放弃。',
+    '饿到发抖不是自律，是伤身体。好好吃饭，好好练功。',
+    '一件小事坚持 30 天，你就能看出不一样。',
+    '你现在做的每一件小事，都算数。'
+  ];
+  if(!msgs.length) return pool[Math.floor(Math.random()*pool.length)];
+  return msgs[Math.floor(Math.random()*msgs.length)];
+}
+function checkinStreak(){
+  let streak = 0;
+  let d = new Date();
+  if(!S.days[today()] || !S.days[today()].weight) d.setDate(d.getDate()-1);
+  while(true){
+    const k = fmtD(d);
+    if(S.days[k] && S.days[k].weight){ streak++; d.setDate(d.getDate()-1); }
+    else break;
+    if(streak > 400) break;
+  }
+  return streak;
+}
+
+/* ========== 掉秤预测 ========== */
+function predictLoss(){
+  const t = today();
+  const d = S.days[t];
+  let intake = 0;
+  if(d && d.items) intake = d.items.reduce((s,i)=>s+i.k,0);
+  if(!d || !d.items || !d.items.length) return null;
+  const nowW = latestWeight();
+  const trainH = (d && d.train) ? d.train : defaultTrainFor(t);
+  const {tdee} = bmrTDEE(nowW, S.profile.height, S.profile.age, S.profile.activity);
+  const extra = 6 * (nowW/2) * Math.max(0, trainH - 1);
+  const totalOut = tdee + extra;
+  const deficit = totalOut - intake;
+  const loss = deficit / 7700 * 2;
+  return {intake, totalOut: Math.round(totalOut), deficit: Math.round(deficit), loss: round2(loss)};
+}
+
+/* ========== 今日报告 ========== */
+function showReport(){
+  const t = today();
+  const d = S.days[t];
+  const m = mealsOf(t);
+  const P = S.profile;
+  const nowW = latestWeight();
+  const lost = round1(Math.max(0, P.startWeight - nowW));
+  const left = round1(Math.max(0, nowW - P.targetWeight));
+
+  let intake = 0;
+  const perMeal = {};
+  MEALS.forEach(([k])=>{
+    const kc = (m[k] && m[k].foods) ? m[k].foods.reduce((s,f)=>s+f.k,0) : 0;
+    perMeal[k] = kc;
+    intake += kc;
+  });
+  if(d && d.items){
+    const manualSum = d.items.filter(it=>!it._fromShot).reduce((s,i)=>s+i.k,0);
+    if(manualSum > 0) intake += manualSum;
+  }
+  const goal = goalIntake();
+  const pr = predictLoss();
+  const trainH = (d && d.train) ? d.train : defaultTrainFor(t);
+  const {tdee} = bmrTDEE(nowW, P.height, P.age, P.activity);
+  const extra = Math.round(6 * (nowW/2) * Math.max(0, trainH - 1));
+  const totalOut = Math.round(tdee + extra);
+  const deficit = totalOut - intake;
+  const shotCount = Object.keys(m).filter(k=>m[k] && m[k].photoId).length;
+  const allTasks = [...S.tasks.defaults, ...S.tasks.custom].filter(x=>x.on);
+  const doneIds = S.tasks.done[t] || [];
+  const doneCount = allTasks.filter(x=>doneIds.includes(x.id)).length;
+  const undone = allTasks.filter(x=>!doneIds.includes(x.id));
+  const habitList = S.habits.map(h=>({
+    name: h.name, icon: h.icon,
+    checked: !!(h.records && h.records[t]),
+    streak: streakOf(h)
+  }));
+  const habitDone = habitList.filter(h=>h.checked).length;
+  const note = S.notes[t] || {};
+  const mood = note.mood || '';
+  const diaryText = note.text || '';
+  const pInfo = periodInfo();
+  const sleepRec = S.sleep[t] || {};
+  const bodyRec = S.body[t] || {};
+
+  const advices = [];
+  if(intake === 0) advices.push('今天还没记录任何饮食，先拍照记录吧。');
+  else if(intake > goal + 200) advices.push(`今天比目标多吃了 ${intake-goal} kcal，明天主食可以少半份平衡一下。`);
+  else if(intake < 1200 && intake > 0) advices.push(`今天只吃了 ${intake} kcal，太少了。低于 1200 会掉肌肉，明天午餐和训练后加餐一定要吃够。`);
+  else advices.push(`今天摄入 ${intake} kcal，在目标范围内，做得很好。`);
+  if(shotCount === 4) advices.push('四餐都拍照了，这种自律很难得，继续保持。');
+  else if(shotCount === 0) advices.push('今天还没有任何一餐拍照，去记录页拍一张吧。');
+  else{
+    const missing = MEALS.filter(([k])=>!(m[k] && m[k].photoId)).map(([k])=>MEAL_NAME[k]);
+    advices.push(`还有 ${missing.join('、')} 没拍照记录。`);
+  }
+  if(deficit > 0) advices.push(`今天热量缺口 ${deficit} kcal，相当于 ${round2(deficit/7700*2)} 斤脂肪。`);
+  else if(deficit <= 0 && intake > 0) advices.push(`今天热量没有缺口（超出 ${Math.abs(deficit)} kcal），明天注意一下主食和零食。`);
+  if(undone.length > 0) advices.push(`还有 ${undone.length} 项任务没完成：${undone.slice(0,3).map(x=>x.name).join('、')}${undone.length>3?' 等':''}。`);
+  else if(allTasks.length > 0) advices.push('今天所有任务都完成了，超棒！');
+  if(habitDone < habitList.length){
+    const missing = habitList.filter(h=>!h.checked).map(h=>h.name);
+    advices.push(`习惯还没打卡：${missing.slice(0,2).join('、')}${missing.length>2?' 等':''}。`);
+  }
+  if(pInfo.isOnPeriod) advices.push('经期中，毯技和跳跃要减量，今天早点睡。');
+  else if(pInfo.daysToNext !== null && pInfo.daysToNext > 0 && pInfo.daysToNext <= 3)
+    advices.push(`还有 ${pInfo.daysToNext} 天来月经，这几天体重可能涨 1-2 斤，是水肿不是胖。`);
+  if(sleepRec.sleepTs && sleepRec.wakeTs){
+    const dur = (new Date(sleepRec.wakeTs) - new Date(sleepRec.sleepTs)) / 3600000;
+    if(dur < 7) advices.push(`昨晚只睡了 ${dur.toFixed(1)} 小时，睡不够会特别想吃甜的，今晚早点睡。`);
+    else advices.push(`昨晚睡了 ${dur.toFixed(1)} 小时，睡眠充足是减脂的隐形帮手。`);
+  }
+  if(bodyRec.energy && bodyRec.energy <= 2) advices.push('今天精力偏低，训练可以减量，别硬撑。');
+  const hour = new Date().getHours();
+  if(hour < 22 && hour >= 20) advices.push('还有 1-2 小时就该睡了，睡前别刷太久手机。');
+
+  const dateStr = t + ' ' + ['周日','周一','周二','周三','周四','周五','周六'][new Date(t+'T00:00:00').getDay()];
+  const mealRows = MEALS.map(([k,name])=>{
+    const has = m[k] && m[k].photoId;
+    return `<div class="row"><span class="k">${name}</span><span class="v">${perMeal[k] || 0} kcal${has?' 📸':''}</span></div>`;
+  }).join('');
+  const habitRows = habitList.length
+    ? habitList.map(h=>`<div class="row"><span class="k">${h.checked?'✅':'❌'} ${h.icon} ${h.name}</span><span class="v" style="color:${h.checked?'var(--ok)':'var(--muted)'}">连续 ${h.streak} 天</span></div>`).join('')
+    : '<div style="color:var(--muted)">还没有添加习惯</div>';
+  const bodyRows = Object.keys(bodyRec).length
+    ? ['energy','mood','skin','appetite'].filter(k=>bodyRec[k]).map(k=>{
+        const names = {energy:'精力',mood:'心情',skin:'皮肤',appetite:'食欲'};
+        const emojis = {energy:['😴','😐','🙂','😃','🔥'],mood:['😭','😔','😐','🙂','😄'],
+          skin:['😣','😕','😐','🙂','✨'],appetite:['🚫','😑','😐','🙂','😋']};
+        return `<div class="row"><span class="k">${names[k]}</span><span class="v" style="font-size:18px">${emojis[k][bodyRec[k]-1]}</span></div>`;
+      }).join('')
+    : '<div style="color:var(--muted)">今天还没记录身体状态</div>';
+  const sleepRows = (sleepRec.sleepTs && sleepRec.wakeTs)
+    ? (()=>{
+        const dur = (new Date(sleepRec.wakeTs) - new Date(sleepRec.sleepTs)) / 3600000;
+        const qTxt = ['很浅','较浅','一般','较沉','很沉'][(sleepRec.quality||3)-1];
+        return `<div class="row"><span class="k">入睡</span><span class="v">${timeStr(sleepRec.sleepTs)}</span></div>
+          <div class="row"><span class="k">起床</span><span class="v">${timeStr(sleepRec.wakeTs)}</span></div>
+          <div class="row"><span class="k">时长</span><span class="v">${dur.toFixed(1)} 小时</span></div>
+          <div class="row"><span class="k">质量</span><span class="v">${qTxt}</span></div>`;
+      })()
+    : '<div style="color:var(--muted)">昨晚睡眠还没记录</div>';
+
+  const reportHTML = `
+    <div class="report-wrap">
+      <div class="report-hd">
+        <div class="rt">📊 今日总结报告</div>
+        <div class="rd">${dateStr}</div>
+      </div>
+      <div class="report-sec">
+        <div class="rsh">⚖️ 体重</div>
+        <div class="rsb">
+          <div class="row"><span class="k">当前体重</span><span class="v">${round1(nowW)} 斤</span></div>
+          <div class="row"><span class="k">目标体重</span><span class="v">${P.targetWeight} 斤</span></div>
+          <div class="row"><span class="k">还需减</span><span class="v">${left} 斤</span></div>
+          <div class="row"><span class="k">累计已减</span><span class="v" style="color:var(--ok)">${lost} 斤</span></div>
+        </div>
+      </div>
+      <div class="report-sec">
+        <div class="rsh">🍱 饮食</div>
+        <div class="rsb">
+          ${mealRows}
+          <div class="row" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:8px">
+            <span class="k">合计摄入</span><span class="v">${intake} kcal</span>
+          </div>
+          <div class="row"><span class="k">目标摄入</span><span class="v">${goal} kcal</span></div>
+          <div class="row"><span class="k">四餐拍照</span><span class="v">${shotCount} / 4</span></div>
+        </div>
+      </div>
+      <div class="report-sec">
+        <div class="rsh">🔥 消耗</div>
+        <div class="rsb">
+          <div class="row"><span class="k">基础代谢 + 日常</span><span class="v">${Math.round(tdee)} kcal</span></div>
+          <div class="row"><span class="k">训练消耗（${round1(trainH)}h）</span><span class="v">${extra} kcal</span></div>
+          <div class="row" style="border-top:1px dashed var(--line);margin-top:6px;padding-top:8px">
+            <span class="k">今日总消耗</span><span class="v">${totalOut} kcal</span>
+          </div>
+        </div>
+      </div>
+      <div class="report-sec">
+        <div class="rsh">📈 今日缺口 & 预测</div>
+        <div class="rsb">
+          <div class="row"><span class="k">热量缺口</span><span class="v">${deficit > 0 ? '+' : ''}${deficit} kcal</span></div>
+          <div class="hl">
+            ${pr === null ? '还没记录饮食，记录完就能看到预测。'
+              : deficit <= 0 ? `<b>今天没有缺口</b>，明天体重大概不会动。`
+              : `按今天这样吃，<b>预计明早能掉 ${round2(pr.loss)} 斤</b>。`}
+          </div>
+        </div>
+      </div>
+      <div class="report-sec">
+        <div class="rsh">💪 身体状态</div>
+        <div class="rsb">${bodyRows}</div>
+      </div>
+      <div class="report-sec">
+        <div class="rsh">😴 昨晚睡眠</div>
+        <div class="rsb">${sleepRows}</div>
+      </div>
+      <div class="report-sec">
+        <div class="rsh">✅ 任务</div>
+        <div class="rsb">
+          <div class="row"><span class="k">完成</span><span class="v">${doneCount} / ${allTasks.length}</span></div>
+          ${undone.length ? `<div class="row"><span class="k">待办</span><span class="v">${undone.map(x=>x.name).join('、')}</span></div>` : ''}
+        </div>
+      </div>
+      <div class="report-sec">
+        <div class="rsh">💪 习惯</div>
+        <div class="rsb">${habitRows}</div>
+      </div>
+      ${(mood || diaryText || pInfo.isOnPeriod) ? `
+      <div class="report-sec">
+        <div class="rsh">📔 心情 & 状态</div>
+        <div class="rsb">
+          ${mood ? `<div class="row"><span class="k">今日心情</span><span class="v" style="font-size:20px">${mood}</span></div>` : ''}
+          ${diaryText ? `<div style="background:var(--tag-bg);border-radius:10px;padding:10px 12px;margin-top:8px;font-size:13px;line-height:1.7;color:var(--text);white-space:pre-wrap">${escapeHTML(diaryText)}</div>` : ''}
+          ${pInfo.isOnPeriod ? `<div class="row" style="margin-top:8px"><span class="k">生理期</span><span class="v">第 ${pInfo.currentDay} 天</span></div>` : ''}
+        </div>
+      </div>` : ''}
+      <div class="report-sec">
+        <div class="rsh">💡 今日建议</div>
+        <div class="rsb">
+          ${advices.map(a=>`<div style="padding:6px 0 6px 16px;position:relative;line-height:1.7;font-size:13px">
+            <span style="position:absolute;left:0;color:var(--pink)">·</span>${a}
+          </div>`).join('')}
+        </div>
+      </div>
+      <div class="report-foot">本报告由你的记录自动生成</div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:4px">
+      <button class="btn ghost" onclick="copyReport()" style="flex:1;margin-top:0">📋 复制</button>
+      <button class="btn ghost" onclick="closeSheet()" style="flex:1;margin-top:0">关闭</button>
+    </div>
+  `;
+
+  window._lastReport = {dateStr, intake, goal, tdee: Math.round(tdee), extra, totalOut, deficit,
+    loss: pr ? pr.loss : null, shotCount, doneCount, allTasks: allTasks.length, undone,
+    habitList, habitDone, mood, diaryText, advices, pInfo, nowW, lost, left, perMeal, trainH,
+    bodyRec, sleepRec};
+  openSheet(reportHTML);
+}
+function copyReport(){
+  const r = window._lastReport;
+  if(!r) return;
+  const lines = [];
+  lines.push('📊 今日总结报告 · ' + r.dateStr);
+  lines.push('');
+  lines.push('【⚖️ 体重】');
+  lines.push(`当前 ${round1(r.nowW)} 斤 | 目标 ${S.profile.targetWeight} 斤 | 已减 ${r.lost} 斤`);
+  lines.push('');
+  lines.push('【🍱 饮食】');
+  MEALS.forEach(([k,name])=>{
+    const has = r.perMeal[k] ? '📸' : '';
+    lines.push(`${name} ${r.perMeal[k] || 0} kcal ${has}`);
+  });
+  lines.push(`合计 ${r.intake} / ${r.goal} kcal | 四餐拍照 ${r.shotCount}/4`);
+  lines.push('');
+  lines.push('【🔥 消耗】');
+  lines.push(`基础代谢+日常 ${r.tdee} kcal`);
+  lines.push(`训练消耗 ${r.extra} kcal`);
+  lines.push(`总消耗 ${r.totalOut} kcal`);
+  lines.push('');
+  lines.push('【📈 缺口 & 预测】');
+  lines.push(`热量缺口 ${r.deficit} kcal`);
+  lines.push(r.loss === null ? '还没记录饮食' : (r.loss <= 0 ? '今天没有缺口' : `预计明早能掉 ${round2(r.loss)} 斤`));
+  lines.push('');
+  lines.push('【✅ 任务】');
+  lines.push(`完成 ${r.doneCount} / ${r.allTasks}`);
+  if(r.undone.length) lines.push('待办：' + r.undone.map(x=>x.name).join('、'));
+  lines.push('');
+  lines.push('【💪 习惯】');
+  r.habitList.forEach(h=>{
+    lines.push(`${h.checked?'✅':'❌'} ${h.name}（连续 ${h.streak} 天）`);
+  });
+  if(r.mood || r.diaryText){
+    lines.push('');
+    lines.push('【📔 心情 & 状态】');
+    if(r.mood) lines.push('心情：' + r.mood);
+    if(r.diaryText) lines.push(r.diaryText);
+    if(r.pInfo.isOnPeriod) lines.push(`生理期：第 ${r.pInfo.currentDay} 天`);
+  }
+  lines.push('');
+  lines.push('【💡 今日建议】');
+  r.advices.forEach(a=>lines.push('· ' + a));
+  const text = lines.join('\n');
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>toast('已复制 ✅')).catch(()=>fallbackCopy(text));
+  }else{
+    fallbackCopy(text);
+  }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); toast('已复制 ✅'); }
+  catch(e){ toast('复制失败，请手动选择'); }
+  document.body.removeChild(ta);
+}
+
+/* ========== 首页渲染 ========== */
+function renderHome(){
+  const t = today();
+  const P = S.profile;
+  const now = new Date();
+  const wk = ['周日','周一','周二','周三','周四','周五','周六'][now.getDay()];
+  $('heroDate').textContent = `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日 ${wk}`;
+
+  const dl = new Date(P.deadline+'T00:00:00');
+  const diff = Math.ceil((dl - new Date(t+'T00:00:00'))/86400000);
+  if(diff > 0) $('heroCount').innerHTML = `距 1月1日 还有 <span>${diff} 天</span>`;
+  else if(diff === 0) $('heroCount').innerHTML = `就是今天了，全力以赴 ✨`;
+  else $('heroCount').innerHTML = `新阶段开始 ✨`;
+
+  const start = P.startWeight, target = P.targetWeight, nowW = latestWeight();
+  const total = start - target, done = start - nowW;
+  const pct = total > 0 ? Math.max(0, Math.min(100, done/total*100)) : 0;
+  $('pbar').style.width = pct + '%';
+  $('pbarFrom').textContent = start + ' 斤';
+  $('pbarTo').textContent = target + ' 斤';
+  $('wNow').textContent = round1(nowW);
+  $('wTarget').textContent = target;
+  $('wLeft').textContent = round1(Math.max(0, nowW - target));
+
+  const keys = Object.keys(S.days).filter(k=>S.days[k].weight).sort();
+  $('lastUpdate').textContent = keys.length ? ('最近更新 '+keys[keys.length-1].slice(5)) : '还没打过卡';
+
+  $('encBox').querySelector('.tx').textContent = encourage();
+
+  const pr = predictLoss();
+  if(pr === null){
+    $('predNum').innerHTML = '—<small>斤</small>';
+    $('predBox').querySelector('.l').innerHTML = '<b>还没记录今天的饮食</b>拍照打卡后就能看到预测';
+  }else if(pr.deficit <= 0){
+    $('predNum').innerHTML = '0<small>斤</small>';
+    $('predBox').querySelector('.l').innerHTML = `<b>今天吃多了 ${Math.abs(pr.deficit)} kcal</b>明天体重大概不会动`;
+  }else{
+    $('predNum').innerHTML = round2(pr.loss) + '<small>斤</small>';
+    $('predBox').querySelector('.l').innerHTML = `<b>按今天这样吃</b>缺口 ${pr.deficit} kcal，预计明早能掉`;
+  }
+
+  const d = S.days[t];
+  let intake = 0;
+  if(d && d.items) intake = d.items.reduce((s,i)=>s+i.k,0);
+  const goal = goalIntake();
+  $('calDate').textContent = t.slice(5);
+  $('goalIn').textContent = goal + ' kcal';
+  $('ringNum').textContent = intake;
+  const p = Math.min(100, intake/goal*100);
+  $('ring').style.setProperty('--p', p+'%');
+  $('calLeft').textContent = Math.max(0, goal-intake) + ' kcal';
+
+  const trainH = (d && d.train) ? d.train : defaultTrainFor(t);
+  const burn = Math.round(6 * (nowW/2) * trainH);
+  $('burnTxt').textContent = '≈' + burn + ' kcal';
+
+  const allTasks = [...S.tasks.defaults, ...S.tasks.custom].filter(x=>x.on);
+  const doneIds = S.tasks.done[t] || [];
+  const doneCount = allTasks.filter(x=>doneIds.includes(x.id)).length;
+  $('taskMini').textContent = `${doneCount} / ${allTasks.length}`;
+  $('taskBar').style.width = allTasks.length ? (doneCount/allTasks.length*100)+'%' : '0%';
+  $('taskTxt').textContent = `已完成 ${doneCount} 项，还剩 ${allTasks.length-doneCount} 项`;
+  $('homeTasks').innerHTML = allTasks.slice(0,4).map(tk=>{
+    const done = doneIds.includes(tk.id);
+    return `<div class="task ${done?'done':''}" onclick="toggleTask('${tk.id}')">
+      <div class="cb">✓</div><div class="ic">${tk.icon||'📌'}</div>
+      <div class="tt">${tk.name}</div></div>`;
+  }).join('') || '<div class="empty">还没有任务，去「计划」添加</div>';
+
+  const sch = todaySchedule();
+  $('schedTag').textContent = sch.name;
+  const hm = nowHM();
+  let lastIdx = -1;
+  sch.items.forEach((s,i)=>{
+    const startT = s.t.split('-')[0];
+    if(startT <= hm) lastIdx = i;
+  });
+  $('timeline').innerHTML = sch.items.map((s,i)=>`
+    <div class="tl-item ${i===lastIdx?'now':''}">
+      <div class="tl-t">${s.t.split('-')[0]}</div>
+      <div class="tl-c"><div class="tl-n">${s.n}</div><div class="tl-d">${s.d}</div></div>
+    </div>`).join('');
+  $('nowHint').textContent = lastIdx>=0 ? ('现在：'+sch.items[lastIdx].n.replace(/[🩰]/g,'').trim()) : '';
+
+  $('notifyBtn').textContent = S.settings.remind ? '提醒已开启（点击关闭）' : '开启提醒';
+  $('foodTable').innerHTML = FOODS.map((f,i)=>
+    `<button class="chip" onclick="quickAdd(${i})">${f.n}<b>${f.k}</b></button>`).join('');
+
+  renderOpenReminder();
+  renderLateNight();
+  renderSupervise();
+  renderTimetable();
+}
+
+/* ========== 打卡 ========== */
+function openCheckin(){
+  const t = today();
+  const d = S.days[t] || {};
+  openSheet(`
+    <h3>今日打卡</h3>
+    <div class="sub">${t}</div>
+    <label>今早体重（斤）</label>
+    <input type="number" id="ckW" inputmode="decimal" step="0.1" value="${d.weight||''}" placeholder="例如 101.0">
+    <label>今天训练时长（小时）</label>
+    <input type="number" id="ckT" inputmode="decimal" step="0.1" value="${d.train||defaultTrainFor(t)}" placeholder="2">
+    <button class="btn" onclick="saveCheckin()">保存打卡</button>
+    <button class="btn ghost mini" onclick="closeSheet()">取消</button>
+  `);
+}
+function saveCheckin(){
+  const w = parseFloat($('ckW').value);
+  const tr = parseFloat($('ckT').value) || 1;
+  if(!w || w <= 0){ toast('请输入体重'); return; }
+  const t = today();
+  const d = dayOf(t);
+  d.weight = round1(w); d.train = tr;
+  save(); closeSheet();
+  toast('打卡成功，今天也要加油 💪');
+  renderHome(); renderMeals(); renderProgress();
+}
+
+/* ========== 饮食 ========== */
+function renderMeals(){
+  const t = today();
+  const d = dayOf(t);
+  let total = 0;
+  $('mealList').innerHTML = MEALS.map(([key,name])=>{
+    const items = d.items.map((it,idx)=>({...it,idx})).filter(it=>it.m===key);
+    const kc = items.reduce((s,i)=>s+i.k,0);
+    total += kc;
+    return `<div class="meal">
+      <div class="meal-h">
+        <span class="nm">${name}</span>
+        <span class="kc"><b>${kc}</b> kcal
+          <button class="plus" onclick="pickFood('${key}','${name}')">+</button></span>
+      </div>
+      ${items.length? `<div class="tags">${items.map(it=>
+        `<span class="tag">${escapeHTML(it.n)} <b>${it.k}</b><i onclick="delFood(${it.idx})">×</i></span>`).join('')}</div>` : ''}
+    </div>`;
+  }).join('');
+  $('mealTotal').textContent = total + ' kcal';
+}
+function pickFood(key, name){
+  openSheet(`
+    <h3>添加到 ${name}</h3>
+    <div class="sub">点一下即可加入今天的记录</div>
+    <div class="chips">
+      ${FOODS.map((f,i)=>`<button class="chip" onclick="addFood('${key}',${i})">${f.n}<b>${f.k}</b></button>`).join('')}
+    </div>
+    <button class="btn ghost mini" style="margin-top:12px" onclick="openAddCustomFood()">+ 自定义一条</button>
+    <button class="btn ghost" style="margin-top:8px" onclick="closeSheet()">完成</button>
+  `);
+}
+function addFood(key, i){
+  const f = FOODS[i];
+  const d = dayOf(today());
+  d.items.push({m:key, n:f.n, k:f.k});
+  save(); toast('已添加 ' + f.n);
+  renderMeals(); renderHome();
+}
+function delFood(idx){
+  const d = dayOf(today());
+  d.items.splice(idx,1);
+  save(); renderMeals(); renderHome();
+}
+function quickAdd(i){
+  const f = FOODS[i];
+  const d = dayOf(today());
+  const h = new Date().getHours();
+  const m = h < 10 ? 'b' : (h < 15 ? 'l' : (h < 20 ? 'd' : 's'));
+  d.items.push({m, n:f.n, k:f.k});
+  save();
+  const nm = MEALS.find(x=>x[0]===m)[1].replace(/[^\u4e00-\u9fa5]/g,'');
+  toast('已添加到' + nm);
+  renderMeals(); renderHome();
+}
+
+/* ========== 任务 ========== */
+function renderTasks(){
+  const t = today();
+  const doneIds = S.tasks.done[t] || [];
+  const allDefaults = S.tasks.defaults.filter(x=>x.on);
+  const allCustom = S.tasks.custom;
+  const allTasks = [...allDefaults, ...allCustom];
+  const doneCount = allTasks.filter(x=>doneIds.includes(x.id)).length;
+  $('planTaskMini').textContent = `${doneCount} / ${allTasks.length}`;
+  $('planTaskBar').style.width = allTasks.length ? (doneCount/allTasks.length*100)+'%' : '0%';
+  $('planTaskTxt').textContent = `已完成 ${doneCount} 项，还剩 ${allTasks.length-doneCount} 项`;
+  $('planTasks').innerHTML = allDefaults.map(tk=>{
+    const done = doneIds.includes(tk.id);
+    return `<div class="task ${done?'done':''}">
+      <div class="cb" onclick="toggleTask('${tk.id}')">✓</div>
+      <div class="ic">${tk.icon||'📌'}</div>
+      <div class="tt" onclick="toggleTask('${tk.id}')">${tk.name}</div>
+    </div>`;
+  }).join('') || '<div class="empty">还没有默认任务</div>';
+  $('planCustom').innerHTML = allCustom.map(tk=>{
+    const done = doneIds.includes(tk.id);
+    return `<div class="task ${done?'done':''}">
+      <div class="cb" onclick="toggleTask('${tk.id}')">✓</div>
+      <div class="ic">${tk.icon||'📝'}</div>
+      <div class="tt" onclick="toggleTask('${tk.id}')">${tk.name}</div>
+      <button class="rm" onclick="removeTask('${tk.id}')">×</button>
+    </div>`;
+  }).join('') || '<div class="empty">点右上角 + 添加你的作业</div>';
+}
+function toggleTask(id){
+  const t = today();
+  if(!S.tasks.done[t]) S.tasks.done[t] = [];
+  const arr = S.tasks.done[t];
+  const i = arr.indexOf(id);
+  if(i >= 0) arr.splice(i,1); else arr.push(id);
+  save(); renderTasks(); renderHome();
+}
+function addTask(){
+  openSheet(`
+    <h3>添加自定义任务</h3>
+    <div class="sub">比如：语文作业、背单词、练剧目</div>
+    <label>任务名称</label>
+    <input id="ntName" placeholder="例如：语文作业">
+    <label>图标（可选，一个 emoji）</label>
+    <input id="ntIcon" placeholder="📖" maxlength="2">
+    <button class="btn" onclick="doAddTask()">添加</button>
+    <button class="btn ghost mini" onclick="closeSheet()">取消</button>
+  `);
+}
+function doAddTask(){
+  const name = ($('ntName').value||'').trim();
+  const icon = ($('ntIcon').value||'📝').trim() || '📝';
+  if(!name){ toast('写个名字吧'); return; }
+  S.tasks.custom.push({id:uid(), name, icon, on:true});
+  save(); closeSheet();
+  renderTasks(); renderHome();
+  toast('已添加：' + name);
+}
+function removeTask(id){
+  openSheet(`
+    <h3>确定删除这个任务？</h3>
+    <div class="sub">删除后，之前的完成记录也会一起消失</div>
+    <button class="btn danger" onclick="doRemoveTask('${id}')">删除</button>
+    <button class="btn ghost mini" onclick="closeSheet()">取消</button>
+  `);
+}
+function doRemoveTask(id){
+  S.tasks.custom = S.tasks.custom.filter(x=>x.id !== id);
+  Object.keys(S.tasks.done).forEach(k=>{ S.tasks.done[k] = S.tasks.done[k].filter(x=>x!==id); });
+  save(); closeSheet(); renderTasks(); renderHome();
+}
+
+/* ========== 习惯 ========== */
+function renderHabits(){
+  const t = today();
+  $('habitList').innerHTML = S.habits.map(h=>{
+    const checked = !!(h.records && h.records[t]);
+    const st = streakOf(h);
+    return `<div class="habit ${checked?'checked':''}">
+      <div class="ic">${h.icon}</div>
+      <div class="info">
+        <div class="nm">${h.name}</div>
+        <div class="st">连续 <b>${st}</b> 天${st>=3?' 🔥':''}</div>
+      </div>
+      <button class="btn-ck" onclick="toggleHabit('${h.id}')">${checked?'已打卡':'打卡'}</button>
+      <button class="rm" onclick="removeHabit('${h.id}')">×</button>
+    </div>`;
+  }).join('') || '<div class="empty">还没有习惯，点右上角 + 添加</div>';
+}
+function streakOf(h){
+  let streak = 0;
+  let d = new Date();
+  const todayKey = fmtD(d);
+  if(!h.records[todayKey]) d.setDate(d.getDate()-1);
+  while(true){
+    const k = fmtD(d);
+    if(h.records[k]){ streak++; d.setDate(d.getDate()-1); }
+    else break;
+    if(streak > 999) break;
+  }
+  return streak;
+}
+function toggleHabit(id){
+  const h = S.habits.find(x=>x.id===id);
+  if(!h) return;
+  const t = today();
+  if(!h.records) h.records = {};
+  if(h.records[t]) delete h.records[t]; else h.records[t] = true;
+  save(); renderHabits();
+  const st = streakOf(h);
+  if(h.records[t]){
+    if(st === 3) toast(`连续 3 天，做得好 🔥`);
+    else if(st === 7) toast(`连续 7 天，习惯成型了 ✨`);
+    else if(st === 30) toast(`连续 30 天，你太厉害了！`);
+    else toast(`打卡成功 · 连续 ${st} 天`);
+  }
+}
+function addHabit(){
+  openSheet(`
+    <h3>添加健康习惯</h3>
+    <div class="sub">比如：睡前拉伸、不吃夜宵、多喝水</div>
+    <label>习惯名称</label>
+    <input id="nhName" placeholder="例如：睡前拉伸">
+    <label>图标（一个 emoji）</label>
+    <input id="nhIcon" placeholder="🧘" maxlength="2">
+    <button class="btn" onclick="doAddHabit()">添加</button>
+    <button class="btn ghost mini" onclick="closeSheet()">取消</button>
+  `);
+}
+function doAddHabit(){
+  const name = ($('nhName').value||'').trim();
+  const icon = ($('nhIcon').value||'✨').trim() || '✨';
+  if(!name){ toast('写个名字吧'); return; }
+  S.habits.push({id:uid(), name, icon, records:{}});
+  save(); closeSheet(); renderHabits();
+  toast('已添加：' + name);
+}
+function removeHabit(id){
+  S.habits = S.habits.filter(h=>h.id !== id);
+  save(); renderHabits(); toast('已删除');
+}
+
+/* ========== 日记 ========== */
+const DIARY_STYLES = [
+  {id:'card', name:'📇 卡片'},
+  {id:'timeline', name:'📍 时间线'},
+  {id:'note', name:'📌 便签'},
+  {id:'min', name:'— 极简'}
+];
+let currentMood = '';
+function renderDiaryStyleBar(){
+  const cur = S.settings.diaryStyle || 'card';
+  $('diaryStyleBar').innerHTML = DIARY_STYLES.map(s=>
+    `<button class="${s.id===cur?'on':''}" onclick="pickDiaryStyle('${s.id}')">${s.name}</button>`
+  ).join('');
+}
+function pickDiaryStyle(id){
+  S.settings.diaryStyle = id;
+  save(); renderDiaryStyleBar(); renderDiaryList();
+  toast('日记风格已切换');
+}
+function renderDiary(){
+  const t = today();
+  const d = S.notes[t] || {};
+  currentMood = d.mood || '';
+  $('diaryToday').textContent = t.slice(5);
+  $('diaryText').value = d.text || '';
+  document.querySelectorAll('#moodRow button').forEach(b=>{
+    b.classList.toggle('on', b.dataset.m === currentMood);
+  });
+  renderDiaryStyleBar();
+  renderDiaryList();
+}
+function renderDiaryList(){
+  const style = S.settings.diaryStyle || 'card';
+  const keys = Object.keys(S.notes).filter(k=>S.notes[k].text).sort().reverse();
+  $('diaryCount').textContent = keys.length + ' 篇';
+  if(!keys.length){
+    $('diaryList').innerHTML = '<div class="empty">还没有日记，从今天开始写吧</div>';
+    return;
+  }
+  if(style === 'card'){
+    $('diaryList').innerHTML = keys.map(k=>{
+      const n = S.notes[k];
+      return `<div class="diary-card">
+        <div class="dc-h"><div class="dc-d">${k}</div><div class="dc-m">${n.mood||''}</div></div>
+        <div class="dc-t">${escapeHTML(n.text||'')}</div>
+        <div class="dc-act"><button onclick="delDiary('${k}')">删除</button></div>
+      </div>`;
+    }).join('');
+  }else if(style === 'timeline'){
+    $('diaryList').innerHTML = keys.map(k=>{
+      const n = S.notes[k];
+      return `<div class="diary-timeline">
+        <div class="dt-item">
+          <div class="dt-d">${k}</div>
+          ${n.mood?`<div class="dt-m">${n.mood}</div>`:''}
+          <div class="dt-t">${escapeHTML(n.text||'')}</div>
+          <div class="dt-act"><button onclick="delDiary('${k}')">删除</button></div>
+        </div>
+      </div>`;
+    }).join('');
+  }else if(style === 'note'){
+    $('diaryList').innerHTML = keys.map(k=>{
+      const n = S.notes[k];
+      return `<div class="diary-note">
+        <div class="dn-h"><div class="dn-d">${k}</div><div class="dn-m">${n.mood||''}</div></div>
+        <div class="dn-t">${escapeHTML(n.text||'')}</div>
+        <div class="dn-act"><button onclick="delDiary('${k}')">删除</button></div>
+      </div>`;
+    }).join('');
+  }else{
+    $('diaryList').innerHTML = keys.map(k=>{
+      const n = S.notes[k];
+      return `<div class="diary-min">
+        <div class="dm-h"><div class="dm-d">${k}</div><div class="dm-m">${n.mood||''}</div></div>
+        <div class="dm-t">${escapeHTML(n.text||'')}</div>
+        <div class="dm-act"><button onclick="delDiary('${k}')">删除</button></div>
+      </div>`;
+    }).join('');
+  }
+}
+function setMood(m){
+  currentMood = (currentMood === m) ? '' : m;
+  document.querySelectorAll('#moodRow button').forEach(b=>{
+    b.classList.toggle('on', b.dataset.m === currentMood);
+  });
+}
+function saveDiary(){
+  const t = today();
+  const text = ($('diaryText').value||'').trim();
+  if(!text && !currentMood){ toast('写点什么或者选个心情吧'); return; }
+  S.notes[t] = {text, mood: currentMood};
+  save(); renderDiary(); toast('已保存 📔');
+}
+function delDiary(k){
+  openSheet(`
+    <h3>删除这篇日记？</h3>
+    <div class="sub">${k}</div>
+    <button class="btn danger" onclick="doDelDiary('${k}')">删除</button>
+    <button class="btn ghost mini" onclick="closeSheet()">取消</button>
+  `);
+}
+function doDelDiary(k){
+  delete S.notes[k];
+  save(); closeSheet(); renderDiary(); toast('已删除');
+}
+
+/* ========== 生理期 ========== */
+function periodInfo(){
+  const recs = (S.period.records||[]).slice().sort();
+  if(!recs.length) return {empty:true, isOnPeriod:false, daysToNext:null, nextDate:null, currentDay:0};
+  const last = recs[recs.length-1];
+  const todayD = new Date(today()+'T00:00:00');
+  const lastD = new Date(last+'T00:00:00');
+  const daysSince = Math.floor((todayD - lastD)/86400000);
+  const cycle = S.period.cycleLen || 28;
+  const dur = S.period.duration || 5;
+  const isOnPeriod = daysSince < dur;
+  const currentDay = isOnPeriod ? (daysSince + 1) : 0;
+  const nextD = new Date(lastD); nextD.setDate(nextD.getDate() + cycle);
+  const daysToNext = Math.ceil((nextD - todayD)/86400000);
+  return {empty:false, last, daysSince, isOnPeriod, currentDay, nextDate: fmtD(nextD), daysToNext, cycle, dur};
+}
+function renderPeriod(){
+  const p = periodInfo();
+  $('pCycle').value = S.period.cycleLen;
+  $('pDur').value = S.period.duration;
+  if(p.empty){
+    $('pMain').textContent = '还没有记录';
+    $('pSub').textContent = '下滑点一下「今天来月经了」，我会开始帮你算周期';
+  }else if(p.isOnPeriod){
+    $('pMain').innerHTML = `经期第 ${p.currentDay} 天 <small>/ ${p.dur} 天</small>`;
+    $('pSub').textContent = `预计 ${p.nextDate} 来下一次（还有 ${p.daysToNext} 天）`;
+  }else if(p.daysToNext > 0){
+    $('pMain').innerHTML = `还有 ${p.daysToNext} 天 <small>来下次月经</small>`;
+    $('pSub').textContent = `上次是 ${p.last}，预计下次 ${p.nextDate}`;
+  }else{
+    $('pMain').innerHTML = `已推迟 ${Math.abs(p.daysToNext)} 天`;
+    $('pSub').textContent = `上次是 ${p.last}。如果经常推迟，考虑是不是最近节食太狠了。`;
+  }
+  const recs = (S.period.records||[]).slice().sort().reverse().slice(0,6);
+  $('periodHistory').innerHTML = recs.length
+    ? recs.map((r,i)=>{
+        const next = recs[i+1];
+        let gap = '';
+        if(next){
+          const d = Math.round((new Date(r) - new Date(next))/86400000);
+          gap = ` · 周期 ${d} 天`;
+        }
+        return `<div class="hist"><span class="d">${r}</span><span style="font-size:12px;color:var(--muted)">${gap}</span></div>`;
+      }).join('')
+    : '<div class="empty">还没有记录</div>';
+}
+function markPeriodStart(){
+  const t = today();
+  if(!S.period.records) S.period.records = [];
+  if(S.period.records.includes(t)){ toast('今天已经记录过了'); return; }
+  S.period.records.push(t);
+  if(S.period.records.length > 24) S.period.records = S.period.records.slice(-24);
+  save(); renderPeriod(); renderHome();
+  toast('已记录 · 好好休息 🩸');
+}
+function savePeriodCfg(){
+  S.period.cycleLen = parseInt($('pCycle').value) || 28;
+  S.period.duration = parseInt($('pDur').value) || 5;
+  save(); renderPeriod();
+}
+
+/* ========== 进度 ========== */
+function weightSeries(){
+  return Object.keys(S.days).filter(k=>S.days[k].weight).sort().map(k=>({d:k, w:S.days[k].weight}));
+}
+function renderProgress(){
+  const s = weightSeries();
+  const start = S.profile.startWeight;
+  const nowW = s.length ? s[s.length-1].w : start;
+  $('sStart').textContent = start;
+  $('sLost').textContent = round1(Math.max(0, start-nowW));
+  $('sDays').textContent = s.length;
+  if(!s.length){ $('history').innerHTML = '<div class="empty">还没有记录，去首页打个卡吧</div>'; return; }
+  const rev = [...s].reverse();
+  $('history').innerHTML = rev.map((p,i)=>{
+    const prev = rev[i+1];
+    let dl = '';
+    if(prev){
+      const diff = round1(p.w - prev.w);
+      if(diff !== 0) dl = `<span class="dl ${diff<0?'down':'up'}">${diff<0?'↓':'↑'}${Math.abs(diff)}</span>`;
+    }
+    return `<div class="hist"><span class="d">${p.d}</span><span><span class="w">${p.w} 斤</span>${dl}</span></div>`;
+  }).join('');
+}
+function drawChart(){
+  const cv = $('chart');
+  if(!cv) return;
+  const W = cv.parentElement.clientWidth;
+  const H = 210;
+  const dpr = window.devicePixelRatio || 1;
+  cv.width = W*dpr; cv.height = H*dpr;
+  cv.style.width = W+'px'; cv.style.height = H+'px';
+  const ctx = cv.getContext('2d');
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.clearRect(0,0,W,H);
+  const pts = weightSeries();
+  const P = S.profile;
+  const css = getComputedStyle(document.body);
+  const cLine = css.getPropertyValue('--line').trim() || '#eee';
+  const cMuted = css.getPropertyValue('--muted').trim() || '#999';
+  const cPink = css.getPropertyValue('--pink').trim() || '#ff6b9d';
+  const cChartA = css.getPropertyValue('--chart-a').trim() || 'rgba(255,107,157,.28)';
+  const cChartB = css.getPropertyValue('--chart-b').trim() || 'rgba(255,107,157,0)';
+  const cPurple = css.getPropertyValue('--purple').trim() || '#a78bfa';
+  const cCard = css.getPropertyValue('--card').trim() || '#fff';
+  if(!pts.length){
+    ctx.fillStyle = cMuted; ctx.font = '13px -apple-system,sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('还没有数据，先去打个卡吧', W/2, H/2);
+    return;
+  }
+  const padL = 40, padR = 16, padT = 18, padB = 28;
+  const cw = W-padL-padR, ch = H-padT-padB;
+  let min = Math.min(...pts.map(p=>p.w), P.targetWeight);
+  let max = Math.max(...pts.map(p=>p.w), P.targetWeight);
+  const span0 = Math.max(max-min, 2);
+  min -= span0*0.18; max += span0*0.18;
+  const X = i => pts.length===1 ? padL+cw/2 : padL + cw*i/(pts.length-1);
+  const Y = w => padT + ch*(1-(w-min)/(max-min));
+  ctx.strokeStyle = cLine; ctx.lineWidth = 1;
+  ctx.font = '10px -apple-system,sans-serif';
+  ctx.fillStyle = cMuted; ctx.textAlign = 'right';
+  for(let i=0;i<=4;i++){
+    const y = padT + ch*i/4;
+    ctx.beginPath(); ctx.moveTo(padL,y); ctx.lineTo(W-padR,y); ctx.stroke();
+    ctx.fillText(round1(max - (max-min)*i/4), padL-7, y+3.5);
+  }
+  const ty = Y(P.targetWeight);
+  if(ty >= padT && ty <= padT+ch){
+    ctx.save(); ctx.setLineDash([5,4]); ctx.strokeStyle = cPurple; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(padL,ty); ctx.lineTo(W-padR,ty); ctx.stroke(); ctx.restore();
+    ctx.fillStyle = cPurple; ctx.font = '600 10px -apple-system,sans-serif';
+    ctx.textAlign = 'left'; ctx.fillText('目标 '+P.targetWeight, padL+4, ty-5);
+  }
+  const grad = ctx.createLinearGradient(0,padT,0,padT+ch);
+  grad.addColorStop(0, cChartA);
+  grad.addColorStop(1, cChartB);
+  if(pts.length > 1){
+    ctx.beginPath();
+    ctx.moveTo(X(0), Y(pts[0].w));
+    pts.forEach((p,i)=>ctx.lineTo(X(i), Y(p.w)));
+    ctx.lineTo(X(pts.length-1), padT+ch);
+    ctx.lineTo(X(0), padT+ch);
+    ctx.closePath(); ctx.fillStyle = grad; ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(X(0), Y(pts[0].w));
+    pts.forEach((p,i)=>ctx.lineTo(X(i), Y(p.w)));
+    ctx.strokeStyle = cPink; ctx.lineWidth = 2.5;
+    ctx.lineJoin = 'round'; ctx.lineCap = 'round'; ctx.stroke();
+  }
+  pts.forEach((p,i)=>{
+    const x = X(i), y = Y(p.w);
+    ctx.beginPath(); ctx.arc(x,y,4,0,Math.PI*2);
+    ctx.fillStyle = cCard; ctx.fill();
+    ctx.strokeStyle = cPink; ctx.lineWidth = 2.5; ctx.stroke();
+  });
+  const last = pts[pts.length-1];
+  ctx.fillStyle = cPink; ctx.font = '700 12px -apple-system,sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(last.w, X(pts.length-1), Y(last.w)-11);
+  ctx.fillStyle = cMuted; ctx.font = '10px -apple-system,sans-serif';
+  const showN = Math.min(pts.length, 5);
+  for(let i=0;i<showN;i++){
+    const idx = Math.round(i*(pts.length-1)/(showN-1||1));
+    const x = X(idx);
+    ctx.textAlign = idx===0 ? 'left' : (idx===pts.length-1 ? 'right' : 'center');
+    ctx.fillText(pts[idx].d.slice(5), x, H-9);
+  }
+}
+
+/* ========== 日记 tab ========== */
+function switchDiary(i, btn){
+  document.querySelectorAll('#p-diary .seg button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  const show0 = i === 0;
+  $('dv0').style.display = show0 ? 'block' : 'none';
+  $('dv0b').style.display = show0 ? 'block' : 'none';
+  $('dv1').style.display = (i===1) ? 'block' : 'none';
+  $('dv2').style.display = (i===2) ? 'block' : 'none';
+  if(i===2) setTimeout(drawChart,30);
+}
+
+/* ========== 弹层 ========== */
+function openSheet(html){
+  $('sheet').innerHTML = '<div class="handle"></div>' + html;
+  $('sheet').classList.add('open');
+  $('mask').classList.add('open');
+}
+function closeSheet(){
+  $('sheet').classList.remove('open');
+  $('mask').classList.remove('open');
+}
+
+/* ========== 提醒 ========== */
+function toggleNotify(){
+  if(S.settings.remind){
+    S.settings.remind = false; save();
+    toast('提醒已关闭'); renderHome(); return;
+  }
+  if(!('Notification' in window)){
+    S.settings.remind = true; save();
+    toast('已开启页内提醒（此浏览器不支持推送）');
+    renderHome(); return;
+  }
+  Notification.requestPermission().then(p=>{
+    S.settings.remind = true; save();
+    if(p === 'granted'){
+      toast('提醒已开启 ✅');
+      new Notification('瘦身计划已开启', {body:'今天也要好好吃饭、好好练功 💪'});
+    }else{
+      toast('已开启页内提醒（通知权限被拒绝）');
+    }
+    renderHome();
+  });
+}
+function checkReminders(){
+  if(!S.settings.remind) return;
+  const now = new Date();
+  const hm = nowHM();
+  const t = today();
+  const item = todaySchedule().items.find(s=>s.t.split('-')[0] === hm && s.notify);
+  if(!item) return;
+  const key = t + item.t;
+  if(S.settings.notified[key]) return;
+  S.settings.notified[key] = 1;
+  save();
+  if('Notification' in window && Notification.permission === 'granted'){
+    new Notification('🩰 ' + item.t + ' ' + item.n, {body:item.d, tag:key});
+  }
+}
+
+/* ========== 监督打卡 ========== */
+function renderSupervise(){
+  const t = today();
+  const m = mealsOf(t);
+  const done = Object.keys(m).filter(k=>m[k] && m[k].photoId).length;
+  const grid = MEALS.map(([key])=>{
+    const rec = m[key];
+    const has = rec && rec.photoId;
+    const kc = rec ? (rec.foods||[]).reduce((s,f)=>s+f.k,0) : 0;
+    return `<div class="sup-cell ${has?'done':'todo'}" onclick="openMealShot('${key}')" data-meal="${key}">
+      <div class="inner">
+        <div class="ic">${MEAL_ICON[key]}</div>
+        <div class="nm">${MEAL_NAME[key]}</div>
+        <div class="st">${has ? kc+' kcal' : '未拍照'}</div>
+      </div>
+    </div>`;
+  }).join('');
+  if($('homeSupGrid')) $('homeSupGrid').innerHTML = grid;
+  if($('logSupGrid')) $('logSupGrid').innerHTML = grid;
+  if($('homeSupCount')) $('homeSupCount').textContent = `${done} / 4 已拍照`;
+  if($('logSupCount')) $('logSupCount').textContent = `${done} / 4 已拍照`;
+  MEALS.forEach(([key])=>{
+    const rec = m[key];
+    if(rec && rec.photoId){
+      IDB.get(rec.photoId).then(p=>{
+        if(p && p.dataUrl){
+          document.querySelectorAll(`.sup-cell[data-meal="${key}"]`).forEach(cell=>{
+            if(cell.querySelector('.thumb')) return;
+            const img = document.createElement('img');
+            img.className = 'thumb';
+            img.src = p.dataUrl;
+            cell.insertBefore(img, cell.firstChild);
+          });
+        }
+      });
+    }
+  });
+}
+function renderPhotoWall(){
+  const t = today();
+  const m = mealsOf(t);
+  const list = MEALS.filter(([k])=>m[k] && m[k].photoId);
+  if(!list.length){ if($('photoWallCard')) $('photoWallCard').style.display = 'none'; return; }
+  if($('photoWallCard')) $('photoWallCard').style.display = 'block';
+  $('photoWall').innerHTML = list.map(([key])=>{
+    const rec = m[key];
+    const kc = (rec.foods||[]).reduce((s,f)=>s+f.k,0);
+    return `<div class="photo-card" onclick="viewPhoto('${key}')">
+      <img id="pw-${key}" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='110' height='110'><rect fill='%23f6eef4' width='110' height='110'/><text x='55' y='60' text-anchor='middle' fill='%23cbbcc9' font-size='11'>加载中</text></svg>">
+      <div class="pl"><span>${MEAL_NAME[key]}</span><b>${kc}</b></div>
+      <button class="del" onclick="event.stopPropagation();delMealShot('${key}')">×</button>
+    </div>`;
+  }).join('');
+  list.forEach(([key])=>{
+    const rec = m[key];
+    IDB.get(rec.photoId).then(p=>{
+      if(p && p.dataUrl){ const img = $('pw-'+key); if(img) img.src = p.dataUrl; }
+    });
+  });
+}
+let shotState = { meal:null, dataUrl:null, photoId:null, foods:[] };
+function openMealShot(meal){
+  const t = today();
+  const m = mealsOf(t);
+  const rec = m[meal];
+  shotState = { meal, dataUrl:null, photoId: rec?rec.photoId:null, foods: rec?(rec.foods||[]).slice():[] };
+  if(rec && rec.photoId){
+    IDB.get(rec.photoId).then(p=>{
+      shotState.dataUrl = p ? p.dataUrl : null;
+      renderShotSheet('view');
+    });
+  }else{
+    renderShotSheet('shoot');
+  }
+}
+function renderShotSheet(mode){
+  const meal = shotState.meal;
+  const nm = MEAL_NAME[meal];
+  const icon = MEAL_ICON[meal];
+  if(mode === 'shoot'){
+    openSheet(`
+      <h3>${icon} ${nm} 拍照打卡</h3>
+      <div class="sub">必须拍照才能记录</div>
+      <div class="shot-zone">
+        <div class="em">📷</div>
+        <div class="t1">拍一下你吃的东西</div>
+        <div class="t2">拍完可以选择「AI 识别」或「手动点选」<br>照片只存在这台手机上</div>
+      </div>
+      <button class="btn" onclick="triggerShot('cam')">📷 立即拍照</button>
+      <button class="btn ghost mini" onclick="triggerShot('gal')">🖼 从相册选择</button>
+      <button class="btn ghost mini" onclick="closeSheet()">取消</button>
+    `);
+    return;
+  }
+  const selHTML = shotState.foods.map((f,i)=>
+    `<span class="tag">${escapeHTML(f.n)} <b>${f.k}</b><i onclick="delShotFood(${i})">×</i></span>`
+  ).join('') || '<span style="font-size:12.5px;color:var(--muted)">还没选食物，点下面识别或手动选</span>';
+  const total = shotState.foods.reduce((s,f)=>s+f.k,0);
+  openSheet(`
+    <h3>${icon} ${nm}</h3>
+    <div class="sub">${mode==='view' ? '今日已记录，可修改' : '确认一下你吃了什么'}</div>
+    <div class="preview-wrap">
+      ${shotState.dataUrl ? `<img src="${shotState.dataUrl}">` : '<div style="padding:40px;text-align:center;color:var(--muted)">无照片</div>'}
+      <button class="retake" onclick="retakeShot()">重新拍</button>
+    </div>
+    <div class="sel-list">${selHTML}</div>
+    <div class="sel-sum"><span>合计</span><span><b>${total}</b> kcal</span></div>
+    <div class="ai-bar">
+      <button class="ai" onclick="tryAi()">🤖 AI 识别</button>
+      <button class="skip" onclick="openFoodPicker()">🍽 手动选</button>
+    </div>
+    <button class="btn ghost mini" style="margin-top:8px" onclick="openAddCustomFood()">+ 自定义一条</button>
+    <div class="ai-msg" id="aiMsg"></div>
+    <button class="btn" onclick="confirmShot()">✅ 确认打卡</button>
+    ${mode==='view' ? `<button class="btn danger mini" onclick="delMealShot('${meal}',true)">删除这餐记录</button>` : ''}
+    <button class="btn ghost mini" onclick="closeSheet()">取消</button>
+  `);
+}
+function triggerShot(src){
+  const inp = src === 'cam' ? $('camInput') : $('galInput');
+  inp.value = '';
+  inp.onchange = async e => {
+    const file = e.target.files && e.target.files[0];
+    if(!file) return;
+    toast('处理照片中…');
+    try{
+      const dataUrl = await compressImage(file);
+      shotState.dataUrl = dataUrl;
+      shotState.photoId = shotState.photoId || uid();
+      renderShotSheet('edit');
+    }catch(err){ toast('照片处理失败，换一张试试'); }
+  };
+  inp.click();
+}
+function retakeShot(){ triggerShot('cam'); }
+function delShotFood(i){ shotState.foods.splice(i,1); renderShotSheet('edit'); }
+function openFoodPicker(){
+  const list = [...FOODS.slice(0,24), ...allDrinks().slice(0,25).map(d=>({n:d.b+' '+d.n, k:d.k}))];
+  openSheet(`
+    <h3>选择你吃的食物</h3>
+    <div class="sub">点一下加入，可以选多个</div>
+    <div class="chips">
+      ${list.map((f,i)=>`<button class="chip" onclick="addShotFood(${i})">${escapeHTML(f.n)}<b>${f.k}</b></button>`).join('')}
+    </div>
+    <button class="btn" onclick="renderShotSheet('edit')">选好了，返回</button>
+  `);
+  window._shotFoodList = list;
+}
+function addShotFood(i){
+  const f = window._shotFoodList[i];
+  shotState.foods.push({n:f.n, k:f.k});
+  toast('已加入 ' + f.n);
+  const listEl = document.querySelector('#sheet .sel-list');
+  if(listEl) listEl.innerHTML = shotState.foods.map((x,idx)=>
+    `<span class="tag">${escapeHTML(x.n)} <b>${x.k}</b><i onclick="delShotFood(${idx})">×</i></span>`
+  ).join('');
+  const sumEl = document.querySelector('#sheet .sel-sum b');
+  if(sumEl) sumEl.textContent = shotState.foods.reduce((s,x)=>s+x.k,0);
+}
+async function tryAi(){
+  const msg = $('aiMsg');
+  const key = (S.settings.aiKey || '').trim();
+  if(!key){
+    msg.classList.add('on');
+    msg.innerHTML = '还没有配置 AI 识别。<br>点「AI 识别设置」填一个 API Key，就能自动识别。';
+    return;
+  }
+  if(!shotState.dataUrl){ toast('先拍一张照片'); return; }
+  msg.classList.add('on'); msg.textContent = '🤖 正在识别…';
+  try{
+    const base64 = shotState.dataUrl.split(',')[1];
+    let model = S.settings.aiModel || 'glm-4v-flash';
+    if(model === 'custom') model = S.settings.aiModelCustom || 'glm-4v-flash';
+    let url = S.settings.aiUrl;
+    if(!url){
+      const p = PROVIDERS.find(x=>x.id === S.settings.aiProvider) || PROVIDERS[0];
+      url = p.url;
+    }
+    if(!url) throw new Error('请填写 API 地址');
+    const resp = await fetch(url, {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':'Bearer ' + key},
+      body: JSON.stringify({
+        model,
+        messages:[{role:'user', content:[
+          {type:'image_url', image_url:{url:base64}},
+          {type:'text', text:'请识别图中的食物。用这个格式回答，每行一个：食物名|预估热量kcal。不要其他文字。最多5条。'}
+        ]}]
+      })
+    });
+    const data = await resp.json();
+    const txt = data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
+    if(!txt) throw new Error('识别失败，检查 Key / 模型 / 地址');
+    const lines = txt.split('\n').map(s=>s.trim()).filter(Boolean);
+    let added = 0;
+    lines.forEach(line=>{
+      const parts = line.replace(/^[-•\d.、\s]+/,'').split('|');
+      if(parts.length >= 2){
+        const n = parts[0].trim();
+        const k = parseInt(parts[1].replace(/[^\d]/g,''),10);
+        if(n && !isNaN(k)){ shotState.foods.push({n, k}); added++; }
+      }
+    });
+    if(added){ msg.innerHTML = `✅ 识别到 ${added} 项，已加入列表`; renderShotSheet('edit'); }
+    else msg.textContent = '没识别出来，换张更清楚的照片，或手动选';
+  }catch(e){ msg.textContent = '识别失败：' + (e.message || '网络或 Key 有问题'); }
+}
+function openAiConfig(){
+  const provider = S.settings.aiProvider || 'zhipu';
+  const model = S.settings.aiModel || 'glm-4v-flash';
+  const prov = PROVIDERS.find(p=>p.id === provider) || PROVIDERS[0];
+  openSheet(`
+    <h3>⚙️ AI 识别设置</h3>
+    <div class="sub">配置后可自动识别照片里的食物和热量</div>
+    <label style="margin-top:16px">1. 选择服务商</label>
+    <div class="model-grid">
+      ${PROVIDERS.map(p=>`
+        <button class="model-card ${p.id===provider?'on':''}" onclick="pickProvider('${p.id}')">
+          <div class="mn">${p.name}</div>
+          <div class="md">${p.hint}</div>
+        </button>
+      `).join('')}
+    </div>
+    <label>2. 选择模型</label>
+    <div class="model-grid">
+      ${AI_MODELS.map(m=>`
+        <button class="model-card ${m.id===model?'on':''}" onclick="pickModel('${m.id}')">
+          <div class="mn">${m.name}${m.tagline?`<span class="tagline">${m.tagline}</span>`:''}</div>
+          <div class="md">${m.desc}</div>
+        </button>
+      `).join('')}
+    </div>
+    ${model === 'custom' ? `
+      <label>自定义模型名</label>
+      <input id="aiModelCustomInput" placeholder="例如：gpt-4o" value="${escapeHTML(S.settings.aiModelCustom||'')}" onchange="saveAiModelCustom()">
+    ` : ''}
+    <label>3. API 地址</label>
+    <input id="aiUrlInput" placeholder="${prov.url || 'https://...'}" value="${escapeHTML(S.settings.aiUrl||'')}" onchange="saveAiUrl()">
+    <div style="font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.6">
+      留空则用默认：<br>
+      <span style="word-break:break-all">${prov.url || '（需自己填）'}</span>
+    </div>
+    <label>4. API Key</label>
+    <input id="aiKeyInput" placeholder="粘贴你的 Key" value="${escapeHTML(S.settings.aiKey||'')}" onchange="saveAiKey()">
+    <div class="tip" style="margin-top:14px">
+      <b>怎么申请：</b><br>
+      1. 打开 open.bigmodel.cn 注册<br>
+      2. 控制台 → API Keys → 新建<br>
+      3. 复制粘贴到上面<br>
+      4. GLM-4V-Flash 免费，够日常识别用
+    </div>
+    <button class="btn" onclick="saveAiConfig()">保存全部设置</button>
+    <button class="btn ghost mini" onclick="testAiModel()">🔍 测试一下能不能用</button>
+    <button class="btn ghost mini" onclick="clearAiConfig()">清除 Key</button>
+    <button class="btn ghost mini" onclick="closeSheet()">取消</button>
+  `);
+}
+function pickProvider(id){
+  S.settings.aiProvider = id;
+  const p = PROVIDERS.find(x=>x.id===id);
+  if(p && p.url) S.settings.aiUrl = p.url;
+  save(); openAiConfig();
+}
+function pickModel(id){ S.settings.aiModel = id; save(); openAiConfig(); }
+function saveAiModelCustom(){ S.settings.aiModelCustom = ($('aiModelCustomInput').value||'').trim(); save(); }
+function saveAiUrl(){ S.settings.aiUrl = ($('aiUrlInput').value||'').trim(); save(); }
+function saveAiKey(){ S.settings.aiKey = ($('aiKeyInput').value||'').trim(); save(); }
+function saveAiConfig(){
+  if($('aiModelCustomInput')) S.settings.aiModelCustom = ($('aiModelCustomInput').value||'').trim();
+  if($('aiUrlInput')) S.settings.aiUrl = ($('aiUrlInput').value||'').trim();
+  if($('aiKeyInput')) S.settings.aiKey = ($('aiKeyInput').value||'').trim();
+  save(); closeSheet();
+  toast(S.settings.aiKey ? 'AI 配置已保存 ✅' : '已保存');
+}
+function clearAiConfig(){ S.settings.aiKey = ''; save(); openAiConfig(); toast('已清除 Key'); }
+async function testAiModel(){
+  if($('aiUrlInput')) S.settings.aiUrl = ($('aiUrlInput').value||'').trim();
+  if($('aiKeyInput')) S.settings.aiKey = ($('aiKeyInput').value||'').trim();
+  if($('aiModelCustomInput')) S.settings.aiModelCustom = ($('aiModelCustomInput').value||'').trim();
+  save();
+  const key = (S.settings.aiKey||'').trim();
+  if(!key){ toast('先填 API Key'); return; }
+  let model = S.settings.aiModel || 'glm-4v-flash';
+  if(model === 'custom') model = S.settings.aiModelCustom || 'glm-4v-flash';
+  let url = S.settings.aiUrl;
+  if(!url){
+    const p = PROVIDERS.find(x=>x.id === S.settings.aiProvider) || PROVIDERS[0];
+    url = p.url;
+  }
+  toast('测试中…');
+  try{
+    const resp = await fetch(url, {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':'Bearer ' + key},
+      body: JSON.stringify({model, messages:[{role:'user', content:'回复"OK"就行'}]})
+    });
+    if(resp.ok) toast('模型可用 ✅');
+    else { const txt = await resp.text(); toast('失败：' + (txt.slice(0,60) || resp.status)); }
+  }catch(e){ toast('网络错误：' + e.message); }
+}
+async function confirmShot(){
+  const meal = shotState.meal;
+  const t = today();
+  if(!shotState.dataUrl){ toast('先拍一张照片'); return; }
+  if(!shotState.foods.length){ toast('至少选一样食物'); return; }
+  const photoId = shotState.photoId || uid();
+  shotState.photoId = photoId;
+  try{ await IDB.put({id: photoId, date: t, meal, dataUrl: shotState.dataUrl, time: Date.now()}); }
+  catch(e){ toast('照片保存失败，可能空间不足'); return; }
+  const m = mealsOf(t);
+  m[meal] = {photoId, foods: shotState.foods.slice(), time: Date.now()};
+  save();
+  const d = dayOf(t);
+  d.items = d.items.filter(it => it.m !== meal || !it._fromShot);
+  shotState.foods.forEach(f=>{ d.items.push({m: meal, n: f.n, k: f.k, _fromShot: true}); });
+  save(); closeSheet();
+  toast('打卡成功 · ' + MEAL_NAME[meal] + ' 📸');
+  renderHome(); renderMeals(); renderSupervise(); renderPhotoWall(); renderAlbumPreview();
+}
+async function delMealShot(meal){
+  openSheet(`
+    <h3>删除这餐记录？</h3>
+    <div class="sub">照片和食物记录都会一起删除</div>
+    <button class="btn danger" onclick="doDelMealShot('${meal}')">删除</button>
+    <button class="btn ghost mini" onclick="closeSheet()">取消</button>
+  `);
+}
+async function doDelMealShot(meal){
+  const t = today();
+  const m = mealsOf(t);
+  if(m[meal] && m[meal].photoId) await IDB.del(m[meal].photoId);
+  delete m[meal];
+  const d = dayOf(t);
+  d.items = d.items.filter(it => it.m !== meal || !it._fromShot);
+  save(); closeSheet(); toast('已删除');
+  renderHome(); renderMeals(); renderSupervise(); renderPhotoWall(); renderAlbumPreview();
+}
+async function viewPhoto(meal){
+  const t = today();
+  const rec = mealsOf(t)[meal];
+  if(!rec || !rec.photoId) return;
+  const p = await IDB.get(rec.photoId);
+  if(!p || !p.dataUrl){ toast('照片已丢失'); return; }
+  const kc = (rec.foods||[]).reduce((s,f)=>s+f.k,0);
+  openSheet(`
+    <h3>${MEAL_ICON[meal]} ${MEAL_NAME[meal]} · ${kc} kcal</h3>
+    <div class="sub">${new Date(rec.time||Date.now()).toLocaleString('zh-CN')}</div>
+    <div class="preview-wrap"><img src="${p.dataUrl}"></div>
+    <div class="sel-list">${(rec.foods||[]).map(f=>`<span class="tag">${escapeHTML(f.n)} <b>${f.k}</b></span>`).join('')}</div>
+    <button class="btn ghost mini" onclick="closeSheet()">关闭</button>
+  `);
+}
+
+/* ========== 数据管理 ========== */
+function exportData(){
+  try{
+    const blob = new Blob([JSON.stringify(S,null,2)], {type:'application/json'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'dancefit-backup-' + today() + '.json';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(()=>URL.revokeObjectURL(a.href), 2000);
+    toast('已导出备份（照片不含）');
+  }catch(e){ toast('导出失败，换个浏览器试试'); }
+}
+function clearData(){
+  openSheet(`
+    <h3>确定要清空吗？</h3>
+    <div class="sub">所有打卡、日记、任务、习惯、照片都会被删除，无法恢复。</div>
+    <button class="btn danger" onclick="doClear()">确定清空</button>
+    <button class="btn ghost mini" onclick="closeSheet()">再想想</button>
+  `);
+}
+async function doClear(){
+  S = defaultState(); save();
+  try{ const all = await IDB.all(); for(const p of all){ await IDB.del(p.id); } }catch(e){}
+  closeSheet(); renderAll(); toast('已清空');
+}
+
+/* ========== 渲染总入口 ========== */
+function renderAll(){
+  renderBrands(); doSearch(); renderRcp();
+  renderHome(); renderMeals(); renderTasks(); renderHabits();
+  renderDiary(); renderPeriod(); renderProgress(); drawChart();
+  renderSupervise();
+  renderMe();
+  $('inH').value = S.profile.height;
+  $('inA').value = S.profile.age;
+  $('inW').value = latestWeight();
+  $('inAct').value = S.profile.activity;
+}
+
+window.addEventListener('resize', ()=>{ if($('p-diary').classList.contains('active')) drawChart(); });
+window.addEventListener('orientationchange', ()=>setTimeout(drawChart,300));
+
+applyTheme(S.settings.theme || 'sakura');
+renderAll();
+setInterval(checkReminders, 30000);
+setInterval(()=>{
+  if($('p-home').classList.contains('active')) renderHome();
+}, 60000);
+</script>
+</body>
+</html>
